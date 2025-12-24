@@ -31,6 +31,14 @@ const planos = [
   },
 ]
 
+const slugify = (text: string) =>
+  text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+
 export default function PlanosPage() {
   return (
     <>
@@ -52,54 +60,60 @@ export default function PlanosPage() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-3">
-            {planos.map((plano) => (
-              <div
-                key={plano.nome}
-                className={`relative rounded-3xl border p-8 transition ${
-                  plano.destaque
-                    ? 'border-[#14CC45] bg-white shadow-xl'
-                    : 'border-slate-200 bg-white hover:shadow-lg'
-                }`}
-              >
-                {plano.destaque && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#14CC45] px-4 py-1 text-xs font-semibold text-white">
-                    Mais popular
-                  </span>
-                )}
+            {planos.map((plano) => {
+              const planoSlug = slugify(plano.nome)
 
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-slate-900">{plano.nome}</h3>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold text-[#14CC45]">{plano.preco}</span>
-                    <span className="text-slate-500">{plano.tipo}</span>
-                  </div>
-                  {plano.parcelamento && (
-                    <p className="mt-1 text-sm text-slate-400">{plano.parcelamento}</p>
-                  )}
-                  <p className="mt-4 text-sm text-slate-600">{plano.descricao}</p>
-                </div>
-
-                <ul className="mt-8 space-y-3">
-                  {plano.recursos.map((recurso) => (
-                    <li key={recurso} className="flex items-center gap-2 text-sm text-slate-600">
-                      <span className="icon text-lg text-[#14CC45]">check_circle</span>
-                      {recurso}
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  to="/Contato"
-                  className={`mt-8 block w-full rounded-full py-3 text-center font-semibold transition ${
+              return (
+                <div
+                  key={plano.nome}
+                  className={`relative rounded-3xl border p-8 transition ${
                     plano.destaque
-                      ? 'bg-[#14CC45] text-white shadow-lg shadow-[#14CC45]/20 hover:bg-[#12B83E]'
-                      : 'border border-slate-200 text-slate-700 hover:border-[#14CC45] hover:text-[#14CC45]'
+                      ? 'border-[#14CC45] bg-white shadow-xl'
+                      : 'border-slate-200 bg-white hover:shadow-lg'
                   }`}
                 >
-                  Solicitar orçamento
-                </Link>
-              </div>
-            ))}
+                  {plano.destaque && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#14CC45] px-4 py-1 text-xs font-semibold text-white">
+                      Mais popular
+                    </span>
+                  )}
+
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold text-slate-900">{plano.nome}</h3>
+                    <div className="mt-4">
+                      <span className="text-4xl font-bold text-[#14CC45]">{plano.preco}</span>
+                      <span className="text-slate-500">{plano.tipo}</span>
+                    </div>
+                    {plano.parcelamento && (
+                      <p className="mt-1 text-sm text-slate-400">{plano.parcelamento}</p>
+                    )}
+                    <p className="mt-4 text-sm text-slate-600">{plano.descricao}</p>
+                  </div>
+
+                  <ul className="mt-8 space-y-3">
+                    {plano.recursos.map((recurso) => (
+                      <li key={recurso} className="flex items-center gap-2 text-sm text-slate-600">
+                        <span className="icon text-lg text-[#14CC45]">check_circle</span>
+                        {recurso}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    to="/Contato"
+                    id={`planos-cta-${planoSlug}`}
+                    data-click-id={`planos-cta-${planoSlug}`}
+                    className={`mt-8 block w-full cursor-pointer rounded-full py-3 text-center font-semibold transition ${
+                      plano.destaque
+                        ? 'bg-[#14CC45] text-white shadow-lg shadow-[#14CC45]/20 hover:bg-[#12B83E]'
+                        : 'border border-slate-200 text-slate-700 hover:border-[#14CC45] hover:text-[#14CC45]'
+                    }`}
+                  >
+                    Solicitar orçamento
+                  </Link>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

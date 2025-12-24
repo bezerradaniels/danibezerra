@@ -17,13 +17,17 @@ export default function ObrigadoPage() {
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-full bg-[#14CC45] px-6 py-3 font-semibold tracking-wide text-white shadow-lg shadow-[#14CC45]/20 transition hover:bg-[#12B83E]"
+            id="obrigado-cta-voltar-home"
+            data-click-id="obrigado-cta-voltar-home"
+            className="inline-flex cursor-pointer items-center justify-center rounded-full bg-[#14CC45] px-6 py-3 font-semibold tracking-wide text-white shadow-lg shadow-[#14CC45]/20 transition hover:bg-[#12B83E]"
           >
             Voltar ao início
           </Link>
           <Link
             to="/Portfolio"
-            className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 font-semibold tracking-wide text-slate-800 transition hover:bg-slate-50"
+            id="obrigado-cta-ver-portfolio"
+            data-click-id="obrigado-cta-ver-portfolio"
+            className="inline-flex cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 font-semibold tracking-wide text-slate-800 transition hover:bg-slate-50"
           >
             Ver portfólio
           </Link>

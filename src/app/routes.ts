@@ -40,9 +40,4 @@ export const routes: RouteConfig[] = [
     name: 'Contato',
     description: 'Converse sobre o seu projeto e receba um diagnóstico.',
   },
-  {
-    path: '/Politica',
-    name: 'Política',
-    description: 'Política de privacidade e termos de uso.',
-  },
 ]

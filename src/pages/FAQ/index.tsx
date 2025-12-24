@@ -1,6 +1,14 @@
 import { useState } from 'react'
 import PageHero from '../../components/layout/PageHero.tsx'
 
+const slugify = (text: string) =>
+  text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+
 const faqs = [
   {
     pergunta: 'Quanto tempo leva para criar um site?',
@@ -38,11 +46,14 @@ const faqs = [
 
 function FAQItem({ pergunta, resposta }: { pergunta: string; resposta: string }) {
   const [isOpen, setIsOpen] = useState(false)
+  const slug = slugify(pergunta)
 
   return (
     <div className="border-b border-slate-200">
       <button
         onClick={() => setIsOpen(!isOpen)}
+        id={`faq-toggle-${slug}`}
+        data-click-id={`faq-toggle-${slug}`}
         className="flex w-full items-center justify-between py-5 text-left"
       >
         <span className="font-semibold text-slate-900">{pergunta}</span>

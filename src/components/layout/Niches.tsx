@@ -52,7 +52,7 @@ export default function Niches() {
         </div>
 
         <div className="mt-12 text-center">
-          <Button as="a" href="/Contato" size="lg">
+          <Button as="a" href="/Contato" size="lg" clickId="home-niches-cta">
             Solicitar orçamento
           </Button>
         </div>

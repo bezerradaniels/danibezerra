@@ -56,7 +56,9 @@ export default function ServicosPage() {
                 </p>
                 <Link
                   to="/Contato"
-                  className="mt-6 inline-block rounded-full bg-[#14CC45] px-6 py-3 font-semibold text-white shadow-lg shadow-[#14CC45]/20 transition hover:bg-[#12B83E]"
+                  id={`servicos-cta-${servico.id}`}
+                  data-click-id={`servicos-cta-${servico.id}`}
+                  className="mt-6 inline-block cursor-pointer rounded-full bg-[#14CC45] px-6 py-3 font-semibold text-white shadow-lg shadow-[#14CC45]/20 transition hover:bg-[#12B83E]"
                 >
                   Solicitar orçamento
                 </Link>

@@ -221,6 +221,8 @@ export default function ContatoPage() {
             <button
               type="submit"
               disabled={isLoading}
+              id="contato-form-submit"
+              data-click-id="contato-form-submit"
               className="w-full rounded-full bg-[#14CC45] px-6 py-3.5 font-semibold tracking-wide text-white shadow-lg shadow-[#14CC45]/20 transition hover:bg-[#12B83E] focus:outline-none focus:ring-2 focus:ring-[#14CC45] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isLoading ? 'Enviando...' : 'Enviar orçamento'}

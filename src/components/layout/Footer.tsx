@@ -7,10 +7,10 @@ export default function Footer() {
         <div className="flex flex-col gap-2 text-center sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Dani Dev. Todos os direitos reservados.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="/Politica" className="hover:text-slate-900">
+            <a href="/Politica" className="cursor-pointer hover:text-slate-900">
               Política de privacidade
             </a>
-            <a href="/Contato" className="hover:text-slate-900">
+            <a href="/Contato" className="cursor-pointer hover:text-slate-900">
               Contato
             </a>
           </div>

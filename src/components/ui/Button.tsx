@@ -10,6 +10,7 @@ type BaseProps = {
   size?: 'sm' | 'md' | 'lg'
   as?: 'button'
   className?: string
+  clickId?: string
 }
 
 type ButtonAsButton = BaseProps &
@@ -44,11 +45,12 @@ export default function Button({
   size = 'md',
   as = 'button',
   className,
+  clickId,
   ...rest
 }: ButtonProps) {
   const Component = as === 'a' ? 'a' : 'button'
   const composedClassName = [
-    'inline-flex items-center justify-center rounded-full font-semibold tracking-wide transition focus-visible:outline-2 focus-visible:outline-offset-2',
+    'inline-flex cursor-pointer items-center justify-center rounded-full font-semibold tracking-wide transition focus-visible:outline-2 focus-visible:outline-offset-2',
     variantClasses[variant],
     sizeClasses[size],
     className,
@@ -58,6 +60,8 @@ export default function Button({
 
   return (
     <Component
+      id={clickId}
+      data-click-id={clickId}
       className={composedClassName}
       {...(rest as Record<string, unknown>)}
     >

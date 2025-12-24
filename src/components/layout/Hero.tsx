@@ -26,7 +26,7 @@ export default function Hero() {
             Sites sob medida, branding estratégico e soluções de marketing para
             impulsionar o seu negócio.
           </p>
-          <Button as="a" href="/Contato" size="lg">
+          <Button as="a" href="/Contato" size="lg" clickId="hero-cta-solicitar-orcamento">
             Solicitar orçamento
           </Button>
         </div>
