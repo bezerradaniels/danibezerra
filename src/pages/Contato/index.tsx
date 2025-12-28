@@ -1,32 +1,10 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../lib/supabase.ts'
-
-const planos = [
-  {
-    nome: 'Onepage',
-    preco: 'R$ 99',
-    tipo: 'PAGAMENTO ÚNICO',
-    parcelamento: 'ou 10x sem juros',
-    descricao: 'Ideal para profissionais divulgarem produtos, serviços e contatos.',
-  },
-  {
-    nome: 'Multipages',
-    preco: 'R$ 399',
-    tipo: 'PAGAMENTO ÚNICO',
-    parcelamento: 'ou 10x sem juros',
-    descricao: 'Ideal para empresas que precisam de sites modernos, rápidos e que convertem.',
-  },
-  {
-    nome: 'Copiloto de marketing',
-    preco: 'R$ 800',
-    tipo: '/MÊS',
-    parcelamento: null,
-    descricao: 'Estratégias completas de sites, anúncios online e data analytics.',
-  },
-]
+import { useSiteData } from '../../admin/context/SiteDataContext'
 
 export default function ContatoPage() {
+  const { plans } = useSiteData()
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     nome: '',
@@ -87,7 +65,7 @@ export default function ContatoPage() {
           <div className="mt-10">
             <h3 className="mb-4 font-semibold text-slate-700">Planos:</h3>
             <div className="space-y-4">
-              {planos.map((plano) => (
+              {plans.map((plano) => (
                 <div
                   key={plano.nome}
                   className="flex items-start justify-between rounded-2xl border border-slate-200 bg-white p-5"

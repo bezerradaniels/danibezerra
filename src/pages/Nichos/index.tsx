@@ -1,4 +1,5 @@
 import PageHero from '../../components/layout/PageHero.tsx'
+import Button from '../../components/ui/Button.tsx'
 
 const nichos = [
   { icon: 'business', name: 'Pequenas Empresas', description: 'Sites e marketing para negócios locais que querem crescer online.' },
@@ -42,6 +43,30 @@ export default function NichosPage() {
                 <p className="mt-2 text-sm text-slate-500">{nicho.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="rounded-3xl bg-slate-900 px-8 py-12 text-center text-white shadow-2xl shadow-slate-900/30">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#14CC45]">Foco no seu nicho</p>
+            <h3 className="mt-3 text-2xl font-bold">Vamos criar algo específico para o seu segmento?</h3>
+            <p className="mt-2 text-slate-200">
+              Conte seu contexto e receba propostas e referências alinhadas ao seu mercado.
+            </p>
+            <div className="mt-6">
+              <Button
+                as="a"
+                href="/Contato"
+                size="lg"
+                variant="primary"
+                clickId="nichos-footer-cta"
+                className="shadow-[#14CC45]/30"
+              >
+                Falar sobre meu nicho
+              </Button>
+            </div>
           </div>
         </div>
       </section>

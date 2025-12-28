@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../../components/layout/PageHero.tsx'
+import Button from '../../components/ui/Button.tsx'
 
 const servicos = [
   {
@@ -88,6 +89,32 @@ export default function ServicosPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="rounded-3xl border border-slate-200 bg-white px-8 py-12 text-center shadow-2xl shadow-slate-200/70">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#14CC45]">Pronto para começar?</p>
+            <h3 className="mt-3 text-2xl font-bold text-slate-900">
+              Envie seu briefing e receba um plano completo em até 24h úteis
+            </h3>
+            <p className="mt-2 text-slate-600">
+              Vamos definir prioridades, escopo e cronograma juntos para acelerar seu próximo lançamento.
+            </p>
+            <div className="mt-6">
+              <Button
+                as="a"
+                href="/Contato"
+                size="lg"
+                variant="primary"
+                clickId="servicos-footer-cta"
+                className="shadow-[#14CC45]/30"
+              >
+                Conversar sobre meu projeto
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </>

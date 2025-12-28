@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PageHero from '../../components/layout/PageHero.tsx'
+import Button from '../../components/ui/Button.tsx'
 
 const slugify = (text: string) =>
   text
@@ -96,6 +97,30 @@ export default function FAQPage() {
             {faqs.map((faq) => (
               <FAQItem key={faq.pergunta} pergunta={faq.pergunta} resposta={faq.resposta} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="rounded-3xl bg-slate-900 px-8 py-10 text-center text-white shadow-2xl shadow-slate-900/30">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#14CC45]">Precisa de ajuda?</p>
+            <h3 className="mt-3 text-2xl font-bold">Vamos responder suas próximas perguntas pessoalmente</h3>
+            <p className="mt-2 text-slate-200">
+              Envie seu projeto e receba um plano sob medida em até 1 dia útil.
+            </p>
+            <div className="mt-6">
+              <Button
+                as="a"
+                href="/Contato"
+                size="lg"
+                variant="primary"
+                clickId="faq-footer-cta"
+                className="shadow-[#14CC45]/30"
+              >
+                Falar com a Dani
+              </Button>
+            </div>
           </div>
         </div>
       </section>

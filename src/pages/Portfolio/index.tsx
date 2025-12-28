@@ -1,16 +1,9 @@
 import PageHero from '../../components/layout/PageHero.tsx'
-
-const projetos = [
-  { image: '/images/portfolio/ativa-tea.png', title: 'Ativa TEA', category: 'Site Institucional' },
-  { image: '/images/portfolio/casa-bebe.png', title: 'Casa do Bebê', category: 'E-commerce' },
-  { image: '/images/portfolio/clinica-sim.png', title: 'Clínica SIM', category: 'Site Institucional' },
-  { image: '/images/portfolio/grafica-inova-print.png', title: 'Gráfica Inova Print', category: 'Site Institucional' },
-  { image: '/images/portfolio/hazak-fit.png', title: 'Hazak Fit', category: 'Landing Page' },
-  { image: '/images/portfolio/personal-juninho.png', title: 'Personal Juninho', category: 'Landing Page' },
-  { image: '/images/portfolio/victor-manuel.png', title: 'Victor Manuel', category: 'Site Institucional' },
-]
+import Button from '../../components/ui/Button.tsx'
+import { useSiteData } from '../../admin/context/SiteDataContext'
 
 export default function PortfolioPage() {
+  const { portfolioPage } = useSiteData()
   return (
     <>
       <PageHero 
@@ -31,7 +24,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {projetos.map((projeto) => (
+            {portfolioPage.map((projeto) => (
               <div
                 key={projeto.title}
                 className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-xl"
@@ -43,14 +36,21 @@ export default function PortfolioPage() {
                     className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-5">
+                <div className="p-6 sm:p-8">
                   <span className="inline-block rounded-full bg-[#14CC45]/10 px-3 py-1 text-xs font-semibold text-[#14CC45]">
                     {projeto.category}
                   </span>
-                  <h3 className="mt-2 font-bold text-slate-900">{projeto.title}</h3>
+                  <h3 className="mt-3 text-lg font-bold text-slate-900">{projeto.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{projeto.description}</p>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button as="a" href="/Contato" size="lg" clickId="portfolio-cta">
+              Solicitar orçamento
+            </Button>
           </div>
         </div>
       </section>

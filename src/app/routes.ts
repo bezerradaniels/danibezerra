@@ -26,11 +26,6 @@ export const routes: RouteConfig[] = [
     description: 'Projetos recentes com foco em performance e identidade.',
   },
   {
-    path: '/Planos',
-    name: 'Planos',
-    description: 'Pacotes flexíveis para cada estágio do seu negócio.',
-  },
-  {
     path: '/FAQ',
     name: 'FAQ',
     description: 'Principais dúvidas respondidas com transparência.',
