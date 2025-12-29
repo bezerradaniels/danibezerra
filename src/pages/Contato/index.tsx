@@ -1,10 +1,32 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../lib/supabase.ts'
-import { useSiteData } from '../../admin/context/SiteDataContext'
+
+const planos = [
+  {
+    nome: 'Onepage',
+    preco: 'R$ 99',
+    tipo: 'PAGAMENTO ÚNICO',
+    parcelamento: 'ou 10x sem juros',
+    descricao: 'Ideal para profissionais divulgarem produtos, serviços e contatos.',
+  },
+  {
+    nome: 'Multipages',
+    preco: 'R$ 399',
+    tipo: 'PAGAMENTO ÚNICO',
+    parcelamento: 'ou 10x sem juros',
+    descricao: 'Ideal para empresas que precisam de sites modernos, rápidos e que convertem.',
+  },
+  {
+    nome: 'Copiloto de Marketing',
+    preco: 'R$ 800',
+    tipo: '/MÊS',
+    parcelamento: null,
+    descricao: 'Estratégias completas de sites, anúncios online e data analytics.',
+  },
+]
 
 export default function ContatoPage() {
-  const { plans } = useSiteData()
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     nome: '',
@@ -39,9 +61,10 @@ export default function ContatoPage() {
       }
 
       navigate('/Obrigado')
-    } catch (err) {
+    } catch (err: unknown) {
       console.error('Erro ao enviar formulário:', err)
-      setError('Ocorreu um erro ao enviar. Tente novamente.')
+      const errorMessage = err instanceof Error ? err.message : 'Erro desconhecido'
+      setError(`Erro: ${errorMessage}`)
     } finally {
       setIsLoading(false)
     }
@@ -65,7 +88,7 @@ export default function ContatoPage() {
           <div className="mt-10">
             <h3 className="mb-4 font-semibold text-slate-700">Planos:</h3>
             <div className="space-y-4">
-              {plans.map((plano) => (
+              {planos.map((plano) => (
                 <div
                   key={plano.nome}
                   className="flex items-start justify-between rounded-2xl border border-slate-200 bg-white p-5"

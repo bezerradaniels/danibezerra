@@ -1,9 +1,17 @@
 import PageHero from '../../components/layout/PageHero.tsx'
 import Button from '../../components/ui/Button.tsx'
-import { useSiteData } from '../../admin/context/SiteDataContext'
+
+const projetos = [
+  { image: '/images/portfolio/ativa-tea.png', title: 'Ativa TEA', category: 'Site Institucional', description: 'Portal informativo com recursos educacionais e captação de contatos de responsáveis.' },
+  { image: '/images/portfolio/casa-bebe.png', title: 'Casa do Bebê', category: 'E-commerce', description: 'Experiência acolhedora com catálogo organizado e chamadas à ação claras para aumentar pedidos.' },
+  { image: '/images/portfolio/clinica-sim.png', title: 'Clínica SIM', category: 'Site Institucional', description: 'Site institucional com foco em credibilidade e facilidade para agendar consultas online.' },
+  { image: '/images/portfolio/grafica-inova-print.png', title: 'Gráfica Inova Print', category: 'Site Institucional', description: 'Mostruário digital com portfólio e formulário de orçamento para acelerar o atendimento comercial.' },
+  { image: '/images/portfolio/hazak-fit.png', title: 'Hazak Fit', category: 'Landing Page', description: 'Landing page enxuta com formulário integrado para captar novos alunos e destacar diferenciais.' },
+  { image: '/images/portfolio/personal-juninho.png', title: 'Personal Juninho', category: 'Landing Page', description: 'Landing page com storytelling e depoimentos para converter leads em planos de personal trainer.' },
+  { image: '/images/portfolio/victor-manuel.png', title: 'Victor Manuel', category: 'Site Institucional', description: 'Site institucional para engenheiro civil com CTA direto no WhatsApp e destaque para serviços.' },
+]
 
 export default function PortfolioPage() {
-  const { portfolioPage } = useSiteData()
   return (
     <>
       <PageHero 
@@ -24,7 +32,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {portfolioPage.map((projeto) => (
+            {projetos.map((projeto) => (
               <div
                 key={projeto.title}
                 className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-xl"

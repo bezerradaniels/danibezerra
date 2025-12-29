@@ -78,3 +78,26 @@ CREATE POLICY "Permitir inserção pública" ON contatos
 -- Política para leitura (apenas admin - você pode ajustar conforme necessário)
 CREATE POLICY "Permitir leitura" ON contatos
   FOR SELECT USING (true);
+
+-- =============================================
+-- WEBHOOK PARA RESEND (Email de notificação)
+-- =============================================
+-- Após criar a Edge Function 'send-contact-email', configure o Database Webhook:
+-- 1. Vá em Database > Webhooks no Supabase Dashboard
+-- 2. Clique em "Create a new webhook"
+-- 3. Configure:
+--    - Name: send-contact-email
+--    - Table: contatos
+--    - Events: INSERT
+--    - Type: Supabase Edge Functions
+--    - Edge Function: send-contact-email
+-- 4. Salve
+
+-- =============================================
+-- SECRETS PARA EDGE FUNCTION
+-- =============================================
+-- Configure os secrets no Supabase Dashboard:
+-- 1. Vá em Edge Functions > send-contact-email > Secrets
+-- 2. Adicione:
+--    - RESEND_API_KEY: sua chave da API do Resend
+--    - ADMIN_EMAIL: email para receber notificações

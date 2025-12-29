@@ -1,19 +1,27 @@
 import { useState } from 'react'
 import { useFadeIn } from '../../hooks/useFadeIn'
-import { useSiteData } from '../../admin/context/SiteDataContext'
+
+const portfolioItems = [
+  { image: '/images/portfolio/hazak-fit.png', title: 'Hazak Fit', category: 'Site institucional' },
+  { image: '/images/portfolio/casa-bebe.png', title: 'Casa do Bebê', category: 'Landing Page' },
+  { image: '/images/portfolio/clinica-sim.png', title: 'Clínica SIM', category: 'Site Institucional' },
+  { image: '/images/portfolio/grafica-inova-print.png', title: 'Gráfica Inova Print', category: 'Site Institucional' },
+  { image: '/images/portfolio/personal-juninho.png', title: 'Personal Juninho', category: 'Landing Page' },
+  { image: '/images/portfolio/victor-manuel.png', title: 'Victor Manuel', category: 'Site Institucional' },
+  { image: '/images/portfolio/ativa-tea.png', title: 'Ativa TEA', category: 'Site Institucional' },
+]
 
 export default function Portfolio() {
-  const { portfolioHome } = useSiteData()
   const [currentIndex, setCurrentIndex] = useState(0)
   const { ref: headerRef, isVisible: headerVisible } = useFadeIn()
   const { ref: sliderRef, isVisible: sliderVisible } = useFadeIn({ threshold: 0.1 })
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? portfolioHome.length - 1 : prev - 1))
+    setCurrentIndex((prev) => (prev === 0 ? portfolioItems.length - 1 : prev - 1))
   }
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev === portfolioHome.length - 1 ? 0 : prev + 1))
+    setCurrentIndex((prev) => (prev === portfolioItems.length - 1 ? 0 : prev + 1))
   }
 
   const goToSlide = (index: number) => {
@@ -94,7 +102,7 @@ export default function Portfolio() {
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {portfolioHome.map((item, index) => (
+              {portfolioItems.map((item, index) => (
                 <div
                   key={index}
                   className="w-full shrink-0"
@@ -122,7 +130,7 @@ export default function Portfolio() {
 
           {/* Dots */}
           <div className="mt-8 flex justify-center gap-2">
-            {portfolioHome.map((_, index) => (
+            {portfolioItems.map((_, index) => (
               <button
                 key={index}
                 id={`portfolio-slider-dot-${index + 1}`}

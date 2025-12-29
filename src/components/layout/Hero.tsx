@@ -1,6 +1,5 @@
 import Button from '../ui/Button.tsx'
 import { useFadeIn } from '../../hooks/useFadeIn'
-import { useSiteData } from '../../admin/context/SiteDataContext'
 
 const floatingCards = [
   { label: 'Criação de sites', icon: 'web', delay: '0s' },
@@ -9,7 +8,6 @@ const floatingCards = [
 ]
 
 export default function Hero() {
-  const { hero } = useSiteData()
   const { ref: textRef, isVisible: textVisible } = useFadeIn()
   const { ref: mockupRef, isVisible: mockupVisible } = useFadeIn({ threshold: 0.2 })
 
@@ -22,10 +20,10 @@ export default function Hero() {
           className={`fade-in-left flex flex-col items-center gap-6 text-center lg:items-start lg:text-left ${textVisible ? 'visible' : ''}`}
         >
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            {hero.title}
+            Transforme sua presença digital em resultados reais
           </h1>
           <p className="max-w-md text-lg text-slate-600">
-            {hero.subtitle}
+            Sites sob medida, branding estratégico e soluções de marketing para impulsionar o seu negócio.
           </p>
           <Button as="a" href="/Contato" size="lg" clickId="hero-cta-solicitar-orcamento">
             Solicitar orçamento
