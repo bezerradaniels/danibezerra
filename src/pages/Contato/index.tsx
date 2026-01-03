@@ -5,23 +5,14 @@ import { supabase } from '../../lib/supabase.ts'
 const planos = [
   {
     nome: 'Onepage',
-    preco: 'R$ 99',
-    tipo: 'PAGAMENTO ÚNICO',
-    parcelamento: 'ou 10x sem juros',
     descricao: 'Ideal para profissionais divulgarem produtos, serviços e contatos.',
   },
   {
     nome: 'Multipages',
-    preco: 'R$ 399',
-    tipo: 'PAGAMENTO ÚNICO',
-    parcelamento: 'ou 10x sem juros',
     descricao: 'Ideal para empresas que precisam de sites modernos, rápidos e que convertem.',
   },
   {
     nome: 'Copiloto de Marketing',
-    preco: 'R$ 800',
-    tipo: '/MÊS',
-    parcelamento: null,
     descricao: 'Estratégias completas de sites, anúncios online e data analytics.',
   },
 ]
@@ -72,46 +63,23 @@ export default function ContatoPage() {
 
   return (
     <section className="flex min-h-[calc(100vh-6rem)] items-center py-12 lg:py-16">
-      <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 lg:grid-cols-2 lg:gap-16">
-        {/* Coluna esquerda - Info e Planos */}
-        <div>
+      <div className="mx-auto w-full max-w-6xl px-6">
+        {/* Header centralizado */}
+        <div className="mb-12 text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-[#14CC45]">
             Orçamento
           </p>
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
             Vamos dar o próximo passo.
           </h1>
-          <p className="mt-4 text-lg text-slate-600">
-            Preencha o formulário ao lado e receba uma proposta personalizada em até 24h.
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+            Preencha o formulário e receba uma proposta personalizada em até 24h.
           </p>
-
-          <div className="mt-10">
-            <h3 className="mb-4 font-semibold text-slate-700">Planos:</h3>
-            <div className="space-y-4">
-              {planos.map((plano) => (
-                <div
-                  key={plano.nome}
-                  className="flex items-start justify-between rounded-2xl border border-slate-200 bg-white p-5"
-                >
-                  <div className="max-w-50">
-                    <h4 className="font-bold text-slate-900">{plano.nome}</h4>
-                    <p className="mt-1 text-sm text-slate-500">{plano.descricao}</p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xl font-bold text-[#14CC45]">{plano.preco}</span>
-                    <p className="text-xs text-slate-400">{plano.tipo}</p>
-                    {plano.parcelamento && (
-                      <p className="text-[10px] text-slate-400">{plano.parcelamento}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
-        {/* Coluna direita - Formulário */}
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg sm:p-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Formulário - primeiro no mobile */}
+          <div className="order-1 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 lg:order-2">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
@@ -235,6 +203,23 @@ export default function ContatoPage() {
               * Todos os campos são obrigatórios. Garantia de resposta em até 24 horas úteis.
             </p>
           </form>
+          </div>
+
+          {/* Planos - segundo no mobile */}
+          <div className="order-2 lg:order-1">
+            <h3 className="mb-4 text-center font-semibold text-slate-700 lg:text-left">Planos:</h3>
+            <div className="space-y-4">
+              {planos.map((plano) => (
+                <div
+                  key={plano.nome}
+                  className="rounded-2xl border border-slate-200 bg-white p-5 text-center lg:text-left"
+                >
+                  <h4 className="font-bold text-slate-900">{plano.nome}</h4>
+                  <p className="mt-1 text-sm text-slate-500">{plano.descricao}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
