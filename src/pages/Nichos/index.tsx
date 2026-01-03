@@ -18,7 +18,7 @@ export default function NichosPage() {
       <PageHero 
         title="Nichos de Atuação" 
         subtitle="Especialidades"
-        backgroundImage="/images/portfolio/casa-bebe.png"
+        backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-20 lg:py-28">

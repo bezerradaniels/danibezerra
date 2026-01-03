@@ -21,7 +21,7 @@ export default function PortfolioPage() {
       <PageHero 
         title="Portfólio" 
         subtitle="Nossos projetos"
-        backgroundImage="/images/portfolio/hazak-fit.png"
+        backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-20 lg:py-28">

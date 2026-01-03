@@ -19,7 +19,7 @@ export default function ServicosPage() {
       <PageHero 
         title="Serviços" 
         subtitle="O que fazemos"
-        backgroundImage="/images/portfolio/clinica-sim.png"
+        backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-20 lg:py-28">
