@@ -15,6 +15,7 @@ export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const { ref: headerRef, isVisible: headerVisible } = useFadeIn()
   const { ref: sliderRef, isVisible: sliderVisible } = useFadeIn({ threshold: 0.1 })
+  const [spotlightIndex, setSpotlightIndex] = useState<number | null>(null)
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? portfolioItems.length - 1 : prev - 1))
@@ -27,6 +28,9 @@ export default function Portfolio() {
   const goToSlide = (index: number) => {
     setCurrentIndex(index)
   }
+
+  const closeSpotlight = () => setSpotlightIndex(null)
+  const currentSpotlightItem = spotlightIndex !== null ? portfolioItems[spotlightIndex] : null
 
   return (
     <section className="py-20 lg:py-28">
@@ -107,11 +111,12 @@ export default function Portfolio() {
                   key={index}
                   className="w-full shrink-0"
                 >
-                  <div className="relative flex flex-col items-center">
+                  <div className="relative flex cursor-pointer flex-col items-center">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="h-auto max-h-125 w-auto max-w-full rounded-2xl object-contain"
+                      className="h-auto max-h-125 w-auto max-w-full cursor-zoom-in rounded-2xl object-contain transition hover:opacity-90"
+                      onClick={() => setSpotlightIndex(index)}
                     />
                     {/* Info abaixo da imagem */}
                     <div className="mt-6 text-center">
@@ -147,6 +152,50 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
+
+      {/* Spotlight Modal */}
+      {currentSpotlightItem && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Visualização ampliada de ${currentSpotlightItem.title}`}
+          onClick={closeSpotlight}
+        >
+          <button
+            className="absolute right-6 top-6 rounded-full bg-white/90 p-2 text-slate-700 shadow-lg transition hover:bg-white"
+            onClick={(event) => {
+              event.stopPropagation()
+              closeSpotlight()
+            }}
+            aria-label="Fechar visualização"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div
+            className="relative max-h-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img
+              src={currentSpotlightItem.image}
+              alt={currentSpotlightItem.title}
+              className="max-h-[80vh] w-full rounded-3xl object-contain shadow-2xl"
+            />
+            <div className="mt-4 text-center text-white">
+              <p className="text-sm uppercase tracking-wide text-white/70">{currentSpotlightItem.category}</p>
+              <h3 className="text-2xl font-semibold">{currentSpotlightItem.title}</h3>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import PageHero from '../../components/layout/PageHero.tsx'
 import Button from '../../components/ui/Button.tsx'
 
@@ -12,6 +13,9 @@ const projetos = [
 ]
 
 export default function PortfolioPage() {
+  const [spotlightIndex, setSpotlightIndex] = useState<number | null>(null)
+  const currentSpotlight = spotlightIndex !== null ? projetos[spotlightIndex] : null
+
   return (
     <>
       <PageHero 
@@ -32,7 +36,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {projetos.map((projeto) => (
+            {projetos.map((projeto, index) => (
               <div
                 key={projeto.title}
                 className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-xl"
@@ -41,7 +45,8 @@ export default function PortfolioPage() {
                   <img
                     src={projeto.image}
                     alt={projeto.title}
-                    className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                    className="h-full w-full cursor-pointer object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                    onClick={() => setSpotlightIndex(index)}
                   />
                 </div>
                 <div className="p-6 sm:p-8">
@@ -62,6 +67,45 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
+
+      {currentSpotlight && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 py-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Visualização ampliada de ${currentSpotlight.title}`}
+          onClick={() => setSpotlightIndex(null)}
+        >
+          <button
+            className="absolute right-6 top-6 rounded-full bg-white/90 p-2 text-slate-700 shadow-lg transition hover:bg-white"
+            onClick={(event) => {
+              event.stopPropagation()
+              setSpotlightIndex(null)
+            }}
+            aria-label="Fechar visualização"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div
+            className="relative max-h-full max-w-6xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img
+              src={currentSpotlight.image}
+              alt={currentSpotlight.title}
+              className="max-h-[90vh] w-full rounded-3xl object-contain shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </>
   )
 }
