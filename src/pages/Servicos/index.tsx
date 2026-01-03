@@ -2,12 +2,138 @@ import { Link } from 'react-router-dom'
 import PageHero from '../../components/layout/PageHero.tsx'
 import Button from '../../components/ui/Button.tsx'
 
+function MockupIDE() {
+  return (
+    <div className="relative">
+      <div className="relative h-64 w-full rounded-t-xl border border-slate-200 bg-white shadow-2xl shadow-slate-300/50 sm:h-72">
+        <div className="flex h-7 items-center gap-2 rounded-t-xl bg-slate-100 px-3">
+          <div className="flex gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+          </div>
+          <span className="ml-2 text-[10px] text-slate-400">index.html — projeto</span>
+        </div>
+        <div className="flex h-[calc(100%-1.75rem)] overflow-hidden">
+          <div className="flex w-10 flex-col items-center gap-3 border-r border-slate-100 bg-slate-50 py-3">
+            <span className="icon text-sm text-slate-400">folder</span>
+            <span className="icon text-sm text-[#14CC45]">code</span>
+            <span className="icon text-sm text-slate-400">terminal</span>
+          </div>
+          <div className="flex-1 overflow-hidden bg-slate-900 p-3 font-mono text-[9px] leading-relaxed sm:text-[11px]">
+            <div className="flex gap-3"><span className="select-none text-slate-600">1</span><span className="text-slate-500">{'<!DOCTYPE html>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">2</span><span className="text-pink-400">{'<html'}</span> <span className="text-purple-400">lang</span><span className="text-slate-400">=</span><span className="text-amber-300">"pt-BR"</span><span className="text-pink-400">{'>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">3</span><span className="text-pink-400">{'<head>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">4</span><span className="pl-4 text-pink-400">{'<title>'}</span><span className="text-slate-200">Meu Site</span><span className="text-pink-400">{'</title>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">5</span><span className="text-pink-400">{'</head>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">6</span><span className="text-pink-400">{'<body>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">7</span><span className="pl-4 text-pink-400">{'<h1>'}</span><span className="text-slate-200">Bem-vindo!</span><span className="text-pink-400">{'</h1>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">8</span><span className="text-pink-400">{'</body>'}</span></div>
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto h-3 w-[90%] rounded-b-xl bg-slate-300 shadow-lg" />
+      <div className="mx-auto h-1 w-16 rounded-b bg-slate-400" />
+    </div>
+  )
+}
+
+function MockupGoogleAds() {
+  return (
+    <div className="relative">
+      <div className="relative h-64 w-full rounded-t-xl border border-slate-200 bg-white shadow-2xl shadow-slate-300/50 sm:h-72">
+        <div className="flex h-7 items-center gap-2 rounded-t-xl bg-slate-100 px-3">
+          <div className="flex gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+          </div>
+          <span className="ml-2 text-[10px] text-slate-400">Google Ads — Campanhas</span>
+        </div>
+        <div className="h-[calc(100%-1.75rem)] overflow-hidden bg-white p-4">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="text-lg font-bold text-[#4285F4]">G</span>
+            <span className="text-xs font-semibold text-slate-700">Google Ads</span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-center">
+            <div className="rounded-lg bg-blue-50 p-2">
+              <p className="text-[10px] text-slate-500">Cliques</p>
+              <p className="text-sm font-bold text-[#4285F4]">12.4k</p>
+            </div>
+            <div className="rounded-lg bg-green-50 p-2">
+              <p className="text-[10px] text-slate-500">Conversões</p>
+              <p className="text-sm font-bold text-[#14CC45]">847</p>
+            </div>
+            <div className="rounded-lg bg-amber-50 p-2">
+              <p className="text-[10px] text-slate-500">ROAS</p>
+              <p className="text-sm font-bold text-amber-600">4.2x</p>
+            </div>
+          </div>
+          <div className="mt-3 space-y-2">
+            <div className="flex items-center justify-between rounded bg-slate-50 px-2 py-1.5 text-[10px]">
+              <span className="text-slate-600">Campanha A</span>
+              <span className="font-semibold text-[#14CC45]">+32%</span>
+            </div>
+            <div className="flex items-center justify-between rounded bg-slate-50 px-2 py-1.5 text-[10px]">
+              <span className="text-slate-600">Campanha B</span>
+              <span className="font-semibold text-[#14CC45]">+18%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto h-3 w-[90%] rounded-b-xl bg-slate-300 shadow-lg" />
+      <div className="mx-auto h-1 w-16 rounded-b bg-slate-400" />
+    </div>
+  )
+}
+
+function MockupAnalytics() {
+  return (
+    <div className="relative">
+      <div className="relative h-64 w-full rounded-t-xl border border-slate-200 bg-white shadow-2xl shadow-slate-300/50 sm:h-72">
+        <div className="flex h-7 items-center gap-2 rounded-t-xl bg-slate-100 px-3">
+          <div className="flex gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+          </div>
+          <span className="ml-2 text-[10px] text-slate-400">Google Analytics — Dashboard</span>
+        </div>
+        <div className="h-[calc(100%-1.75rem)] overflow-hidden bg-white p-4">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="text-lg font-bold text-[#F9AB00]">📊</span>
+            <span className="text-xs font-semibold text-slate-700">Analytics</span>
+          </div>
+          <div className="mb-3 grid grid-cols-2 gap-2">
+            <div className="rounded-lg bg-orange-50 p-2 text-center">
+              <p className="text-[10px] text-slate-500">Usuários</p>
+              <p className="text-sm font-bold text-[#F9AB00]">24.8k</p>
+            </div>
+            <div className="rounded-lg bg-blue-50 p-2 text-center">
+              <p className="text-[10px] text-slate-500">Sessões</p>
+              <p className="text-sm font-bold text-[#4285F4]">38.2k</p>
+            </div>
+          </div>
+          <div className="flex h-16 items-end gap-1">
+            {[40, 65, 45, 80, 55, 90, 70, 85, 60, 75].map((h, i) => (
+              <div key={i} className="flex-1 rounded-t bg-[#14CC45]/70" style={{ height: `${h}%` }} />
+            ))}
+          </div>
+          <p className="mt-1 text-center text-[9px] text-slate-400">Últimos 10 dias</p>
+        </div>
+      </div>
+      <div className="mx-auto h-3 w-[90%] rounded-b-xl bg-slate-300 shadow-lg" />
+      <div className="mx-auto h-1 w-16 rounded-b bg-slate-400" />
+    </div>
+  )
+}
+
 const servicos = [
   {
     id: 'sites',
     title: 'Criação de sites rápidos e focados em conversão',
     description: 'One page, multipage e landing pages com SEO, performance e integração com formulário.',
-    image: '/images/portfolio/clinica-sim.png',
+    mockup: 'ide',
     tags: ['Performance', 'SEO', 'Responsivo', 'Formulário'],
     reverse: false,
   },
@@ -15,7 +141,7 @@ const servicos = [
     id: 'marketing',
     title: 'Marketing digital com estratégia e execução',
     description: 'Campanhas, criativos, tracking e otimização contínua para gerar demanda.',
-    image: '/images/portfolio/hazak-fit.png',
+    mockup: 'ads',
     tags: ['Ads', 'Funil', 'A/B Testing', 'Pixel/Tag'],
     reverse: true,
   },
@@ -23,11 +149,20 @@ const servicos = [
     id: 'analytics',
     title: 'Data analytics para decisões sem achismo',
     description: 'Dashboards, eventos, mensuração e insights acionáveis.',
-    image: '/images/portfolio/grafica-inova-print.png',
+    mockup: 'analytics',
     tags: ['GA4', 'Eventos', 'Dashboards', 'Metas'],
     reverse: false,
   },
 ]
+
+function getMockup(type: string) {
+  switch (type) {
+    case 'ide': return <MockupIDE />
+    case 'ads': return <MockupGoogleAds />
+    case 'analytics': return <MockupAnalytics />
+    default: return null
+  }
+}
 
 export default function ServicosPage() {
   return (
@@ -65,15 +200,9 @@ export default function ServicosPage() {
                 </Link>
               </div>
 
-              {/* Imagem */}
+              {/* Mockup */}
               <div className={`relative ${servico.reverse ? 'lg:order-1' : ''}`}>
-                <div className="overflow-hidden rounded-2xl bg-slate-100 shadow-xl">
-                  <img
-                    src={servico.image}
-                    alt={servico.title}
-                    className="h-auto w-full object-cover"
-                  />
-                </div>
+                {getMockup(servico.mockup)}
                 {/* Tags */}
                 <div className="mt-4 flex flex-wrap justify-center gap-2 lg:justify-start">
                   {servico.tags.map((tag) => (

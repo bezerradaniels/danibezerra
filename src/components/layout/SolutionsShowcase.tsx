@@ -1,74 +1,159 @@
 import Button from '../ui/Button.tsx'
 import { useFadeIn } from '../../hooks/useFadeIn'
 
-type MockupConfig = {
-  badge: string
-  title: string
-  subtitle: string
-  gradient: string
-  accent: string
-  metrics: { label: string; value: string }[]
-}
-
 type Solution = {
   title: string
   subtitle: string
   bullets: string[]
   tags: string[]
-  mockup: MockupConfig
+  mockupType: 'ide' | 'ads' | 'analytics'
   imageAlign: 'left' | 'right'
 }
 
-function MockupLaptop({ config, align }: { config: MockupConfig; align: 'left' | 'right' }) {
+function MockupIDE() {
+  return (
+    <div className="relative">
+      <div className="relative h-64 w-full rounded-t-xl border border-slate-200 bg-white shadow-2xl shadow-slate-300/50 sm:h-72">
+        <div className="flex h-7 items-center gap-2 rounded-t-xl bg-slate-100 px-3">
+          <div className="flex gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+          </div>
+          <span className="ml-2 text-[10px] text-slate-400">index.html — projeto</span>
+        </div>
+        <div className="flex h-[calc(100%-1.75rem)] overflow-hidden">
+          <div className="flex w-10 flex-col items-center gap-3 border-r border-slate-100 bg-slate-50 py-3">
+            <span className="icon text-sm text-slate-400">folder</span>
+            <span className="icon text-sm text-[#14CC45]">code</span>
+            <span className="icon text-sm text-slate-400">terminal</span>
+          </div>
+          <div className="flex-1 overflow-hidden bg-slate-900 p-3 font-mono text-[9px] leading-relaxed sm:text-[11px]">
+            <div className="flex gap-3"><span className="select-none text-slate-600">1</span><span className="text-slate-500">{'<!DOCTYPE html>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">2</span><span className="text-pink-400">{'<html'}</span> <span className="text-purple-400">lang</span><span className="text-slate-400">=</span><span className="text-amber-300">"pt-BR"</span><span className="text-pink-400">{'>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">3</span><span className="text-pink-400">{'<head>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">4</span><span className="pl-4 text-pink-400">{'<title>'}</span><span className="text-slate-200">Meu Site</span><span className="text-pink-400">{'</title>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">5</span><span className="text-pink-400">{'</head>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">6</span><span className="text-pink-400">{'<body>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">7</span><span className="pl-4 text-pink-400">{'<h1>'}</span><span className="text-slate-200">Bem-vindo!</span><span className="text-pink-400">{'</h1>'}</span></div>
+            <div className="flex gap-3"><span className="select-none text-slate-600">8</span><span className="text-pink-400">{'</body>'}</span></div>
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto h-3 w-[90%] rounded-b-xl bg-slate-300 shadow-lg" />
+      <div className="mx-auto h-1 w-16 rounded-b bg-slate-400" />
+    </div>
+  )
+}
+
+function MockupGoogleAds() {
+  return (
+    <div className="relative">
+      <div className="relative h-64 w-full rounded-t-xl border border-slate-200 bg-white shadow-2xl shadow-slate-300/50 sm:h-72">
+        <div className="flex h-7 items-center gap-2 rounded-t-xl bg-slate-100 px-3">
+          <div className="flex gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+          </div>
+          <span className="ml-2 text-[10px] text-slate-400">Google Ads — Campanhas</span>
+        </div>
+        <div className="h-[calc(100%-1.75rem)] overflow-hidden bg-white p-4">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="text-lg font-bold text-[#4285F4]">G</span>
+            <span className="text-xs font-semibold text-slate-700">Google Ads</span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-center">
+            <div className="rounded-lg bg-blue-50 p-2">
+              <p className="text-[10px] text-slate-500">Cliques</p>
+              <p className="text-sm font-bold text-[#4285F4]">12.4k</p>
+            </div>
+            <div className="rounded-lg bg-green-50 p-2">
+              <p className="text-[10px] text-slate-500">Conversões</p>
+              <p className="text-sm font-bold text-[#14CC45]">847</p>
+            </div>
+            <div className="rounded-lg bg-amber-50 p-2">
+              <p className="text-[10px] text-slate-500">ROAS</p>
+              <p className="text-sm font-bold text-amber-600">4.2x</p>
+            </div>
+          </div>
+          <div className="mt-3 space-y-2">
+            <div className="flex items-center justify-between rounded bg-slate-50 px-2 py-1.5 text-[10px]">
+              <span className="text-slate-600">Campanha A</span>
+              <span className="font-semibold text-[#14CC45]">+32%</span>
+            </div>
+            <div className="flex items-center justify-between rounded bg-slate-50 px-2 py-1.5 text-[10px]">
+              <span className="text-slate-600">Campanha B</span>
+              <span className="font-semibold text-[#14CC45]">+18%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto h-3 w-[90%] rounded-b-xl bg-slate-300 shadow-lg" />
+      <div className="mx-auto h-1 w-16 rounded-b bg-slate-400" />
+    </div>
+  )
+}
+
+function MockupAnalytics() {
+  return (
+    <div className="relative">
+      <div className="relative h-64 w-full rounded-t-xl border border-slate-200 bg-white shadow-2xl shadow-slate-300/50 sm:h-72">
+        <div className="flex h-7 items-center gap-2 rounded-t-xl bg-slate-100 px-3">
+          <div className="flex gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+          </div>
+          <span className="ml-2 text-[10px] text-slate-400">Google Analytics — Dashboard</span>
+        </div>
+        <div className="h-[calc(100%-1.75rem)] overflow-hidden bg-white p-4">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="text-lg font-bold text-[#F9AB00]">📊</span>
+            <span className="text-xs font-semibold text-slate-700">Analytics</span>
+          </div>
+          <div className="mb-3 grid grid-cols-2 gap-2">
+            <div className="rounded-lg bg-orange-50 p-2 text-center">
+              <p className="text-[10px] text-slate-500">Usuários</p>
+              <p className="text-sm font-bold text-[#F9AB00]">24.8k</p>
+            </div>
+            <div className="rounded-lg bg-blue-50 p-2 text-center">
+              <p className="text-[10px] text-slate-500">Sessões</p>
+              <p className="text-sm font-bold text-[#4285F4]">38.2k</p>
+            </div>
+          </div>
+          <div className="flex h-16 items-end gap-1">
+            {[40, 65, 45, 80, 55, 90, 70, 85, 60, 75].map((h, i) => (
+              <div key={i} className="flex-1 rounded-t bg-[#14CC45]/70" style={{ height: `${h}%` }} />
+            ))}
+          </div>
+          <p className="mt-1 text-center text-[9px] text-slate-400">Últimos 10 dias</p>
+        </div>
+      </div>
+      <div className="mx-auto h-3 w-[90%] rounded-b-xl bg-slate-300 shadow-lg" />
+      <div className="mx-auto h-1 w-16 rounded-b bg-slate-400" />
+    </div>
+  )
+}
+
+function getMockup(type: string) {
+  switch (type) {
+    case 'ide': return <MockupIDE />
+    case 'ads': return <MockupGoogleAds />
+    case 'analytics': return <MockupAnalytics />
+    default: return null
+  }
+}
+
+function MockupLaptop({ mockupType, align }: { mockupType: string; align: 'left' | 'right' }) {
   return (
     <div
       className={`flex w-full flex-1 justify-center ${
         align === 'left' ? 'lg:order-1' : 'lg:order-2'
       }`}
     >
-      <div className="relative w-full max-w-xl rounded-[28px] border border-slate-200 bg-white p-4 shadow-2xl shadow-slate-400/30">
-        <div className="rounded-3xl border border-slate-200 bg-slate-900/90 shadow-inner">
-          <div
-            className={`rounded-t-3xl border-b border-white/10 bg-linear-to-br ${config.gradient} p-6 text-white`}
-          >
-            <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-white/70">
-              <span>{config.badge}</span>
-              <span>live</span>
-            </div>
-            <h4 className="mt-4 text-xl font-semibold">{config.title}</h4>
-            <p className="text-sm text-white/70">{config.subtitle}</p>
-            <div className="mt-4 flex gap-3 text-xs text-white/80">
-              <span className="inline-flex rounded-full border border-white/30 px-3 py-1">QA</span>
-              <span className="inline-flex rounded-full border border-white/30 px-3 py-1">Design</span>
-              <span className="inline-flex rounded-full border border-white/30 px-3 py-1">Ops</span>
-            </div>
-          </div>
-
-          <div className="grid gap-4 rounded-b-3xl bg-slate-950/60 p-6 text-slate-100 md:grid-cols-2">
-            {config.metrics.map((metric) => (
-              <div key={metric.label} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-xs uppercase tracking-wider text-white/60">{metric.label}</p>
-                <p
-                  className="mt-1 text-lg font-semibold"
-                  style={{ color: config.accent }}
-                >
-                  {metric.value}
-                </p>
-                <div className="mt-2 h-1.5 rounded-full bg-white/10">
-                  <div
-                    className="h-full rounded-full"
-                    style={{
-                      width: '70%',
-                      background: config.accent,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="absolute -bottom-4 left-1/2 h-3 w-48 -translate-x-1/2 rounded-full bg-slate-500/40 blur" />
+      <div className="w-full max-w-xl">
+        {getMockup(mockupType)}
       </div>
     </div>
   )
@@ -81,19 +166,7 @@ const solutions: Solution[] = [
       'One pages dinâmicas ou sites completos com SEO, performance e integrações que transformam visitantes em leads.',
     bullets: ['Arquitetura pensada para SEO', 'Integração com formulários e automações', 'Layout responsivo e acessível'],
     tags: ['SEO', 'Performance', 'Formulários'],
-    mockup: {
-      badge: 'Web build',
-      title: 'Landing page — Hazak Fit',
-      subtitle: 'SEO 95 • UX score 9.2',
-      gradient: 'from-slate-900 via-[#0b1d2a] to-[#0f5132]',
-      accent: '#14CC45',
-      metrics: [
-        { label: 'Tempo de carga', value: '1.2s' },
-        { label: 'Conversão', value: '+38%' },
-        { label: 'Core Web Vitals', value: 'Green' },
-        { label: 'Páginas', value: '05' },
-      ],
-    } satisfies MockupConfig,
+    mockupType: 'ide',
     imageAlign: 'right',
   },
   {
@@ -101,19 +174,7 @@ const solutions: Solution[] = [
     subtitle: 'Campanhas, conteúdo e funis de vendas pensados para gerar oportunidades reais para o seu negócio.',
     bullets: ['Gestão de Google Ads e Social Ads', 'Planejamento de conteúdo e copywriting', 'Otimização constante com dados'],
     tags: ['Ads', 'Análise', 'Copy'],
-    mockup: {
-      badge: 'Paid media',
-      title: 'Campanha Performance+',
-      subtitle: 'Omnichannel • Always on',
-      gradient: 'from-[#160d3a] via-[#2d1c66] to-[#ff4fd8]',
-      accent: '#F8BF4C',
-      metrics: [
-        { label: 'ROAS', value: '6.2x' },
-        { label: 'Custo por lead', value: 'R$ 23' },
-        { label: 'Criativos ativos', value: '12' },
-        { label: 'Segmentos', value: '4' },
-      ],
-    } satisfies MockupConfig,
+    mockupType: 'ads',
     imageAlign: 'left',
   },
   {
@@ -121,19 +182,7 @@ const solutions: Solution[] = [
     subtitle: 'Dashboards claros, metas e métricas em tempo real para guiar as próximas ações com segurança.',
     bullets: ['Construção de dashboards e relatórios', 'Integração com fontes como GA4 e CRM', 'Alertas e insights acionáveis'],
     tags: ['BI', 'GA4', 'Métricas'],
-    mockup: {
-      badge: 'Data studio',
-      title: 'Painel CX ao vivo',
-      subtitle: 'Atualização a cada 15 min',
-      gradient: 'from-slate-900 via-slate-800 to-slate-900',
-      accent: '#5BE5FF',
-      metrics: [
-        { label: 'NPS', value: '78' },
-        { label: 'Churn', value: '1.4%' },
-        { label: 'Ticket médio', value: 'R$ 642' },
-        { label: 'Alertas', value: '03 ativos' },
-      ],
-    } satisfies MockupConfig,
+    mockupType: 'analytics',
     imageAlign: 'right',
   },
 ]
@@ -166,7 +215,7 @@ export default function SolutionsShowcase() {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <MockupLaptop
-                config={solution.mockup}
+                mockupType={solution.mockupType}
                 align={solution.imageAlign}
               />
 
