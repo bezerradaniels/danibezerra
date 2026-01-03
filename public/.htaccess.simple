@@ -1,0 +1,10 @@
+# Versão simplificada para servidores Apache básicos
+RewriteEngine On
+
+# Se não for um arquivo existente, redireciona para index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# Página padrão
+DirectoryIndex index.html

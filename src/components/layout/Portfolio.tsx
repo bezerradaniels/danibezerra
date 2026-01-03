@@ -56,7 +56,7 @@ export default function Portfolio() {
             onClick={goToPrevious}
             id="portfolio-slider-previous"
             data-click-id="portfolio-slider-previous"
-            className="absolute left-0 top-1/2 z-10 -translate-x-4 -translate-y-1/2 rounded-full bg-white p-3 shadow-lg transition hover:bg-slate-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#14CC45] lg:-translate-x-6"
+            className="absolute left-0 top-1/2 z-10 -translate-x-4 -translate-y-1/2 rounded-full bg-white p-3 shadow-lg transition hover:bg-slate-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#14CC45] lg:-translate-x-6 cursor-pointer"
             aria-label="Slide anterior"
           >
             <svg
@@ -78,7 +78,7 @@ export default function Portfolio() {
             onClick={goToNext}
             id="portfolio-slider-next"
             data-click-id="portfolio-slider-next"
-            className="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-4 rounded-full bg-white p-3 shadow-lg transition hover:bg-slate-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#14CC45] lg:translate-x-6"
+            className="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-4 rounded-full bg-white p-3 shadow-lg transition hover:bg-slate-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#14CC45] lg:translate-x-6 cursor-pointer"
             aria-label="Próximo slide"
           >
             <svg
@@ -136,7 +136,7 @@ export default function Portfolio() {
                 id={`portfolio-slider-dot-${index + 1}`}
                 data-click-id={`portfolio-slider-dot-${index + 1}`}
                 onClick={() => goToSlide(index)}
-                className={`h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#14CC45] focus:ring-offset-2 ${
+                className={`h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#14CC45] focus:ring-offset-2 cursor-pointer ${
                   index === currentIndex
                     ? 'w-8 bg-[#14CC45]'
                     : 'w-3 bg-slate-300 hover:bg-slate-400'

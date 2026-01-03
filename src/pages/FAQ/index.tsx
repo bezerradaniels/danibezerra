@@ -55,7 +55,7 @@ function FAQItem({ pergunta, resposta }: { pergunta: string; resposta: string })
         onClick={() => setIsOpen(!isOpen)}
         id={`faq-toggle-${slug}`}
         data-click-id={`faq-toggle-${slug}`}
-        className="flex w-full items-center justify-between py-5 text-left"
+        className="flex w-full items-center justify-between py-5 text-left cursor-pointer"
       >
         <span className="font-semibold text-slate-900">{pergunta}</span>
         <span className={`icon text-2xl text-[#14CC45] transition-transform ${isOpen ? 'rotate-180' : ''}`}>

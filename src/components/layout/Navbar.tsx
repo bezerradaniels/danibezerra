@@ -52,7 +52,7 @@ export default function Navbar() {
               onClick={toggleMenu}
               id="navbar-menu-toggle-open"
               data-click-id="navbar-menu-toggle-open"
-              className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100 md:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100 md:hidden cursor-pointer"
               aria-label="Abrir menu"
             >
               <span className="icon text-2xl">{isOpen ? 'close' : 'menu'}</span>
@@ -64,7 +64,7 @@ export default function Navbar() {
       {/* Mobile sidebar overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden cursor-pointer"
           onClick={closeMenu}
         />
       )}
@@ -81,7 +81,7 @@ export default function Navbar() {
             onClick={closeMenu}
             id="navbar-menu-toggle-close"
             data-click-id="navbar-menu-toggle-close"
-            className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100"
+            className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100 cursor-pointer"
             aria-label="Fechar menu"
           >
             <span className="icon text-2xl">close</span>

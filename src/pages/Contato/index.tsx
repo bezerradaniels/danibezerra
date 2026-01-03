@@ -116,7 +116,7 @@ export default function ContatoPage() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label htmlFor="nome" className="mb-1.5 block text-sm font-medium text-slate-700">
-                  Nome
+                  Nome *
                 </label>
                 <input
                   type="text"
@@ -131,7 +131,7 @@ export default function ContatoPage() {
               </div>
               <div>
                 <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700">
-                  Email
+                  Email *
                 </label>
                 <input
                   type="email"
@@ -149,7 +149,7 @@ export default function ContatoPage() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label htmlFor="whatsapp" className="mb-1.5 block text-sm font-medium text-slate-700">
-                  WhatsApp
+                  WhatsApp *
                 </label>
                 <input
                   type="tel"
@@ -164,12 +164,13 @@ export default function ContatoPage() {
               </div>
               <div>
                 <label htmlFor="empresa" className="mb-1.5 block text-sm font-medium text-slate-700">
-                  Empresa
+                  Empresa *
                 </label>
                 <input
                   type="text"
                   id="empresa"
                   name="empresa"
+                  required
                   value={formData.empresa}
                   onChange={handleChange}
                   className="w-full rounded-xl border border-slate-200 bg-[#FAF8F3] px-4 py-3 text-slate-800 placeholder:text-slate-400 focus:border-[#14CC45] focus:outline-none focus:ring-2 focus:ring-[#14CC45]/20"
@@ -180,7 +181,7 @@ export default function ContatoPage() {
 
             <div>
               <label htmlFor="projeto" className="mb-1.5 block text-sm font-medium text-slate-700">
-                Tipo de projeto
+                Tipo de projeto *
               </label>
               <select
                 id="projeto"
@@ -200,16 +201,17 @@ export default function ContatoPage() {
 
             <div>
               <label htmlFor="mensagem" className="mb-1.5 block text-sm font-medium text-slate-700">
-                Mensagem (opcional)
+                Mensagem *
               </label>
               <textarea
                 id="mensagem"
                 name="mensagem"
                 rows={4}
+                required
                 value={formData.mensagem}
                 onChange={handleChange}
                 className="w-full resize-none rounded-xl border border-slate-200 bg-[#FAF8F3] px-4 py-3 text-slate-800 placeholder:text-slate-400 focus:border-[#14CC45] focus:outline-none focus:ring-2 focus:ring-[#14CC45]/20"
-                placeholder="Conte rapidamente o que você precisa..."
+                placeholder="Descreva detalhadamente o que você precisa..."
               />
             </div>
 
@@ -230,7 +232,7 @@ export default function ContatoPage() {
             </button>
 
             <p className="text-center text-sm text-slate-400">
-              Garantia de resposta em até 24 horas úteis.
+              * Todos os campos são obrigatórios. Garantia de resposta em até 24 horas úteis.
             </p>
           </form>
         </div>

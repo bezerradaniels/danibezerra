@@ -1,5 +1,6 @@
 import Button from '../ui/Button.tsx'
 import { useFadeIn } from '../../hooks/useFadeIn'
+import { GlowingEffect } from '../ui/glowing-effect'
 
 const niches = [
   { name: 'Pequenas Empresas', icon: 'storefront' },
@@ -38,15 +39,23 @@ export default function Niches() {
           {niches.map((niche, index) => (
             <div
               key={niche.name}
-              className={`fade-in-scale group flex flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-[#FAF8F3] p-6 text-center transition hover:border-[#14CC45]/30 hover:shadow-lg ${gridVisible ? 'visible' : ''}`}
+              className={`fade-in-scale group relative flex flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-[#FAF8F3] p-6 text-center transition hover:border-[#14CC45]/30 hover:shadow-lg ${gridVisible ? 'visible' : ''}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm transition group-hover:bg-[#14CC45]/10">
+              <GlowingEffect
+                spread={30}
+                glow={false}
+                disabled={false}
+                proximity={40}
+                inactiveZone={0.5}
+                borderWidth={2}
+              />
+              <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm transition group-hover:bg-[#14CC45]/10">
                 <span className="icon text-4xl text-slate-400 transition group-hover:text-[#14CC45]">
                   {niche.icon}
                 </span>
               </div>
-              <span className="font-semibold text-slate-700">{niche.name}</span>
+              <span className="relative font-semibold text-slate-700">{niche.name}</span>
             </div>
           ))}
         </div>
