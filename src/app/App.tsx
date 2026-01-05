@@ -12,6 +12,7 @@ import FAQPage from '../pages/FAQ/index.tsx'
 import ContatoPage from '../pages/Contato/index.tsx'
 import PoliticaPage from '../pages/Politica/index.tsx'
 import ObrigadoPage from '../pages/Obrigado/index.tsx'
+import LpAdvogadosPage from '../pages/LpAdvogados/index.tsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -24,6 +25,20 @@ function ScrollToTop() {
 }
 
 function App() {
+  const { pathname } = useLocation()
+  const isLandingPage = pathname.startsWith('/lp/')
+
+  if (isLandingPage) {
+    return (
+      <>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/lp/advogados" element={<LpAdvogadosPage />} />
+        </Routes>
+      </>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-[#FAF8F3] text-slate-800">
       <ScrollToTop />
