@@ -1,0 +1,45 @@
+{
+  "name": "@hugeicons/static",
+  "version": "0.1.5",
+  "description": "Static SVG files for Hugeicons",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "icons"
+  ],
+  "scripts": {
+    "download-data": "node scripts/download-icons-data.mjs",
+    "download-icons": "node scripts/download.mjs",
+    "download": "npm run download-data && npm run download-icons",
+    "process-icons": "node scripts/process-icons.mjs",
+    "generate-exports": "node scripts/generate-exports.mjs",
+    "build": "npm run process-icons && npm run generate-exports && rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "hugeicons",
+    "icons",
+    "svg",
+    "static"
+  ],
+  "author": "Hugeicons",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hugeicons/hugeicons-static.git"
+  },
+  "homepage": "https://hugeicons.com",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^20.0.0",
+    "chalk": "^5.3.0",
+    "node-fetch": "^3.3.0",
+    "ora": "^7.0.1",
+    "rollup": "^4.9.6",
+    "tslib": "^2.6.2",
+    "typescript": "^5.0.0"
+  },
+  "type": "module"
+}
