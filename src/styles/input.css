@@ -1,224 +1,33 @@
 @import "tailwindcss";
 
-/* ==========================================================================
-   Material Design 3 — design tokens
-   Seed color: brand green. Roles follow the M3 tonal-palette relationships
-   (see https://m3.material.io/styles/color/roles). Consumed directly by
-   material-web components, which read these custom properties by default.
-   ========================================================================== */
-:root {
-    color-scheme: light dark;
+@theme {
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-jakarta: var(--font-sans);
 
-    /* Primary */
-    --md-sys-color-primary: #146c2e;
-    --md-sys-color-on-primary: #ffffff;
-    --md-sys-color-primary-container: #a6f5b4;
-    --md-sys-color-on-primary-container: #002109;
-    --md-sys-color-primary-fixed: #a6f5b4;
-    --md-sys-color-primary-fixed-dim: #67d97f;
-    --md-sys-color-on-primary-fixed: #002109;
-    --md-sys-color-on-primary-fixed-variant: #0b5a28;
+    /* Paleta */
+    --color-surface: #fefbff;
+    --color-soft: #f8f1f6;
+    --color-hero-bg: #f8f1f6;
+    --color-peach: #fdf0e8;
+    --color-orchid: #e599fe;
+    --color-pink: #fbaffe;
+    --color-lavender: #c8b3fd;
+    --color-periwinkle: #e2e0f9;
+    --color-brand: #675496;
+    --color-brand-dark: #544380;
+    --color-ink: #1e293b;
 
-    /* Secondary */
-    --md-sys-color-secondary: #51634f;
-    --md-sys-color-on-secondary: #ffffff;
-    --md-sys-color-secondary-container: #d3e8cd;
-    --md-sys-color-on-secondary-container: #101f0f;
-    --md-sys-color-secondary-fixed: #d3e8cd;
-    --md-sys-color-secondary-fixed-dim: #b7ccb2;
-    --md-sys-color-on-secondary-fixed: #101f0f;
-    --md-sys-color-on-secondary-fixed-variant: #3a4a37;
+    --animate-marquee: marquee 40s linear infinite;
 
-    /* Tertiary */
-    --md-sys-color-tertiary: #3b608f;
-    --md-sys-color-on-tertiary: #ffffff;
-    --md-sys-color-tertiary-container: #d3e4ff;
-    --md-sys-color-on-tertiary-container: #001c38;
-    --md-sys-color-tertiary-fixed: #d3e4ff;
-    --md-sys-color-tertiary-fixed-dim: #a3c9ff;
-    --md-sys-color-on-tertiary-fixed: #001c38;
-    --md-sys-color-on-tertiary-fixed-variant: #1d4876;
-
-    /* Error (M3 baseline) */
-    --md-sys-color-error: #b3261e;
-    --md-sys-color-on-error: #ffffff;
-    --md-sys-color-error-container: #f9dedc;
-    --md-sys-color-on-error-container: #410e0b;
-
-    /* Neutral surfaces */
-    --md-sys-color-background: #f7fbf2;
-    --md-sys-color-on-background: #181d17;
-    --md-sys-color-surface: #f7fbf2;
-    --md-sys-color-on-surface: #181d17;
-    --md-sys-color-surface-variant: #dee5d8;
-    --md-sys-color-on-surface-variant: #424940;
-    --md-sys-color-surface-dim: #d7dbd1;
-    --md-sys-color-surface-bright: #f7fbf2;
-    --md-sys-color-surface-container-lowest: #ffffff;
-    --md-sys-color-surface-container-low: #f1f5ec;
-    --md-sys-color-surface-container: #ebefe6;
-    --md-sys-color-surface-container-high: #e5e9e0;
-    --md-sys-color-surface-container-highest: #dfe4da;
-    --md-sys-color-outline: #72796f;
-    --md-sys-color-outline-variant: #c2c9bc;
-    --md-sys-color-surface-tint: #146c2e;
-
-    /* Inverse + system */
-    --md-sys-color-inverse-surface: #2d322b;
-    --md-sys-color-inverse-on-surface: #eef2e9;
-    --md-sys-color-inverse-primary: #8bd99e;
-    --md-sys-color-scrim: #000000;
-    --md-sys-color-shadow: #000000;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --md-sys-color-primary: #7fdb92;
-        --md-sys-color-on-primary: #00390f;
-        --md-sys-color-primary-container: #0b5a28;
-        --md-sys-color-on-primary-container: #a6f5b4;
-        --md-sys-color-primary-fixed: #a6f5b4;
-        --md-sys-color-primary-fixed-dim: #67d97f;
-        --md-sys-color-on-primary-fixed: #002109;
-        --md-sys-color-on-primary-fixed-variant: #0b5a28;
-
-        --md-sys-color-secondary: #b7ccb2;
-        --md-sys-color-on-secondary: #243423;
-        --md-sys-color-secondary-container: #3a4a37;
-        --md-sys-color-on-secondary-container: #d3e8cd;
-        --md-sys-color-secondary-fixed: #d3e8cd;
-        --md-sys-color-secondary-fixed-dim: #b7ccb2;
-        --md-sys-color-on-secondary-fixed: #101f0f;
-        --md-sys-color-on-secondary-fixed-variant: #3a4a37;
-
-        --md-sys-color-tertiary: #a3c9ff;
-        --md-sys-color-on-tertiary: #00315a;
-        --md-sys-color-tertiary-container: #1d4876;
-        --md-sys-color-on-tertiary-container: #d3e4ff;
-        --md-sys-color-tertiary-fixed: #d3e4ff;
-        --md-sys-color-tertiary-fixed-dim: #a3c9ff;
-        --md-sys-color-on-tertiary-fixed: #001c38;
-        --md-sys-color-on-tertiary-fixed-variant: #1d4876;
-
-        --md-sys-color-error: #ffb4ab;
-        --md-sys-color-on-error: #690005;
-        --md-sys-color-error-container: #93000a;
-        --md-sys-color-on-error-container: #ffdad6;
-
-        --md-sys-color-background: #10140f;
-        --md-sys-color-on-background: #dfe4da;
-        --md-sys-color-surface: #10140f;
-        --md-sys-color-on-surface: #dfe4da;
-        --md-sys-color-surface-variant: #424940;
-        --md-sys-color-on-surface-variant: #c2c9bc;
-        --md-sys-color-surface-dim: #10140f;
-        --md-sys-color-surface-bright: #363a34;
-        --md-sys-color-surface-container-lowest: #0b0f0a;
-        --md-sys-color-surface-container-low: #181d17;
-        --md-sys-color-surface-container: #1c211b;
-        --md-sys-color-surface-container-high: #262b25;
-        --md-sys-color-surface-container-highest: #31362f;
-        --md-sys-color-outline: #8c9388;
-        --md-sys-color-outline-variant: #424940;
-        --md-sys-color-surface-tint: #7fdb92;
-
-        --md-sys-color-inverse-surface: #dfe4da;
-        --md-sys-color-inverse-on-surface: #2d322b;
-        --md-sys-color-inverse-primary: #146c2e;
-        --md-sys-color-scrim: #000000;
-        --md-sys-color-shadow: #000000;
+    @keyframes marquee {
+        to {
+            transform: translateX(-50%);
+        }
     }
 }
 
-/* Responsive overrides for the two display-scale headings used in the hero. */
-:root {
-    --md-sys-typescale-display-medium-size: 2.25rem;
-    --md-sys-typescale-display-medium-line-height: 2.75rem;
-}
-
-@media (min-width: 640px) {
-    :root {
-        --md-sys-typescale-display-medium-size: 3rem;
-        --md-sys-typescale-display-medium-line-height: 3.5rem;
+@layer base {
+    body {
+        @apply bg-surface font-sans text-ink antialiased;
     }
-}
-
-body {
-    font-family: Roboto, system-ui, sans-serif;
-    background: var(--md-sys-color-background);
-    color: var(--md-sys-color-on-surface);
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-summary {
-    -webkit-tap-highlight-color: transparent;
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-.animate-marquee {
-    animation: marquee 40s linear infinite;
-}
-
-/* Section eyebrow — mirrors an M3 "assist chip" look without the interactive
-   semantics of an actual chip, for a purely decorative label. */
-.m3-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 9999px;
-    padding: 0.25rem 0.9rem;
-    background: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-}
-
-.m3-eyebrow-inverse {
-    background: color-mix(in srgb, var(--md-sys-color-inverse-on-surface) 16%, transparent);
-    color: var(--md-sys-color-inverse-on-surface);
-}
-
-/* Stat badge used inside outlined stat cards. */
-.m3-badge {
-    border-radius: 9999px;
-    padding: 0.25rem 0.75rem;
-    background: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-}
-
-.m3-icon-tile {
-    display: flex;
-    height: 3rem;
-    width: 3rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1rem;
-    background: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-}
-
-md-elevated-card,
-md-outlined-card,
-md-filled-card {
-    --md-elevated-card-container-shape: 1rem;
-    --md-outlined-card-container-shape: 1rem;
-    --md-filled-card-container-shape: 1rem;
-}
-
-.faq-chevron {
-    transition: transform 0.2s ease;
-}
-
-details[open] .faq-chevron {
-    transform: rotate(180deg);
 }

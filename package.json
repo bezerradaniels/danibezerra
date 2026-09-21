@@ -1,6 +1,9 @@
 {
+  "scripts": {
+    "build": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --minify",
+    "dev": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch"
+  },
   "dependencies": {
-    "@hugeicons/static": "^0.1.5",
     "@tailwindcss/cli": "^4.3.3",
     "tailwindcss": "^4.3.3"
   }
