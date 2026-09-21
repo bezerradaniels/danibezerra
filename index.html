@@ -1,27 +1,67 @@
 <!doctype html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dani. — Sites, Tráfego Pago e Business Intelligence</title>
+    <meta name="description"
+        content="Especialista em tráfego pago no Google e Instagram, criação de sites de alta performance e Business Intelligence.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <link href="./src/styles/output.css" rel="stylesheet">
+
+    <!-- Material Web Components (Material Design 3) loaded straight from a CDN as ES modules. -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+    </script>
+    <script type="module">
+        import '@material/web/button/filled-button.js';
+        import '@material/web/button/outlined-button.js';
+        import '@material/web/button/text-button.js';
+        import '@material/web/chips/chip-set.js';
+        import '@material/web/chips/suggestion-chip.js';
+        import '@material/web/labs/card/elevated-card.js';
+        import '@material/web/labs/card/outlined-card.js';
+        import '@material/web/list/list.js';
+        import '@material/web/list/list-item.js';
+        import '@material/web/divider/divider.js';
+        import '@material/web/fab/fab.js';
+        import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
 </head>
 
 <body>
 
-    <!--Header-->
-    <header class="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur">
-        <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-            <a href="#inicio" class="text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl">Dani.</a>
+    <!--Header (M3 top app bar)-->
+    <header class="sticky top-0 z-50 border-b backdrop-blur"
+        style="border-color:var(--md-sys-color-outline-variant);background:color-mix(in srgb, var(--md-sys-color-surface-container-low) 92%, transparent)">
+        <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+            <a href="#inicio" class="md-typescale-title-large shrink-0" style="color:var(--md-sys-color-on-surface)">
+                Dani<span style="color:var(--md-sys-color-primary)">.</span>
+            </a>
 
-            <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
-                class="flex items-center gap-2 rounded-full bg-green-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-600">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 shrink-0">
+            <nav class="hidden items-center gap-1 md:flex">
+                <md-text-button href="#servicos">Serviços</md-text-button>
+                <md-text-button href="#portfolio">Portfólio</md-text-button>
+                <md-text-button href="#sobre">Sobre</md-text-button>
+            </nav>
+
+            <md-filled-button href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer">
+                <svg slot="icon" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
                     <path
                         d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38A9.95 9.95 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.15c-1.6 0-3.13-.43-4.46-1.24l-.32-.19-3.11.82.83-3.03-.21-.31A8.15 8.15 0 0 1 3.85 12c0-4.5 3.66-8.15 8.19-8.15 4.52 0 8.19 3.65 8.19 8.15s-3.67 8.15-8.19 8.15Zm4.48-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.06 0 1.22.88 2.4 1 2.56.12.16 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
                 </svg>
                 <span class="hidden sm:inline">WhatsApp</span>
-            </a>
+            </md-filled-button>
         </div>
     </header>
 
@@ -29,55 +69,45 @@
     <section id="inicio" class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
         <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
-            <!--Coluna 01: texto-->
             <div>
-                <span
-                    class="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700">
-                    Tráfego Pago
-                </span>
+                <span class="m3-eyebrow md-typescale-label-large">Tráfego Pago</span>
 
-                <h1 class="mt-4 text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
+                <h1 class="md-typescale-display-medium mt-4" style="color:var(--md-sys-color-on-surface)">
                     Especialista em tráfego pago no Google e Instagram
                 </h1>
 
-                <p class="mt-6 text-lg text-neutral-600">
-                    Gestão de tráfego pago focado em conversão e análise de dados. Foco em performance e inteligência na
-                    análise de dados.
+                <p class="md-typescale-body-large mt-6" style="color:var(--md-sys-color-on-surface-variant)">
+                    Gestão de tráfego pago focado em conversão e análise de dados. Foco em performance e
+                    inteligência na análise de dados.
                 </p>
 
-                <div class="mt-6 flex flex-wrap gap-2">
-                    <span
-                        class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-sm text-neutral-700">Eficiência</span>
-                    <span
-                        class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-sm text-neutral-700">Acompanhamento
-                        dedicado</span>
-                    <span
-                        class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-sm text-neutral-700">Suporte
-                        facilitado</span>
-                    <span
-                        class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-sm text-neutral-700">Sem
-                        fidelidade</span>
-                </div>
+                <md-chip-set class="mt-6 flex flex-wrap gap-2">
+                    <md-suggestion-chip label="Eficiência"></md-suggestion-chip>
+                    <md-suggestion-chip label="Acompanhamento dedicado"></md-suggestion-chip>
+                    <md-suggestion-chip label="Suporte facilitado"></md-suggestion-chip>
+                    <md-suggestion-chip label="Sem fidelidade"></md-suggestion-chip>
+                </md-chip-set>
 
-                <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
-                    class="mt-8 inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-green-600">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 shrink-0">
-                        <path
-                            d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38A9.95 9.95 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.15c-1.6 0-3.13-.43-4.46-1.24l-.32-.19-3.11.82.83-3.03-.21-.31A8.15 8.15 0 0 1 3.85 12c0-4.5 3.66-8.15 8.19-8.15 4.52 0 8.19 3.65 8.19 8.15s-3.67 8.15-8.19 8.15Zm4.48-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.06 0 1.22.88 2.4 1 2.56.12.16 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
-                    </svg>
-                    Falar no WhatsApp
-                </a>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <md-filled-button href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer">
+                        <svg slot="icon" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                            <path
+                                d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38A9.95 9.95 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.15c-1.6 0-3.13-.43-4.46-1.24l-.32-.19-3.11.82.83-3.03-.21-.31A8.15 8.15 0 0 1 3.85 12c0-4.5 3.66-8.15 8.19-8.15 4.52 0 8.19 3.65 8.19 8.15s-3.67 8.15-8.19 8.15Zm4.48-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.06 0 1.22.88 2.4 1 2.56.12.16 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
+                        </svg>
+                        Falar no WhatsApp
+                    </md-filled-button>
+                    <md-outlined-button href="#servicos">Ver serviços</md-outlined-button>
+                </div>
             </div>
 
-            <!--Coluna 02: placeholder imagem-->
-            <div
-                class="flex aspect-4/5 w-full items-center justify-center rounded-3xl border border-dashed border-neutral-300 bg-neutral-100 text-neutral-400 lg:aspect-square">
+            <div class="flex aspect-4/5 w-full items-center justify-center rounded-3xl border border-dashed lg:aspect-square"
+                style="border-color:var(--md-sys-color-outline-variant);background:var(--md-sys-color-surface-container-low);color:var(--md-sys-color-outline)">
                 <div class="flex flex-col items-center gap-2">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-12 w-12">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M2.25 15.75l5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.41-1.41a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25M3 8.25A2.25 2.25 0 0 1 5.25 6h13.5A2.25 2.25 0 0 1 21 8.25M3 8.25l9-6 9 6" />
                     </svg>
-                    <span class="text-sm">Imagem</span>
+                    <span class="md-typescale-label-large">Imagem</span>
                 </div>
             </div>
 
@@ -85,8 +115,8 @@
     </section>
 
     <!--Clientes-->
-    <section class="bg-white py-12">
-        <p class="text-center text-sm font-semibold uppercase tracking-wide text-neutral-400">
+    <section class="py-12" style="background:var(--md-sys-color-surface-container-low)">
+        <p class="md-typescale-label-large text-center uppercase" style="color:var(--md-sys-color-outline)">
             Clientes que confiam no meu trabalho
         </p>
 
@@ -166,157 +196,177 @@
     </section>
 
     <!--Serviços-->
-    <section id="servicos" class="bg-stone-50 py-16 sm:py-20 lg:py-24">
+    <section id="servicos" class="py-16 sm:py-20 lg:py-24">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
             <div class="mx-auto max-w-2xl text-center">
-                <span
-                    class="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700">
-                    Nossos Serviços
-                </span>
+                <span class="m3-eyebrow md-typescale-label-large">Nossos Serviços</span>
 
-                <h2 class="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                <h2 class="md-typescale-headline-medium mt-4" style="color:var(--md-sys-color-on-surface)">
                     Serviços para presença e aquisição digital
                 </h2>
 
-                <p class="mt-4 text-lg text-neutral-500">
+                <p class="md-typescale-body-large mt-4" style="color:var(--md-sys-color-on-surface-variant)">
                     Da criação do site à atração de oportunidades para o seu negócio.
                 </p>
             </div>
 
             <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path
-                                d="M14 21H16M14 21C13.1716 21 12.5 20.3284 12.5 19.5V17L12 17M14 21H10M10 21H8M10 21C10.8284 21 11.5 20.3284 11.5 19.5V17L12 17M12 17V21"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path
-                                d="M16 3H8C5.17157 3 3.75736 3 2.87868 3.87868C2 4.75736 2 6.17157 2 9V11C2 13.8284 2 15.2426 2.87868 16.1213C3.75736 17 5.17157 17 8 17H16C18.8284 17 20.2426 17 21.1213 16.1213C22 15.2426 22 13.8284 22 11V9C22 6.17157 22 4.75736 21.1213 3.87868C20.2426 3 18.8284 3 16 3Z"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path
+                                    d="M14 21H16M14 21C13.1716 21 12.5 20.3284 12.5 19.5V17L12 17M14 21H10M10 21H8M10 21C10.8284 21 11.5 20.3284 11.5 19.5V17L12 17M12 17V21"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M16 3H8C5.17157 3 3.75736 3 2.87868 3.87868C2 4.75736 2 6.17157 2 9V11C2 13.8284 2 15.2426 2.87868 16.1213C3.75736 17 5.17157 17 8 17H16C18.8284 17 20.2426 17 21.1213 16.1213C22 15.2426 22 13.8284 22 11V9C22 6.17157 22 4.75736 21.1213 3.87868C20.2426 3 18.8284 3 16 3Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">Sites
+                                Institucionais</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Sites profissionais que transmitem credibilidade e fortalecem sua marca no mercado
+                                digital.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Sites Institucionais</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Sites profissionais que transmitem credibilidade e fortalecem sua marca no mercado digital.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path
-                                d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
-                                stroke="currentColor" stroke-width="1.5" />
-                            <path d="M2.5 9H21.5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                            <path d="M6.99981 6H7.00879" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M10.9998 6H11.0088" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path
+                                    d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path d="M2.5 9H21.5" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                                <path d="M6.99981 6H7.00879" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M10.9998 6H11.0088" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">
+                                Landing Pages</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Páginas de alta conversão focadas em transformar visitantes em clientes.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Landing Pages</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Páginas de alta conversão focadas em transformar visitantes em clientes.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path
-                                d="M2 6H3M3 6L7.457 17.4921C8.10731 19.1689 8.43246 20.0073 8.9816 20C9.53074 19.9926 9.83482 19.1459 10.443 17.4524L10.5 17.2935M3 6H6.5M6.5 6H7.457M6.5 6L10.5 17.2935M10.5 17.2935L12.816 11"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path
-                                d="M10 6H11M11 6L15.457 17.4921C16.1073 19.1689 16.4325 20.0073 16.9816 20C17.5307 19.9926 17.8348 19.1459 18.443 17.4524L18.5 17.2935M11 6H14.5M14.5 6H15.457M14.5 6L18.5 17.2935M18.5 17.2935L20.5288 11.644M20.5288 11.644L21.5377 9.23491C21.9415 8.12432 22.0835 6.93739 21.9529 5.76443C21.7963 4.35795 21.1576 3 19.5012 3C17.9632 3 17.2101 4.72272 18.1898 5.89363C19.7701 7.78249 21.1719 9.87537 20.5288 11.644Z"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path
+                                    d="M2 6H3M3 6L7.457 17.4921C8.10731 19.1689 8.43246 20.0073 8.9816 20C9.53074 19.9926 9.83482 19.1459 10.443 17.4524L10.5 17.2935M3 6H6.5M6.5 6H7.457M6.5 6L10.5 17.2935M10.5 17.2935L12.816 11"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M10 6H11M11 6L15.457 17.4921C16.1073 19.1689 16.4325 20.0073 16.9816 20C17.5307 19.9926 17.8348 19.1459 18.443 17.4524L18.5 17.2935M11 6H14.5M14.5 6H15.457M14.5 6L18.5 17.2935M18.5 17.2935L20.5288 11.644M20.5288 11.644L21.5377 9.23491C21.9415 8.12432 22.0835 6.93739 21.9529 5.76443C21.7963 4.35795 21.1576 3 19.5012 3C17.9632 3 17.2101 4.72272 18.1898 5.89363C19.7701 7.78249 21.1719 9.87537 20.5288 11.644Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">Sites
+                                WordPress</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Sites administráveis, rápidos e preparados para acompanhar o crescimento da empresa.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Sites WordPress</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Sites administráveis, rápidos e preparados para acompanhar o crescimento da empresa.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path d="M17 17L21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path
-                                d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path d="M17 17L21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">SEO,
+                                AEO e GEO</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Estrutura técnica, velocidade e rastreabilidade para mecanismos de busca e respostas
+                                por IA.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">SEO, AEO e GEO</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Estrutura técnica, velocidade e rastreabilidade para mecanismos de busca e respostas por IA.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path
-                                d="M21.3175 7.14139L20.8239 6.28479C20.4506 5.63696 20.264 5.31305 19.9464 5.18388C19.6288 5.05472 19.2696 5.15664 18.5513 5.36048L17.3311 5.70418C16.8725 5.80994 16.3913 5.74994 15.9726 5.53479L15.6357 5.34042C15.2766 5.11043 15.0004 4.77133 14.8475 4.37274L14.5136 3.37536C14.294 2.71534 14.1842 2.38533 13.9228 2.19657C13.6615 2.00781 13.3143 2.00781 12.6199 2.00781H11.5051C10.8108 2.00781 10.4636 2.00781 10.2022 2.19657C9.94085 2.38533 9.83106 2.71534 9.61149 3.37536L9.27753 4.37274C9.12465 4.77133 8.84845 5.11043 8.48937 5.34042L8.15249 5.53479C7.73374 5.74994 7.25259 5.80994 6.79398 5.70418L5.57375 5.36048C4.85541 5.15664 4.49625 5.05472 4.17867 5.18388C3.86109 5.31305 3.67445 5.63696 3.30115 6.28479L2.80757 7.14139C2.45766 7.74864 2.2827 8.05227 2.31666 8.37549C2.35061 8.69871 2.58483 8.95918 3.05326 9.48012L4.0843 10.6328C4.3363 10.9518 4.51521 11.5078 4.51521 12.0077C4.51521 12.5078 4.33636 13.0636 4.08433 13.3827L3.05326 14.5354C2.58483 15.0564 2.35062 15.3168 2.31666 15.6401C2.2827 15.9633 2.45766 16.2669 2.80757 16.8741L3.30114 17.7307C3.67443 18.3785 3.86109 18.7025 4.17867 18.8316C4.49625 18.9608 4.85542 18.8589 5.57377 18.655L6.79394 18.3113C7.25263 18.2055 7.73387 18.2656 8.15267 18.4808L8.4895 18.6752C8.84851 18.9052 9.12464 19.2442 9.2775 19.6428L9.61149 20.6403C9.83106 21.3003 9.94085 21.6303 10.2022 21.8191C10.4636 22.0078 10.8108 22.0078 11.5051 22.0078H12.6199C13.3143 22.0078 13.6615 22.0078 13.9228 21.8191C14.1842 21.6303 14.294 21.3003 14.5136 20.6403L14.8476 19.6428C15.0004 19.2442 15.2765 18.9052 15.6356 18.6752L15.9724 18.4808C16.3912 18.2656 16.8724 18.2055 17.3311 18.3113L18.5513 18.655C19.2696 18.8589 19.6288 18.9608 19.9464 18.8316C20.264 18.7025 20.4506 18.3785 20.8239 17.7307L21.3175 16.8741C21.6674 16.2669 21.8423 15.9633 21.8084 15.6401C21.7744 15.3168 21.5402 15.0564 21.0718 14.5354L20.0407 13.3827C19.7887 13.0636 19.6098 12.5078 19.6098 12.0077C19.6098 11.5078 19.7888 10.9518 20.0407 10.6328L21.0718 9.48012C21.5402 8.95918 21.7744 8.69871 21.8084 8.37549C21.8423 8.05227 21.6674 7.74864 21.3175 7.14139Z"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                            <path
-                                d="M15.5195 12C15.5195 13.933 13.9525 15.5 12.0195 15.5C10.0865 15.5 8.51953 13.933 8.51953 12C8.51953 10.067 10.0865 8.5 12.0195 8.5C13.9525 8.5 15.5195 10.067 15.5195 12Z"
-                                stroke="currentColor" stroke-width="1.5" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path
+                                    d="M21.3175 7.14139L20.8239 6.28479C20.4506 5.63696 20.264 5.31305 19.9464 5.18388C19.6288 5.05472 19.2696 5.15664 18.5513 5.36048L17.3311 5.70418C16.8725 5.80994 16.3913 5.74994 15.9726 5.53479L15.6357 5.34042C15.2766 5.11043 15.0004 4.77133 14.8475 4.37274L14.5136 3.37536C14.294 2.71534 14.1842 2.38533 13.9228 2.19657C13.6615 2.00781 13.3143 2.00781 12.6199 2.00781H11.5051C10.8108 2.00781 10.4636 2.00781 10.2022 2.19657C9.94085 2.38533 9.83106 2.71534 9.61149 3.37536L9.27753 4.37274C9.12465 4.77133 8.84845 5.11043 8.48937 5.34042L8.15249 5.53479C7.73374 5.74994 7.25259 5.80994 6.79398 5.70418L5.57375 5.36048C4.85541 5.15664 4.49625 5.05472 4.17867 5.18388C3.86109 5.31305 3.67445 5.63696 3.30115 6.28479L2.80757 7.14139C2.45766 7.74864 2.2827 8.05227 2.31666 8.37549C2.35061 8.69871 2.58483 8.95918 3.05326 9.48012L4.0843 10.6328C4.3363 10.9518 4.51521 11.5078 4.51521 12.0077C4.51521 12.5078 4.33636 13.0636 4.08433 13.3827L3.05326 14.5354C2.58483 15.0564 2.35062 15.3168 2.31666 15.6401C2.2827 15.9633 2.45766 16.2669 2.80757 16.8741L3.30114 17.7307C3.67443 18.3785 3.86109 18.7025 4.17867 18.8316C4.49625 18.9608 4.85542 18.8589 5.57377 18.655L6.79394 18.3113C7.25263 18.2055 7.73387 18.2656 8.15267 18.4808L8.4895 18.6752C8.84851 18.9052 9.12464 19.2442 9.2775 19.6428L9.61149 20.6403C9.83106 21.3003 9.94085 21.6303 10.2022 21.8191C10.4636 22.0078 10.8108 22.0078 11.5051 22.0078H12.6199C13.3143 22.0078 13.6615 22.0078 13.9228 21.8191C14.1842 21.6303 14.294 21.3003 14.5136 20.6403L14.8476 19.6428C15.0004 19.2442 15.2765 18.9052 15.6356 18.6752L15.9724 18.4808C16.3912 18.2656 16.8724 18.2055 17.3311 18.3113L18.5513 18.655C19.2696 18.8589 19.6288 18.9608 19.9464 18.8316C20.264 18.7025 20.4506 18.3785 20.8239 17.7307L21.3175 16.8741C21.6674 16.2669 21.8423 15.9633 21.8084 15.6401C21.7744 15.3168 21.5402 15.0564 21.0718 14.5354L20.0407 13.3827C19.7887 13.0636 19.6098 12.5078 19.6098 12.0077C19.6098 11.5078 19.7888 10.9518 20.0407 10.6328L21.0718 9.48012C21.5402 8.95918 21.7744 8.69871 21.8084 8.37549C21.8423 8.05227 21.6674 7.74864 21.3175 7.14139Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path
+                                    d="M15.5195 12C15.5195 13.933 13.9525 15.5 12.0195 15.5C10.0865 15.5 8.51953 13.933 8.51953 12C8.51953 10.067 10.0865 8.5 12.0195 8.5C13.9525 8.5 15.5195 10.067 15.5195 12Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">
+                                Manutenção</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Suporte contínuo para manter seu site sempre atualizado e funcionando perfeitamente.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Manutenção</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Suporte contínuo para manter seu site sempre atualizado e funcionando perfeitamente.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path
-                                d="M15.1312 2.5C14.1462 2.17555 13.0936 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 10.9548 21.8396 9.94704 21.5422 9"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                            <path
-                                d="M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M19.5 4.5L12 12M19.5 4.5V2M19.5 4.5H22" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path
+                                    d="M15.1312 2.5C14.1462 2.17555 13.0936 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 10.9548 21.8396 9.94704 21.5422 9"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path
+                                    d="M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M19.5 4.5L12 12M19.5 4.5V2M19.5 4.5H22" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">
+                                Gestão de tráfego</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Planejamento, gestão e otimização de campanhas para atrair o público certo e gerar
+                                oportunidades.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Gestão de tráfego</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Planejamento, gestão e otimização de campanhas para atrair o público certo e gerar
-                        oportunidades.
-                    </p>
-                </div>
+                </md-elevated-card>
 
             </div>
 
-            <div class="mt-10 flex flex-wrap justify-center gap-3">
-                <span
-                    class="rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700">Google
-                    Ads</span>
-                <span
-                    class="rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700">Criação
-                    de blog</span>
-                <span
-                    class="rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700">Inteligência
-                    de dados</span>
-                <span
-                    class="rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700">Criação
-                    de conteúdos</span>
-                <span
-                    class="rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700">Consultoria
-                    de marketing digital</span>
-            </div>
+            <md-chip-set class="mt-10 flex flex-wrap justify-center gap-2">
+                <md-suggestion-chip label="Google Ads"></md-suggestion-chip>
+                <md-suggestion-chip label="Criação de blog"></md-suggestion-chip>
+                <md-suggestion-chip label="Inteligência de dados"></md-suggestion-chip>
+                <md-suggestion-chip label="Criação de conteúdos"></md-suggestion-chip>
+                <md-suggestion-chip label="Consultoria de marketing digital"></md-suggestion-chip>
+            </md-chip-set>
 
         </div>
     </section>
@@ -324,21 +374,18 @@
     <!--Serviços em detalhe-->
 
     <!--Sites & Landing Pages-->
-    <section class="bg-white py-16 sm:py-20 lg:py-24">
+    <section class="py-16 sm:py-20 lg:py-24">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div>
-                    <span
-                        class="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700">
-                        Criação de Sites &amp; Landing Pages
-                    </span>
+                    <span class="m3-eyebrow md-typescale-label-large">Criação de Sites &amp; Landing Pages</span>
 
-                    <h2 class="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                    <h2 class="md-typescale-headline-medium mt-4" style="color:var(--md-sys-color-on-surface)">
                         Sites que transformam visitantes em clientes reais
                     </h2>
 
-                    <p class="mt-6 text-lg text-neutral-600">
+                    <p class="md-typescale-body-large mt-6" style="color:var(--md-sys-color-on-surface-variant)">
                         Desenvolvemos páginas ultrarrápidas, responsivas e estrategicamente desenhadas para transmitir
                         autoridade imediata e conduzir seu visitante diretamente para a contratação ou compra.
                     </p>
@@ -346,57 +393,58 @@
                     <ul class="mt-6 space-y-3">
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Design exclusivo alinhado ao posicionamento premium da sua
-                                marca</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Design
+                                exclusivo alinhado ao posicionamento premium da sua marca</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Otimização técnica extrema (Core Web Vitals &amp; pontuação
-                                90+ no Google)</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Otimização
+                                técnica extrema (Core Web Vitals &amp; pontuação 90+ no Google)</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Estrutura preparada para SEO, IA e rastreamento
-                                avançado</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Estrutura
+                                preparada para SEO, IA e rastreamento avançado</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Integração com WhatsApp, formulários dinâmicos e CRM</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Integração
+                                com WhatsApp, formulários dinâmicos e CRM</span>
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
-                        class="mt-8 inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 shrink-0">
+                    <md-filled-button class="mt-8" href="https://wa.me/5577992116008" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg slot="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5">
                             <path d="M17 7L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                             <path
                                 d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13"
@@ -404,179 +452,195 @@
                                 stroke-linejoin="round" />
                         </svg>
                         Solicitar orçamento de site
-                    </a>
+                    </md-filled-button>
                 </div>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500 text-white">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
-                                    <path
-                                        d="M13.5 13L17 9M14 15C14 16.1046 13.1046 17 12 17C10.8954 17 10 16.1046 10 15C10 13.8954 10.8954 13 12 13C13.1046 13 14 13.8954 14 15Z"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                                    <path d="M6 12C6 8.68629 8.68629 6 12 6C13.0929 6 14.1175 6.29218 15 6.80269"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                                    <path
-                                        d="M2.50006 12.0001C2.50006 7.52172 2.50006 5.28255 3.8913 3.8913C5.28255 2.50006 7.52172 2.50006 12.0001 2.50006C16.4784 2.50006 18.7176 2.50006 20.1088 3.8913C21.5001 5.28255 21.5001 7.52172 21.5001 12.0001C21.5001 16.4784 21.5001 18.7176 20.1088 20.1088C18.7176 21.5001 16.4784 21.5001 12.0001 21.5001C7.52172 21.5001 5.28255 21.5001 3.8913 20.1088C2.50006 18.7176 2.50006 16.4784 2.50006 12.0001Z"
-                                        stroke="currentColor" stroke-width="1.5" />
-                                </svg>
+                <md-outlined-card class="block">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="flex h-10 w-10 items-center justify-center rounded-lg"
+                                    style="background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary)">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5">
+                                        <path
+                                            d="M13.5 13L17 9M14 15C14 16.1046 13.1046 17 12 17C10.8954 17 10 16.1046 10 15C10 13.8954 10.8954 13 12 13C13.1046 13 14 13.8954 14 15Z"
+                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                        <path d="M6 12C6 8.68629 8.68629 6 12 6C13.0929 6 14.1175 6.29218 15 6.80269"
+                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                        <path
+                                            d="M2.50006 12.0001C2.50006 7.52172 2.50006 5.28255 3.8913 3.8913C5.28255 2.50006 7.52172 2.50006 12.0001 2.50006C16.4784 2.50006 18.7176 2.50006 20.1088 3.8913C21.5001 5.28255 21.5001 7.52172 21.5001 12.0001C21.5001 16.4784 21.5001 18.7176 20.1088 20.1088C18.7176 21.5001 16.4784 21.5001 12.0001 21.5001C7.52172 21.5001 5.28255 21.5001 3.8913 20.1088C2.50006 18.7176 2.50006 16.4784 2.50006 12.0001Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="md-typescale-title-small" style="color:var(--md-sys-color-on-surface)">
+                                        Performance Garantida</p>
+                                    <p class="md-typescale-body-small" style="color:var(--md-sys-color-on-surface-variant)">
+                                        Google PageSpeed Insights</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-bold text-neutral-900">Performance Garantida</p>
-                                <p class="text-sm text-neutral-500">Google PageSpeed Insights</p>
-                            </div>
+                            <span class="m3-badge md-typescale-label-medium shrink-0">Score 98/100</span>
                         </div>
-                        <span
-                            class="shrink-0 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">Score
-                            98/100</span>
-                    </div>
 
-                    <div class="mt-4">
-                        <div class="flex items-center justify-between border-t border-neutral-100 py-3">
-                            <span class="text-sm text-neutral-600">Velocidade de Carregamento</span>
-                            <span class="text-sm font-semibold text-green-600">&lt; 0.9s</span>
-                        </div>
-                        <div class="flex items-center justify-between border-t border-neutral-100 py-3">
-                            <span class="text-sm text-neutral-600">Taxa de Conversão</span>
-                            <span class="text-sm font-semibold text-green-600">+38% vs média</span>
-                        </div>
-                        <div class="flex items-center justify-between border-t border-neutral-100 py-3">
-                            <span class="text-sm text-neutral-600">Compatibilidade</span>
-                            <span
-                                class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600">Mobile
-                                • Tablet • Desktop</span>
+                        <div class="mt-4">
+                            <div class="flex items-center justify-between py-3">
+                                <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Velocidade
+                                    de Carregamento</span>
+                                <span class="md-typescale-label-large" style="color:var(--md-sys-color-primary)">&lt;
+                                    0.9s</span>
+                            </div>
+                            <md-divider></md-divider>
+                            <div class="flex items-center justify-between py-3">
+                                <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Taxa
+                                    de Conversão</span>
+                                <span class="md-typescale-label-large" style="color:var(--md-sys-color-primary)">+38%
+                                    vs média</span>
+                            </div>
+                            <md-divider></md-divider>
+                            <div class="flex items-center justify-between py-3">
+                                <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Compatibilidade</span>
+                                <span class="rounded-full px-3 py-1 md-typescale-label-medium"
+                                    style="background:var(--md-sys-color-surface-container-high);color:var(--md-sys-color-on-surface-variant)">Mobile
+                                    • Tablet • Desktop</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </md-outlined-card>
 
             </div>
         </div>
     </section>
 
     <!--Google Ads-->
-    <section class="bg-stone-50 py-16 sm:py-20 lg:py-24">
+    <section class="py-16 sm:py-20 lg:py-24" style="background:var(--md-sys-color-surface-container-low)">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div class="order-2 lg:order-1">
-                    <div class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500 text-white">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        class="h-5 w-5">
-                                        <path d="M17 17L21 21" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                        <path
-                                            d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z"
-                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
+                    <md-outlined-card class="block">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="flex h-10 w-10 items-center justify-center rounded-lg"
+                                        style="background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary)">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5">
+                                            <path d="M17 17L21 21" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="md-typescale-title-small" style="color:var(--md-sys-color-on-surface)">
+                                            Google Ads Performance</p>
+                                        <p class="md-typescale-body-small" style="color:var(--md-sys-color-on-surface-variant)">
+                                            Tráfego de alta intenção</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="font-bold text-neutral-900">Google Ads Performance</p>
-                                    <p class="text-sm text-neutral-500">Tráfego de alta intenção</p>
-                                </div>
+                                <span class="m3-badge md-typescale-label-medium shrink-0">ROI 4.8x</span>
                             </div>
-                            <span
-                                class="shrink-0 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">ROI
-                                4.8x</span>
-                        </div>
 
-                        <div class="mt-4 space-y-3">
-                            <div class="rounded-xl bg-neutral-50 p-4">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-xs font-medium text-neutral-500">Pesquisa Google</span>
-                                    <span class="text-xs font-semibold text-green-600">Posição #1</span>
+                            <div class="mt-4 space-y-3">
+                                <div class="rounded-xl p-4" style="background:var(--md-sys-color-surface-container)">
+                                    <div class="flex items-center justify-between">
+                                        <span class="md-typescale-label-medium" style="color:var(--md-sys-color-on-surface-variant)">Pesquisa
+                                            Google</span>
+                                        <span class="md-typescale-label-medium" style="color:var(--md-sys-color-primary)">Posição
+                                            #1</span>
+                                    </div>
+                                    <p class="md-typescale-title-small mt-1" style="color:var(--md-sys-color-on-surface)">
+                                        Palavras-chave de fundo de funil</p>
+                                    <p class="md-typescale-body-small" style="color:var(--md-sys-color-on-surface-variant)">
+                                        Anúncios exibidos apenas para quem já quer comprar.</p>
                                 </div>
-                                <p class="mt-1 text-sm font-bold text-neutral-900">Palavras-chave de fundo de funil</p>
-                                <p class="text-sm text-neutral-500">Anúncios exibidos apenas para quem já quer comprar.
-                                </p>
-                            </div>
-                            <div class="rounded-xl bg-neutral-50 p-4">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-xs font-medium text-neutral-500">Blindagem de Verba</span>
-                                    <span class="text-xs font-semibold text-green-600">Zero Desperdício</span>
+                                <div class="rounded-xl p-4" style="background:var(--md-sys-color-surface-container)">
+                                    <div class="flex items-center justify-between">
+                                        <span class="md-typescale-label-medium" style="color:var(--md-sys-color-on-surface-variant)">Blindagem
+                                            de Verba</span>
+                                        <span class="md-typescale-label-medium" style="color:var(--md-sys-color-primary)">Zero
+                                            Desperdício</span>
+                                    </div>
+                                    <p class="md-typescale-title-small mt-1" style="color:var(--md-sys-color-on-surface)">
+                                        Negativação diária de termos</p>
+                                    <p class="md-typescale-body-small" style="color:var(--md-sys-color-on-surface-variant)">
+                                        Evita cliques curiosos e maximiza o orçamento.</p>
                                 </div>
-                                <p class="mt-1 text-sm font-bold text-neutral-900">Negativação diária de termos</p>
-                                <p class="text-sm text-neutral-500">Evita cliques curiosos e maximiza o orçamento.</p>
                             </div>
                         </div>
-                    </div>
+                    </md-outlined-card>
                 </div>
 
                 <div class="order-1 lg:order-2">
-                    <span
-                        class="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700">
-                        Google Ads &amp; Tráfego de Intenção
-                    </span>
+                    <span class="m3-eyebrow md-typescale-label-large">Google Ads &amp; Tráfego de Intenção</span>
 
-                    <h2 class="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                    <h2 class="md-typescale-headline-medium mt-4" style="color:var(--md-sys-color-on-surface)">
                         Apareça no momento exato em que o cliente procura sua solução
                     </h2>
 
-                    <p class="mt-6 text-lg text-neutral-600">
-                        Colocamos sua empresa no topo das buscas do Google para capturar a demanda ativa de quem já tem
-                        intenção de contratar e dinheiro na mão.
+                    <p class="md-typescale-body-large mt-6" style="color:var(--md-sys-color-on-surface-variant)">
+                        Colocamos sua empresa no topo das buscas do Google para capturar a demanda ativa de quem já
+                        tem intenção de contratar e dinheiro na mão.
                     </p>
 
                     <ul class="mt-6 space-y-3">
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Campanhas focadas em palavras-chave comerciais de alta
-                                intenção</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Campanhas
+                                focadas em palavras-chave comerciais de alta intenção</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Performance Max (PMax) e Rede de Pesquisa de alta
-                                rentabilidade</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Performance
+                                Max (PMax) e Rede de Pesquisa de alta rentabilidade</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Negativação de termos irrelevantes para proteger seu
-                                orçamento</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Negativação
+                                de termos irrelevantes para proteger seu orçamento</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Mensuração precisa de conversões via Google Tag Manager e
-                                GA4</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Mensuração
+                                precisa de conversões via Google Tag Manager e GA4</span>
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
-                        class="mt-8 inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 shrink-0">
+                    <md-filled-button class="mt-8" href="https://wa.me/5577992116008" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg slot="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5">
                             <path d="M17 7L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                             <path
                                 d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13"
@@ -584,7 +648,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                         Anunciar no Google Ads
-                    </a>
+                    </md-filled-button>
                 </div>
 
             </div>
@@ -592,80 +656,77 @@
     </section>
 
     <!--Meta Ads-->
-    <section class="bg-white py-16 sm:py-20 lg:py-24">
+    <section class="py-16 sm:py-20 lg:py-24">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div>
-                    <span
-                        class="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700">
-                        Meta Ads (Instagram &amp; Facebook)
-                    </span>
+                    <span class="m3-eyebrow md-typescale-label-large">Meta Ads (Instagram &amp; Facebook)</span>
 
-                    <h2 class="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                    <h2 class="md-typescale-headline-medium mt-4" style="color:var(--md-sys-color-on-surface)">
                         Atraia clientes todos os dias no Instagram e Facebook
                     </h2>
 
-                    <p class="mt-6 text-lg text-neutral-600">
-                        Transforme a atenção das redes sociais em um canal previsível de geração de leads e vendas, com
-                        criativos magnéticos e segmentação cirúrgica do seu público ideal.
+                    <p class="md-typescale-body-large mt-6" style="color:var(--md-sys-color-on-surface-variant)">
+                        Transforme a atenção das redes sociais em um canal previsível de geração de leads e vendas,
+                        com criativos magnéticos e segmentação cirúrgica do seu público ideal.
                     </p>
 
                     <ul class="mt-6 space-y-3">
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Segmentação avançada por interesses, comportamento e
-                                Lookalike</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Segmentação
+                                avançada por interesses, comportamento e Lookalike</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Estratégia de criativos de alta retenção (vídeos curtos,
-                                carrosséis e estáticos)</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Estratégia
+                                de criativos de alta retenção (vídeos curtos, carrosséis e estáticos)</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Funil completo com remarketing dinâmico para não perder
-                                nenhum lead</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Funil
+                                completo com remarketing dinâmico para não perder nenhum lead</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">API de Conversões (CAPI) instalada para precisão máxima de
-                                dados</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">API
+                                de Conversões (CAPI) instalada para precisão máxima de dados</span>
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
-                        class="mt-8 inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 shrink-0">
+                    <md-filled-button class="mt-8" href="https://wa.me/5577992116008" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg slot="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5">
                             <path d="M17 7L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                             <path
                                 d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13"
@@ -673,190 +734,208 @@
                                 stroke-linejoin="round" />
                         </svg>
                         Escalar vendas no Meta Ads
-                    </a>
+                    </md-filled-button>
                 </div>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500 text-white">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
-                                    <path
-                                        d="M14.9263 2.91103L8.27352 6.10452C7.76151 6.35029 7.21443 6.41187 6.65675 6.28693C6.29177 6.20517 6.10926 6.16429 5.9623 6.14751C4.13743 5.93912 3 7.38342 3 9.04427V9.95573C3 11.6166 4.13743 13.0609 5.9623 12.8525C6.10926 12.8357 6.29178 12.7948 6.65675 12.7131C7.21443 12.5881 7.76151 12.6497 8.27352 12.8955L14.9263 16.089C16.4534 16.8221 17.217 17.1886 18.0684 16.9029C18.9197 16.6172 19.2119 16.0041 19.7964 14.778C21.4012 11.4112 21.4012 7.58885 19.7964 4.22196C19.2119 2.99586 18.9197 2.38281 18.0684 2.0971C17.217 1.8114 16.4534 2.17794 14.9263 2.91103Z"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M11.4581 20.7709L9.96674 22C6.60515 19.3339 7.01583 18.0625 7.01583 13H8.14966C8.60978 15.8609 9.69512 17.216 11.1927 18.197C12.1152 18.8012 12.3054 20.0725 11.4581 20.7709Z"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path d="M7.5 12.5V6.5" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                <md-outlined-card class="block">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="flex h-10 w-10 items-center justify-center rounded-lg"
+                                    style="background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary)">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5">
+                                        <path
+                                            d="M14.9263 2.91103L8.27352 6.10452C7.76151 6.35029 7.21443 6.41187 6.65675 6.28693C6.29177 6.20517 6.10926 6.16429 5.9623 6.14751C4.13743 5.93912 3 7.38342 3 9.04427V9.95573C3 11.6166 4.13743 13.0609 5.9623 12.8525C6.10926 12.8357 6.29178 12.7948 6.65675 12.7131C7.21443 12.5881 7.76151 12.6497 8.27352 12.8955L14.9263 16.089C16.4534 16.8221 17.217 17.1886 18.0684 16.9029C18.9197 16.6172 19.2119 16.0041 19.7964 14.778C21.4012 11.4112 21.4012 7.58885 19.7964 4.22196C19.2119 2.99586 18.9197 2.38281 18.0684 2.0971C17.217 1.8114 16.4534 2.17794 14.9263 2.91103Z"
+                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.4581 20.7709L9.96674 22C6.60515 19.3339 7.01583 18.0625 7.01583 13H8.14966C8.60978 15.8609 9.69512 17.216 11.1927 18.197C12.1152 18.8012 12.3054 20.0725 11.4581 20.7709Z"
+                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M7.5 12.5V6.5" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="md-typescale-title-small" style="color:var(--md-sys-color-on-surface)">
+                                        Escala de Criativos</p>
+                                    <p class="md-typescale-body-small" style="color:var(--md-sys-color-on-surface-variant)">
+                                        Instagram &amp; Facebook Ads</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-bold text-neutral-900">Escala de Criativos</p>
-                                <p class="text-sm text-neutral-500">Instagram &amp; Facebook Ads</p>
-                            </div>
+                            <span class="m3-badge md-typescale-label-medium shrink-0">Custo/Lead -32%</span>
                         </div>
-                        <span
-                            class="shrink-0 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">Custo/Lead
-                            -32%</span>
-                    </div>
 
-                    <div class="mt-4">
-                        <div class="flex items-center justify-between border-t border-neutral-100 py-3">
-                            <span class="text-sm text-neutral-600">Geração de Oportunidades</span>
-                            <span class="text-sm font-semibold text-green-600">Fluxo Contínuo</span>
-                        </div>
-                        <div class="flex items-center justify-between border-t border-neutral-100 py-3">
-                            <span class="text-sm text-neutral-600">Testes A/B de Anúncios</span>
-                            <span class="text-sm font-semibold text-green-600">Validação Semanal</span>
-                        </div>
-                        <div class="flex items-center justify-between border-t border-neutral-100 py-3">
-                            <span class="text-sm text-neutral-600">Remarketing Dinâmico</span>
-                            <span class="text-sm font-semibold text-green-600">Reativação Ativa</span>
+                        <div class="mt-4">
+                            <div class="flex items-center justify-between py-3">
+                                <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Geração
+                                    de Oportunidades</span>
+                                <span class="md-typescale-label-large" style="color:var(--md-sys-color-primary)">Fluxo
+                                    Contínuo</span>
+                            </div>
+                            <md-divider></md-divider>
+                            <div class="flex items-center justify-between py-3">
+                                <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Testes
+                                    A/B de Anúncios</span>
+                                <span class="md-typescale-label-large" style="color:var(--md-sys-color-primary)">Validação
+                                    Semanal</span>
+                            </div>
+                            <md-divider></md-divider>
+                            <div class="flex items-center justify-between py-3">
+                                <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Remarketing
+                                    Dinâmico</span>
+                                <span class="md-typescale-label-large" style="color:var(--md-sys-color-primary)">Reativação
+                                    Ativa</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </md-outlined-card>
 
             </div>
         </div>
     </section>
 
     <!--Business Intelligence-->
-    <section class="bg-stone-50 py-16 sm:py-20 lg:py-24">
+    <section class="py-16 sm:py-20 lg:py-24" style="background:var(--md-sys-color-surface-container-low)">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div class="order-2 lg:order-1">
-                    <div class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500 text-white">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        class="h-5 w-5">
-                                        <path
-                                            d="M13.6903 19.4567C13.5 18.9973 13.5 18.4149 13.5 17.25C13.5 16.0851 13.5 15.5027 13.6903 15.0433C13.944 14.4307 14.4307 13.944 15.0433 13.6903C15.5027 13.5 16.0851 13.5 17.25 13.5C18.4149 13.5 18.9973 13.5 19.4567 13.6903C20.0693 13.944 20.556 14.4307 20.8097 15.0433C21 15.5027 21 16.0851 21 17.25C21 18.4149 21 18.9973 20.8097 19.4567C20.556 20.0693 20.0693 20.556 19.4567 20.8097C18.9973 21 18.4149 21 17.25 21C16.0851 21 15.5027 21 15.0433 20.8097C14.4307 20.556 13.944 20.0693 13.6903 19.4567Z"
-                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="square"
-                                            stroke-linejoin="round" />
-                                        <path
-                                            d="M13.6903 8.95671C13.5 8.49728 13.5 7.91485 13.5 6.75C13.5 5.58515 13.5 5.00272 13.6903 4.54329C13.944 3.93072 14.4307 3.44404 15.0433 3.1903C15.5027 3 16.0851 3 17.25 3C18.4149 3 18.9973 3 19.4567 3.1903C20.0693 3.44404 20.556 3.93072 20.8097 4.54329C21 5.00272 21 5.58515 21 6.75C21 7.91485 21 8.49728 20.8097 8.95671C20.556 9.56928 20.0693 10.056 19.4567 10.3097C18.9973 10.5 18.4149 10.5 17.25 10.5C16.0851 10.5 15.5027 10.5 15.0433 10.3097C14.4307 10.056 13.944 9.56928 13.6903 8.95671Z"
-                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="square"
-                                            stroke-linejoin="round" />
-                                        <path
-                                            d="M3.1903 19.4567C3 18.9973 3 18.4149 3 17.25C3 16.0851 3 15.5027 3.1903 15.0433C3.44404 14.4307 3.93072 13.944 4.54329 13.6903C5.00272 13.5 5.58515 13.5 6.75 13.5C7.91485 13.5 8.49728 13.5 8.95671 13.6903C9.56928 13.944 10.056 14.4307 10.3097 15.0433C10.5 15.5027 10.5 16.0851 10.5 17.25C10.5 18.4149 10.5 18.9973 10.3097 19.4567C10.056 20.0693 9.56928 20.556 8.95671 20.8097C8.49728 21 7.91485 21 6.75 21C5.58515 21 5.00272 21 4.54329 20.8097C3.93072 20.556 3.44404 20.0693 3.1903 19.4567Z"
-                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="square"
-                                            stroke-linejoin="round" />
-                                        <path
-                                            d="M3.1903 8.95671C3 8.49728 3 7.91485 3 6.75C3 5.58515 3 5.00272 3.1903 4.54329C3.44404 3.93072 3.93072 3.44404 4.54329 3.1903C5.00272 3 5.58515 3 6.75 3C7.91485 3 8.49728 3 8.95671 3.1903C9.56928 3.44404 10.056 3.93072 10.3097 4.54329C10.5 5.00272 10.5 5.58515 10.5 6.75C10.5 7.91485 10.5 8.49728 10.3097 8.95671C10.056 9.56928 9.56928 10.056 8.95671 10.3097C8.49728 10.5 7.91485 10.5 6.75 10.5C5.58515 10.5 5.00272 10.5 4.54329 10.3097C3.93072 10.056 3.44404 9.56928 3.1903 8.95671Z"
-                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="square"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-neutral-900">Dashboard de BI</p>
-                                    <p class="text-sm text-neutral-500">Métricas em tempo real</p>
-                                </div>
-                            </div>
-                            <span
-                                class="shrink-0 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">Decisão
-                                Ágil</span>
-                        </div>
-
-                        <div class="mt-4 grid grid-cols-2 gap-3">
-                            <div class="rounded-xl bg-neutral-50 p-4">
-                                <p class="text-xs font-medium text-neutral-500">CAC (Aquisição)</p>
-                                <p class="mt-1 text-lg font-bold text-green-600">Otimizado</p>
-                            </div>
-                            <div class="rounded-xl bg-neutral-50 p-4">
-                                <p class="text-xs font-medium text-neutral-500">ROAS Médio</p>
-                                <p class="mt-1 text-lg font-bold text-neutral-900">4.2x a 6.8x</p>
-                            </div>
-                        </div>
-
-                        <div class="mt-3 rounded-xl bg-neutral-50 p-4">
+                    <md-outlined-card class="block">
+                        <div class="p-6">
                             <div class="flex items-center justify-between">
-                                <span class="text-xs font-medium text-neutral-500">Integração de Canais</span>
-                                <span class="text-xs font-semibold text-green-600">100% Unificado</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="flex h-10 w-10 items-center justify-center rounded-lg"
+                                        style="background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary)">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5">
+                                            <path
+                                                d="M13.6903 19.4567C13.5 18.9973 13.5 18.4149 13.5 17.25C13.5 16.0851 13.5 15.5027 13.6903 15.0433C13.944 14.4307 14.4307 13.944 15.0433 13.6903C15.5027 13.5 16.0851 13.5 17.25 13.5C18.4149 13.5 18.9973 13.5 19.4567 13.6903C20.0693 13.944 20.556 14.4307 20.8097 15.0433C21 15.5027 21 16.0851 21 17.25C21 18.4149 21 18.9973 20.8097 19.4567C20.556 20.0693 20.0693 20.556 19.4567 20.8097C18.9973 21 18.4149 21 17.25 21C16.0851 21 15.5027 21 15.0433 20.8097C14.4307 20.556 13.944 20.0693 13.6903 19.4567Z"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="square"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M13.6903 8.95671C13.5 8.49728 13.5 7.91485 13.5 6.75C13.5 5.58515 13.5 5.00272 13.6903 4.54329C13.944 3.93072 14.4307 3.44404 15.0433 3.1903C15.5027 3 16.0851 3 17.25 3C18.4149 3 18.9973 3 19.4567 3.1903C20.0693 3.44404 20.556 3.93072 20.8097 4.54329C21 5.00272 21 5.58515 21 6.75C21 7.91485 21 8.49728 20.8097 8.95671C20.556 9.56928 20.0693 10.056 19.4567 10.3097C18.9973 10.5 18.4149 10.5 17.25 10.5C16.0851 10.5 15.5027 10.5 15.0433 10.3097C14.4307 10.056 13.944 9.56928 13.6903 8.95671Z"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="square"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M3.1903 19.4567C3 18.9973 3 18.4149 3 17.25C3 16.0851 3 15.5027 3.1903 15.0433C3.44404 14.4307 3.93072 13.944 4.54329 13.6903C5.00272 13.5 5.58515 13.5 6.75 13.5C7.91485 13.5 8.49728 13.5 8.95671 13.6903C9.56928 13.944 10.056 14.4307 10.3097 15.0433C10.5 15.5027 10.5 16.0851 10.5 17.25C10.5 18.4149 10.5 18.9973 10.3097 19.4567C10.056 20.0693 9.56928 20.556 8.95671 20.8097C8.49728 21 7.91485 21 6.75 21C5.58515 21 5.00272 21 4.54329 20.8097C3.93072 20.556 3.44404 20.0693 3.1903 19.4567Z"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="square"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M3.1903 8.95671C3 8.49728 3 7.91485 3 6.75C3 5.58515 3 5.00272 3.1903 4.54329C3.44404 3.93072 3.93072 3.44404 4.54329 3.1903C5.00272 3 5.58515 3 6.75 3C7.91485 3 8.49728 3 8.95671 3.1903C9.56928 3.44404 10.056 3.93072 10.3097 4.54329C10.5 5.00272 10.5 5.58515 10.5 6.75C10.5 7.91485 10.5 8.49728 10.3097 8.95671C10.056 9.56928 9.56928 10.056 8.95671 10.3097C8.49728 10.5 7.91485 10.5 6.75 10.5C5.58515 10.5 5.00272 10.5 4.54329 10.3097C3.93072 10.056 3.44404 9.56928 3.1903 8.95671Z"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="square"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="md-typescale-title-small" style="color:var(--md-sys-color-on-surface)">
+                                            Dashboard de BI</p>
+                                        <p class="md-typescale-body-small" style="color:var(--md-sys-color-on-surface-variant)">
+                                            Métricas em tempo real</p>
+                                    </div>
+                                </div>
+                                <span class="m3-badge md-typescale-label-medium shrink-0">Decisão Ágil</span>
                             </div>
-                            <p class="mt-1 text-sm font-bold text-neutral-900">Google + Meta + CRM + Site</p>
-                            <p class="text-sm text-neutral-500">Transparência total sobre o retorno de cada real
-                                investido.</p>
+
+                            <div class="mt-4 grid grid-cols-2 gap-3">
+                                <div class="rounded-xl p-4" style="background:var(--md-sys-color-surface-container)">
+                                    <p class="md-typescale-label-medium" style="color:var(--md-sys-color-on-surface-variant)">
+                                        CAC (Aquisição)</p>
+                                    <p class="md-typescale-title-medium mt-1" style="color:var(--md-sys-color-primary)">
+                                        Otimizado</p>
+                                </div>
+                                <div class="rounded-xl p-4" style="background:var(--md-sys-color-surface-container)">
+                                    <p class="md-typescale-label-medium" style="color:var(--md-sys-color-on-surface-variant)">
+                                        ROAS Médio</p>
+                                    <p class="md-typescale-title-medium mt-1" style="color:var(--md-sys-color-on-surface)">
+                                        4.2x a 6.8x</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-3 rounded-xl p-4" style="background:var(--md-sys-color-surface-container)">
+                                <div class="flex items-center justify-between">
+                                    <span class="md-typescale-label-medium" style="color:var(--md-sys-color-on-surface-variant)">Integração
+                                        de Canais</span>
+                                    <span class="md-typescale-label-medium" style="color:var(--md-sys-color-primary)">100%
+                                        Unificado</span>
+                                </div>
+                                <p class="md-typescale-title-small mt-1" style="color:var(--md-sys-color-on-surface)">
+                                    Google + Meta + CRM + Site</p>
+                                <p class="md-typescale-body-small" style="color:var(--md-sys-color-on-surface-variant)">
+                                    Transparência total sobre o retorno de cada real investido.</p>
+                            </div>
                         </div>
-                    </div>
+                    </md-outlined-card>
                 </div>
 
                 <div class="order-1 lg:order-2">
-                    <span
-                        class="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700">
-                        Business Intelligence &amp; Analytics
-                    </span>
+                    <span class="m3-eyebrow md-typescale-label-large">Business Intelligence &amp; Analytics</span>
 
-                    <h2 class="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                    <h2 class="md-typescale-headline-medium mt-4" style="color:var(--md-sys-color-on-surface)">
                         Decisões baseadas em números reais, sem achismos
                     </h2>
 
-                    <p class="mt-6 text-lg text-neutral-600">
-                        Saiba com precisão cirúrgica de onde vem cada lead, qual campanha gera mais lucro e onde alocar
-                        seus recursos para obter o máximo de retorno sobre investimento.
+                    <p class="md-typescale-body-large mt-6" style="color:var(--md-sys-color-on-surface-variant)">
+                        Saiba com precisão cirúrgica de onde vem cada lead, qual campanha gera mais lucro e onde
+                        alocar seus recursos para obter o máximo de retorno sobre investimento.
                     </p>
 
                     <ul class="mt-6 space-y-3">
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Dashboards interativos e personalizados (Looker
-                                Studio)</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Dashboards
+                                interativos e personalizados (Looker Studio)</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Acompanhamento claro de métricas de negócio: CAC, LTV e
-                                ROI</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Acompanhamento
+                                claro de métricas de negócio: CAC, LTV e ROI</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Unificação completa de dados entre tráfego, site e equipe de
-                                vendas</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Unificação
+                                completa de dados entre tráfego, site e equipe de vendas</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                class="mt-0.5 h-5 w-5 shrink-0 text-green-600">
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-primary)">
                                 <path
                                     d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="text-neutral-600">Relatórios claros e reuniões estratégicas para direcionar o
-                                crescimento</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-on-surface-variant)">Relatórios
+                                claros e reuniões estratégicas para direcionar o crescimento</span>
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
-                        class="mt-8 inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 shrink-0">
+                    <md-filled-button class="mt-8" href="https://wa.me/5577992116008" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg slot="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5">
                             <path d="M17 7L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                             <path
                                 d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13"
@@ -864,7 +943,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                         Falar com especialista em dados
-                    </a>
+                    </md-filled-button>
                 </div>
 
             </div>
@@ -872,19 +951,19 @@
     </section>
 
     <!--Portfólio-->
-    <section id="portfolio" class="bg-neutral-950 py-16 sm:py-20 lg:py-24">
+    <section id="portfolio" class="py-16 sm:py-20 lg:py-24"
+        style="background:var(--md-sys-color-inverse-surface)">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
             <div class="mx-auto max-w-2xl text-center">
-                <span class="text-sm font-semibold tracking-widest text-green-400 uppercase">
-                    — Portfólio —
-                </span>
+                <span class="m3-eyebrow m3-eyebrow-inverse md-typescale-label-large">— Portfólio —</span>
 
-                <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h2 class="md-typescale-headline-medium mt-4" style="color:var(--md-sys-color-inverse-on-surface)">
                     Projetos desenvolvidos pela Dani.
                 </h2>
 
-                <p class="mt-4 text-lg text-neutral-400">
+                <p class="md-typescale-body-large mt-4"
+                    style="color:color-mix(in srgb, var(--md-sys-color-inverse-on-surface) 75%, transparent)">
                     Projetos reais para empresas de diferentes segmentos.
                 </p>
             </div>
@@ -895,315 +974,381 @@
                     <picture>
                         <source srcset="./src/img/portfolio/academia-hazak-fit.webp" type="image/webp">
                         <img src="./src/img/portfolio/academia-hazak-fit.png" alt="Site da Hazak Fit"
-                            class="mx-auto w-full max-w-sm" loading="lazy">
+                            class="mx-auto w-full max-w-sm rounded-xl" loading="lazy">
                     </picture>
-                    <p class="mt-4 text-xs font-semibold tracking-wide text-green-400 uppercase">Academia</p>
-                    <p class="font-bold text-white">Hazak Fit</p>
+                    <p class="md-typescale-label-medium mt-4 uppercase"
+                        style="color:var(--md-sys-color-inverse-primary)">Academia</p>
+                    <p class="md-typescale-title-medium" style="color:var(--md-sys-color-inverse-on-surface)">Hazak
+                        Fit</p>
                 </div>
 
                 <div class="text-center">
                     <picture>
                         <source srcset="./src/img/portfolio/casa-e-bebe.webp" type="image/webp">
                         <img src="./src/img/portfolio/casa-e-bebe.png" alt="Site da Casa Bebê"
-                            class="mx-auto w-full max-w-sm" loading="lazy">
+                            class="mx-auto w-full max-w-sm rounded-xl" loading="lazy">
                     </picture>
-                    <p class="mt-4 text-xs font-semibold tracking-wide text-green-400 uppercase">Hub de Bebês</p>
-                    <p class="font-bold text-white">Casa Bebê</p>
+                    <p class="md-typescale-label-medium mt-4 uppercase"
+                        style="color:var(--md-sys-color-inverse-primary)">Hub de Bebês</p>
+                    <p class="md-typescale-title-medium" style="color:var(--md-sys-color-inverse-on-surface)">Casa
+                        Bebê</p>
                 </div>
 
                 <div class="text-center">
                     <picture>
                         <source srcset="./src/img/portfolio/clinica-SIM.webp" type="image/webp">
                         <img src="./src/img/portfolio/clinica-SIM.png" alt="Site da Clínica Sim"
-                            class="mx-auto w-full max-w-sm" loading="lazy">
+                            class="mx-auto w-full max-w-sm rounded-xl" loading="lazy">
                     </picture>
-                    <p class="mt-4 text-xs font-semibold tracking-wide text-green-400 uppercase">Centro Clínico</p>
-                    <p class="font-bold text-white">Clínica Sim</p>
+                    <p class="md-typescale-label-medium mt-4 uppercase"
+                        style="color:var(--md-sys-color-inverse-primary)">Centro Clínico</p>
+                    <p class="md-typescale-title-medium" style="color:var(--md-sys-color-inverse-on-surface)">Clínica
+                        Sim</p>
                 </div>
 
                 <div class="text-center">
                     <picture>
                         <source srcset="./src/img/portfolio/dra.%20ane%20elise.webp" type="image/webp">
                         <img src="./src/img/portfolio/dra.%20ane%20elise.png" alt="Site da Dra. Ane Elise"
-                            class="mx-auto w-full max-w-sm" loading="lazy">
+                            class="mx-auto w-full max-w-sm rounded-xl" loading="lazy">
                     </picture>
-                    <p class="mt-4 text-xs font-semibold tracking-wide text-green-400 uppercase">Dentista</p>
-                    <p class="font-bold text-white">Dra. Ane Elise</p>
+                    <p class="md-typescale-label-medium mt-4 uppercase"
+                        style="color:var(--md-sys-color-inverse-primary)">Dentista</p>
+                    <p class="md-typescale-title-medium" style="color:var(--md-sys-color-inverse-on-surface)">Dra.
+                        Ane Elise</p>
                 </div>
 
                 <div class="text-center">
                     <picture>
                         <source srcset="./src/img/portfolio/juninho%20personal.webp" type="image/webp">
                         <img src="./src/img/portfolio/juninho%20personal.png" alt="Site do Personal Juninho"
-                            class="mx-auto w-full max-w-sm" loading="lazy">
+                            class="mx-auto w-full max-w-sm rounded-xl" loading="lazy">
                     </picture>
-                    <p class="mt-4 text-xs font-semibold tracking-wide text-green-400 uppercase">Personal Trainer</p>
-                    <p class="font-bold text-white">Personal Juninho</p>
+                    <p class="md-typescale-label-medium mt-4 uppercase"
+                        style="color:var(--md-sys-color-inverse-primary)">Personal Trainer</p>
+                    <p class="md-typescale-title-medium" style="color:var(--md-sys-color-inverse-on-surface)">
+                        Personal Juninho</p>
                 </div>
 
                 <div class="text-center">
                     <picture>
                         <source srcset="./src/img/portfolio/grafica-inovaprint.webp" type="image/webp">
                         <img src="./src/img/portfolio/grafica-inovaprint.png" alt="Site da Inova Print"
-                            class="mx-auto w-full max-w-sm" loading="lazy">
+                            class="mx-auto w-full max-w-sm rounded-xl" loading="lazy">
                     </picture>
-                    <p class="mt-4 text-xs font-semibold tracking-wide text-green-400 uppercase">Gráfica</p>
-                    <p class="font-bold text-white">Inova Print</p>
+                    <p class="md-typescale-label-medium mt-4 uppercase"
+                        style="color:var(--md-sys-color-inverse-primary)">Gráfica</p>
+                    <p class="md-typescale-title-medium" style="color:var(--md-sys-color-inverse-on-surface)">Inova
+                        Print</p>
                 </div>
 
             </div>
 
             <div class="mt-14 text-center">
-                <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-green-600">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0">
+                <md-filled-button href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer">
+                    <svg slot="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5">
                         <path d="M17 7L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                         <path
                             d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13"
                             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     Solicitar orçamento
-                </a>
+                </md-filled-button>
             </div>
 
         </div>
     </section>
 
     <!--Processo-->
-    <section class="bg-stone-50 py-16 sm:py-20 lg:py-24">
+    <section class="py-16 sm:py-20 lg:py-24">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
             <div class="mx-auto max-w-2xl text-center">
-                <span
-                    class="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700">
-                    Nosso processo
-                </span>
+                <span class="m3-eyebrow md-typescale-label-large">Nosso processo</span>
 
-                <h2 class="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                <h2 class="md-typescale-headline-medium mt-4" style="color:var(--md-sys-color-on-surface)">
                     Como funciona a criação do seu site
                 </h2>
 
-                <p class="mt-4 text-lg text-neutral-500">
+                <p class="md-typescale-body-large mt-4" style="color:var(--md-sys-color-on-surface-variant)">
                     Um processo organizado do entendimento do projeto até a publicação.
                 </p>
             </div>
 
             <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path
-                                d="M17.0235 3.03358L16.0689 2.77924C13.369 2.05986 12.019 1.70018 10.9555 2.31074C9.89196 2.9213 9.53023 4.26367 8.80678 6.94841L7.78366 10.7452C7.0602 13.4299 6.69848 14.7723 7.3125 15.8298C7.92652 16.8874 9.27651 17.247 11.9765 17.9664L12.9311 18.2208C15.631 18.9401 16.981 19.2998 18.0445 18.6893C19.108 18.0787 19.4698 16.7363 20.1932 14.0516L21.2163 10.2548C21.9398 7.57005 22.3015 6.22768 21.6875 5.17016C21.0735 4.11264 19.7235 3.75295 17.0235 3.03358Z"
-                                stroke="currentColor" stroke-width="1.5" />
-                            <path
-                                d="M16.8538 7.43306C16.8538 8.24714 16.1901 8.90709 15.3714 8.90709C14.5527 8.90709 13.889 8.24714 13.889 7.43306C13.889 6.61898 14.5527 5.95904 15.3714 5.95904C16.1901 5.95904 16.8538 6.61898 16.8538 7.43306Z"
-                                stroke="currentColor" stroke-width="1.5" />
-                            <path
-                                d="M12 20.9463L11.0477 21.2056C8.35403 21.9391 7.00722 22.3059 5.94619 21.6833C4.88517 21.0608 4.52429 19.6921 3.80253 16.9547L2.78182 13.0834C2.06006 10.346 1.69918 8.97731 2.31177 7.89904C2.84167 6.96631 4 7.00027 5.5 7.00015"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path
+                                    d="M17.0235 3.03358L16.0689 2.77924C13.369 2.05986 12.019 1.70018 10.9555 2.31074C9.89196 2.9213 9.53023 4.26367 8.80678 6.94841L7.78366 10.7452C7.0602 13.4299 6.69848 14.7723 7.3125 15.8298C7.92652 16.8874 9.27651 17.247 11.9765 17.9664L12.9311 18.2208C15.631 18.9401 16.981 19.2998 18.0445 18.6893C19.108 18.0787 19.4698 16.7363 20.1932 14.0516L21.2163 10.2548C21.9398 7.57005 22.3015 6.22768 21.6875 5.17016C21.0735 4.11264 19.7235 3.75295 17.0235 3.03358Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path
+                                    d="M16.8538 7.43306C16.8538 8.24714 16.1901 8.90709 15.3714 8.90709C14.5527 8.90709 13.889 8.24714 13.889 7.43306C13.889 6.61898 14.5527 5.95904 15.3714 5.95904C16.1901 5.95904 16.8538 6.61898 16.8538 7.43306Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path
+                                    d="M12 20.9463L11.0477 21.2056C8.35403 21.9391 7.00722 22.3059 5.94619 21.6833C4.88517 21.0608 4.52429 19.6921 3.80253 16.9547L2.78182 13.0834C2.06006 10.346 1.69918 8.97731 2.31177 7.89904C2.84167 6.96631 4 7.00027 5.5 7.00015"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">
+                                Briefing</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Entendemos o negócio, o público, os objetivos e as necessidades do projeto.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Briefing</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Entendemos o negócio, o público, os objetivos e as necessidades do projeto.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <circle cx="6" cy="19" r="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path
-                                d="M12 5H8.5C6.567 5 5 6.567 5 8.5C5 10.433 6.567 12 8.5 12H15.5C17.433 12 19 13.567 19 15.5C19 17.433 17.433 19 15.5 19H12"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="6" cy="19" r="3" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M12 5H8.5C6.567 5 5 6.567 5 8.5C5 10.433 6.567 12 8.5 12H15.5C17.433 12 19 13.567 19 15.5C19 17.433 17.433 19 15.5 19H12"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">
+                                Planejamento</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Definimos estrutura, conteúdo, funcionalidades e prioridades do site.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Planejamento</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Definimos estrutura, conteúdo, funcionalidades e prioridades do site.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path
-                                d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C12.8417 22 14 22.1163 14 21C14 20.391 13.6832 19.9212 13.3686 19.4544C12.9082 18.7715 12.4523 18.0953 13 17C13.6667 15.6667 14.7778 15.6667 16.4815 15.6667C17.3334 15.6667 18.3334 15.6667 19.5 15.5C21.601 15.1999 22 13.9084 22 12Z"
-                                stroke="currentColor" stroke-width="1.5" />
-                            <path d="M7 15.002L7.00868 14.9996" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <circle cx="9.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5" />
-                            <circle cx="16.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path
+                                    d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C12.8417 22 14 22.1163 14 21C14 20.391 13.6832 19.9212 13.3686 19.4544C12.9082 18.7715 12.4523 18.0953 13 17C13.6667 15.6667 14.7778 15.6667 16.4815 15.6667C17.3334 15.6667 18.3334 15.6667 19.5 15.5C21.601 15.1999 22 13.9084 22 12Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path d="M7 15.002L7.00868 14.9996" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="9.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5" />
+                                <circle cx="16.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">Design
+                            </h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Organizamos a experiência e a apresentação visual de cada página.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Design</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Organizamos a experiência e a apresentação visual de cada página.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path d="M7.99994 12H8.00891M11.9955 12H12.0044M15.991 12H15.9999" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M18 21C19.2322 21 20.231 19.8487 20.231 18.4286C20.231 16.1808 20.1312 14.6864 21.6733 12.9091C22.1089 12.407 22.1089 11.5929 21.6733 11.0908C20.1312 9.31353 20.231 7.81914 20.231 5.57141C20.231 4.15125 19.2322 2.99998 18 2.99998"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path
-                                d="M6 21C4.76784 21 3.76897 19.8487 3.76897 18.4286C3.76897 16.1808 3.86877 14.6864 2.32673 12.9091C1.89109 12.407 1.89109 11.5929 2.32673 11.0908C3.83496 9.35249 3.76897 7.8399 3.76897 5.57141C3.76897 4.15125 4.76784 2.99998 6 2.99998"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path d="M7.99994 12H8.00891M11.9955 12H12.0044M15.991 12H15.9999"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M18 21C19.2322 21 20.231 19.8487 20.231 18.4286C20.231 16.1808 20.1312 14.6864 21.6733 12.9091C22.1089 12.407 22.1089 11.5929 21.6733 11.0908C20.1312 9.31353 20.231 7.81914 20.231 5.57141C20.231 4.15125 19.2322 2.99998 18 2.99998"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M6 21C4.76784 21 3.76897 19.8487 3.76897 18.4286C3.76897 16.1808 3.86877 14.6864 2.32673 12.9091C1.89109 12.407 1.89109 11.5929 2.32673 11.0908C3.83496 9.35249 3.76897 7.8399 3.76897 5.57141C3.76897 4.15125 4.76784 2.99998 6 2.99998"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">
+                                Desenvolvimento</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Construímos o site com atenção a responsividade, desempenho e mensuração.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Desenvolvimento</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Construímos o site com atenção a responsividade, desempenho e mensuração.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path d="M13.5 20C13.5 20 14.5 20 15.5 22C15.5 22 18.6765 17 21.5 16" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M7 16H11M7 11H15" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <path
-                                d="M6.5 3.5C4.9442 3.54667 4.01661 3.71984 3.37477 4.36227C2.49609 5.24177 2.49609 6.6573 2.49609 9.48836L2.49609 15.9944C2.49609 18.8255 2.49609 20.241 3.37477 21.1205C4.25345 22 5.66767 22 8.49609 22L10.9961 22M15.4922 3.5C17.048 3.54667 17.9756 3.71984 18.6174 4.36228C19.4961 5.24177 19.4961 6.6573 19.4961 9.48836V13.5"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                            <path
-                                d="M6.49609 3.75C6.49609 2.7835 7.2796 2 8.24609 2H13.7461C14.7126 2 15.4961 2.7835 15.4961 3.75C15.4961 4.7165 14.7126 5.5 13.7461 5.5H8.24609C7.2796 5.5 6.49609 4.7165 6.49609 3.75Z"
-                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path d="M13.5 20C13.5 20 14.5 20 15.5 22C15.5 22 18.6765 17 21.5 16"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M7 16H11M7 11H15" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                                <path
+                                    d="M6.5 3.5C4.9442 3.54667 4.01661 3.71984 3.37477 4.36227C2.49609 5.24177 2.49609 6.6573 2.49609 9.48836L2.49609 15.9944C2.49609 18.8255 2.49609 20.241 3.37477 21.1205C4.25345 22 5.66767 22 8.49609 22L10.9961 22M15.4922 3.5C17.048 3.54667 17.9756 3.71984 18.6174 4.36228C19.4961 5.24177 19.4961 6.6573 19.4961 9.48836V13.5"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path
+                                    d="M6.49609 3.75C6.49609 2.7835 7.2796 2 8.24609 2H13.7461C14.7126 2 15.4961 2.7835 15.4961 3.75C15.4961 4.7165 14.7126 5.5 13.7461 5.5H8.24609C7.2796 5.5 6.49609 4.7165 6.49609 3.75Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">
+                                Revisão</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Validamos conteúdo, navegação, formulários, links e visual em diferentes telas.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Revisão</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Validamos conteúdo, navegação, formulários, links e visual em diferentes telas.
-                    </p>
-                </div>
+                </md-elevated-card>
 
-                <div class="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                            <path
-                                d="M11.8013 6.48949L13.2869 5.00392C14.9596 3.3312 17.1495 2.63737 19.4671 2.52399C20.3686 2.47989 20.8193 2.45784 21.1807 2.81928C21.5422 3.18071 21.5201 3.63143 21.476 4.53289C21.3626 6.8505 20.6688 9.04042 18.9961 10.7131L17.5105 12.1987C16.2871 13.4221 15.9393 13.77 16.1961 15.097C16.4496 16.1107 16.6949 17.0923 15.9578 17.8294C15.0637 18.7235 14.2481 18.7235 13.354 17.8294L6.17058 10.646C5.27649 9.75188 5.27646 8.9363 6.17058 8.04219C6.90767 7.30509 7.88929 7.55044 8.90297 7.80389C10.23 8.06073 10.5779 7.71289 11.8013 6.48949Z"
-                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                            <path d="M16.9959 7H17.0049" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M2.5 21.5L7.5 16.5" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <path d="M8.5 21.5L10.5 19.5" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <path d="M2.5 15.5L4.5 13.5" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                        </svg>
+                <md-elevated-card class="block h-full">
+                    <div class="flex h-full flex-col gap-4 p-6">
+                        <div class="m3-icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+                                <path
+                                    d="M11.8013 6.48949L13.2869 5.00392C14.9596 3.3312 17.1495 2.63737 19.4671 2.52399C20.3686 2.47989 20.8193 2.45784 21.1807 2.81928C21.5422 3.18071 21.5201 3.63143 21.476 4.53289C21.3626 6.8505 20.6688 9.04042 18.9961 10.7131L17.5105 12.1987C16.2871 13.4221 15.9393 13.77 16.1961 15.097C16.4496 16.1107 16.6949 17.0923 15.9578 17.8294C15.0637 18.7235 14.2481 18.7235 13.354 17.8294L6.17058 10.646C5.27649 9.75188 5.27646 8.9363 6.17058 8.04219C6.90767 7.30509 7.88929 7.55044 8.90297 7.80389C10.23 8.06073 10.5779 7.71289 11.8013 6.48949Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                                <path d="M16.9959 7H17.0049" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2.5 21.5L7.5 16.5" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                                <path d="M8.5 21.5L10.5 19.5" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                                <path d="M2.5 15.5L4.5 13.5" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="md-typescale-title-medium" style="color:var(--md-sys-color-on-surface)">
+                                Publicação</h3>
+                            <p class="md-typescale-body-medium mt-2" style="color:var(--md-sys-color-on-surface-variant)">
+                                Preparamos a versão aprovada para entrar no ar e ser acompanhada.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mt-4 font-bold text-neutral-900">Publicação</h3>
-                    <p class="mt-2 text-sm text-neutral-500">
-                        Preparamos a versão aprovada para entrar no ar e ser acompanhada.
-                    </p>
-                </div>
+                </md-elevated-card>
 
             </div>
 
             <div class="mt-10 text-center">
-                <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-green-600">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0">
+                <md-filled-button href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer">
+                    <svg slot="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5">
                         <path d="M17 7L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                         <path
                             d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13"
                             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     Solicitar orçamento
-                </a>
+                </md-filled-button>
             </div>
 
         </div>
     </section>
 
     <!--Sobre mim-->
-    <section id="sobre" class="bg-neutral-950 py-16 sm:py-20 lg:py-24">
+    <section id="sobre" class="py-16 sm:py-20 lg:py-24" style="background:var(--md-sys-color-inverse-surface)">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div>
-                    <span class="inline-flex items-center gap-2 rounded-full border border-neutral-700 bg-neutral-900 px-3 py-1 text-sm font-semibold text-neutral-200">
-                        Sobre a Dani.
-                    </span>
+                    <span class="m3-eyebrow m3-eyebrow-inverse md-typescale-label-large">Sobre a Dani.</span>
 
-                    <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    <h2 class="md-typescale-headline-medium mt-4" style="color:var(--md-sys-color-inverse-on-surface)">
                         Especialista em criar experiências digitais memoráveis
                     </h2>
 
-                    <p class="mt-6 text-lg text-neutral-400">
-                        Trabalho com tecnologia, tráfego pago e dados há mais de 16 anos, ajudando empresas a conquistar seu espaço no mundo digital com sites e campanhas que realmente performam.
+                    <p class="md-typescale-body-large mt-6"
+                        style="color:color-mix(in srgb, var(--md-sys-color-inverse-on-surface) 75%, transparent)">
+                        Trabalho com tecnologia, tráfego pago e dados há mais de 16 anos, ajudando empresas a
+                        conquistar seu espaço no mundo digital com sites e campanhas que realmente performam.
                     </p>
 
                     <ul class="mt-6 space-y-3">
                         <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-green-500">
-                                <path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-inverse-primary)">
+                                <path
+                                    d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="font-medium text-neutral-100">Mais de 16 anos de experiência</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-inverse-on-surface)">Mais
+                                de 16 anos de experiência</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-green-500">
-                                <path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-inverse-primary)">
+                                <path
+                                    d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="font-medium text-neutral-100">Suporte e acompanhamento dedicado</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-inverse-on-surface)">Suporte
+                                e acompanhamento dedicado</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-green-500">
-                                <path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-inverse-primary)">
+                                <path
+                                    d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="font-medium text-neutral-100">Código limpo e otimizado</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-inverse-on-surface)">Código
+                                limpo e otimizado</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-green-500">
-                                <path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-inverse-primary)">
+                                <path
+                                    d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="font-medium text-neutral-100">SEO otimizado para Google</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-inverse-on-surface)">SEO
+                                otimizado para Google</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-green-500">
-                                <path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="mt-0.5 h-5 w-5 shrink-0" style="color:var(--md-sys-color-inverse-primary)">
+                                <path
+                                    d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="font-medium text-neutral-100">Campanhas com foco em performance</span>
+                            <span class="md-typescale-body-medium" style="color:var(--md-sys-color-inverse-on-surface)">Campanhas
+                                com foco em performance</span>
                         </li>
                     </ul>
 
-                    <a
-                        href="https://wa.me/5577992116008"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="mt-8 inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-green-600"
-                    >
-                        <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 shrink-0">
-                            <path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38A9.95 9.95 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.15c-1.6 0-3.13-.43-4.46-1.24l-.32-.19-3.11.82.83-3.03-.21-.31A8.15 8.15 0 0 1 3.85 12c0-4.5 3.66-8.15 8.19-8.15 4.52 0 8.19 3.65 8.19 8.15s-3.67 8.15-8.19 8.15Zm4.48-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.06 0 1.22.88 2.4 1 2.56.12.16 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/>
+                    <md-filled-button class="mt-8" href="https://wa.me/5577992116008" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg slot="icon" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                            <path
+                                d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38A9.95 9.95 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.15c-1.6 0-3.13-.43-4.46-1.24l-.32-.19-3.11.82.83-3.03-.21-.31A8.15 8.15 0 0 1 3.85 12c0-4.5 3.66-8.15 8.19-8.15 4.52 0 8.19 3.65 8.19 8.15s-3.67 8.15-8.19 8.15Zm4.48-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.06 0 1.22.88 2.4 1 2.56.12.16 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
                         </svg>
                         Falar no WhatsApp
-                    </a>
+                    </md-filled-button>
                 </div>
 
-                <div class="flex aspect-4/5 w-full items-center justify-center rounded-3xl border border-dashed border-neutral-700 bg-neutral-900 text-neutral-500 lg:aspect-square">
+                <div class="flex aspect-4/5 w-full items-center justify-center rounded-3xl border border-dashed lg:aspect-square"
+                    style="border-color:var(--md-sys-color-outline);background:var(--md-sys-color-surface-container-lowest);color:var(--md-sys-color-outline)">
                     <div class="flex flex-col items-center gap-2">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-12 w-12">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.41-1.41a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25M3 8.25A2.25 2.25 0 0 1 5.25 6h13.5A2.25 2.25 0 0 1 21 8.25M3 8.25l9-6 9 6" />
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            class="h-12 w-12">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 15.75l5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.41-1.41a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25M3 8.25A2.25 2.25 0 0 1 5.25 6h13.5A2.25 2.25 0 0 1 21 8.25M3 8.25l9-6 9 6" />
                         </svg>
-                        <span class="text-sm">Imagem</span>
+                        <span class="md-typescale-label-large">Imagem</span>
                     </div>
                 </div>
 
@@ -1212,109 +1357,155 @@
     </section>
 
     <!--FAQ-->
-    <section class="bg-stone-50 py-16 sm:py-20 lg:py-24">
+    <section class="py-16 sm:py-20 lg:py-24" style="background:var(--md-sys-color-surface-container-low)">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
             <div class="mx-auto max-w-2xl text-center">
-                <span class="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700">
-                    Dúvidas Frequentes
-                </span>
+                <span class="m3-eyebrow md-typescale-label-large">Dúvidas Frequentes</span>
 
-                <h2 class="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                <h2 class="md-typescale-headline-medium mt-4" style="color:var(--md-sys-color-on-surface)">
                     Perguntas frequentes sobre nossos serviços
                 </h2>
 
-                <p class="mt-4 text-lg text-neutral-500">
-                    Tudo o que você precisa saber sobre a criação de sites, gestão de tráfego pago e inteligência de dados.
+                <p class="md-typescale-body-large mt-4" style="color:var(--md-sys-color-on-surface-variant)">
+                    Tudo o que você precisa saber sobre a criação de sites, gestão de tráfego pago e inteligência de
+                    dados.
                 </p>
             </div>
 
             <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
 
                 <div class="space-y-4">
-                    <details class="group rounded-2xl border border-neutral-200 bg-white p-6">
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-neutral-900">
+                    <details class="group rounded-2xl border p-6"
+                        style="border-color:var(--md-sys-color-outline-variant);background:var(--md-sys-color-surface-container-lowest)">
+                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 md-typescale-title-medium"
+                            style="color:var(--md-sys-color-on-surface)">
                             <span>Qual é o prazo médio para criação e publicação de um site ou landing page?</span>
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-50 text-green-600 transition-transform group-open:rotate-180">
+                            <span class="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+                                style="background:var(--md-sys-color-primary-container);color:var(--md-sys-color-on-primary-container)">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
-                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-neutral-600">
-                            O prazo varia de acordo com o escopo do projeto. Landing pages de alta conversão costumam ser entregues em um período médio de <span class="font-semibold text-neutral-900">7 a 15 dias úteis</span>. Já sites institucionais mais completos variam entre <span class="font-semibold text-neutral-900">15 a 30 dias úteis</span>, passando por todas as etapas de briefing, design, desenvolvimento e homologação com você.
+                        <p class="md-typescale-body-medium mt-4" style="color:var(--md-sys-color-on-surface-variant)">
+                            O prazo varia de acordo com o escopo do projeto. Landing pages de alta conversão costumam
+                            ser entregues em um período médio de <span class="font-semibold" style="color:var(--md-sys-color-on-surface)">7
+                                a 15 dias úteis</span>. Já sites institucionais mais completos variam entre <span
+                                class="font-semibold" style="color:var(--md-sys-color-on-surface)">15 a 30 dias
+                                úteis</span>, passando por todas as etapas de briefing, design, desenvolvimento e
+                            homologação com você.
                         </p>
                     </details>
 
-                    <details class="group rounded-2xl border border-neutral-200 bg-white p-6">
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-neutral-900">
+                    <details class="group rounded-2xl border p-6"
+                        style="border-color:var(--md-sys-color-outline-variant);background:var(--md-sys-color-surface-container-lowest)">
+                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 md-typescale-title-medium"
+                            style="color:var(--md-sys-color-on-surface)">
                             <span>Como funciona a gestão de tráfego pago (Google Ads e Meta Ads)?</span>
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-50 text-green-600 transition-transform group-open:rotate-180">
+                            <span class="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+                                style="background:var(--md-sys-color-primary-container);color:var(--md-sys-color-on-primary-container)">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
-                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-neutral-600">
-                            Começamos com uma análise do seu negócio e público-alvo para estruturar campanhas no Google Ads e no Meta Ads focadas em conversão. Depois, o trabalho é contínuo: testamos criativos, públicos e palavras-chave, e ajustamos o investimento com base em relatórios claros sobre o desempenho de cada real investido.
+                        <p class="md-typescale-body-medium mt-4" style="color:var(--md-sys-color-on-surface-variant)">
+                            Começamos com uma análise do seu negócio e público-alvo para estruturar campanhas no
+                            Google Ads e no Meta Ads focadas em conversão. Depois, o trabalho é contínuo: testamos
+                            criativos, públicos e palavras-chave, e ajustamos o investimento com base em relatórios
+                            claros sobre o desempenho de cada real investido.
                         </p>
                     </details>
 
-                    <details class="group rounded-2xl border border-neutral-200 bg-white p-6">
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-neutral-900">
+                    <details class="group rounded-2xl border p-6"
+                        style="border-color:var(--md-sys-color-outline-variant);background:var(--md-sys-color-surface-container-lowest)">
+                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 md-typescale-title-medium"
+                            style="color:var(--md-sys-color-on-surface)">
                             <span>Eu terei autonomia para atualizar o site depois de pronto?</span>
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-50 text-green-600 transition-transform group-open:rotate-180">
+                            <span class="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+                                style="background:var(--md-sys-color-primary-container);color:var(--md-sys-color-on-primary-container)">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
-                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-neutral-600">
-                            Sim. Os sites são entregues com um painel simples para você atualizar textos, imagens e conteúdos sem precisar de conhecimento técnico. Se preferir, também ofereço planos de manutenção contínua para cuidar dessas atualizações por você.
+                        <p class="md-typescale-body-medium mt-4" style="color:var(--md-sys-color-on-surface-variant)">
+                            Sim. Os sites são entregues com um painel simples para você atualizar textos, imagens e
+                            conteúdos sem precisar de conhecimento técnico. Se preferir, também ofereço planos de
+                            manutenção contínua para cuidar dessas atualizações por você.
                         </p>
                     </details>
                 </div>
 
                 <div class="space-y-4">
-                    <details class="group rounded-2xl border border-neutral-200 bg-white p-6">
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-neutral-900">
+                    <details class="group rounded-2xl border p-6"
+                        style="border-color:var(--md-sys-color-outline-variant);background:var(--md-sys-color-surface-container-lowest)">
+                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 md-typescale-title-medium"
+                            style="color:var(--md-sys-color-on-surface)">
                             <span>O que é o serviço de Business Intelligence (BI) e por que ele é essencial?</span>
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-50 text-green-600 transition-transform group-open:rotate-180">
+                            <span class="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+                                style="background:var(--md-sys-color-primary-container);color:var(--md-sys-color-on-primary-container)">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
-                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-neutral-600">
-                            O BI organiza os dados de tráfego, site e vendas em dashboards claros, mostrando de onde vêm seus melhores resultados. Ele é essencial porque transforma números soltos em decisões estratégicas, evitando desperdício de verba e apontando exatamente onde investir para crescer.
+                        <p class="md-typescale-body-medium mt-4" style="color:var(--md-sys-color-on-surface-variant)">
+                            O BI organiza os dados de tráfego, site e vendas em dashboards claros, mostrando de onde
+                            vêm seus melhores resultados. Ele é essencial porque transforma números soltos em decisões
+                            estratégicas, evitando desperdício de verba e apontando exatamente onde investir para
+                            crescer.
                         </p>
                     </details>
 
-                    <details class="group rounded-2xl border border-neutral-200 bg-white p-6">
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-neutral-900">
+                    <details class="group rounded-2xl border p-6"
+                        style="border-color:var(--md-sys-color-outline-variant);background:var(--md-sys-color-surface-container-lowest)">
+                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 md-typescale-title-medium"
+                            style="color:var(--md-sys-color-on-surface)">
                             <span>Quais são as formas de pagamento disponíveis?</span>
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-50 text-green-600 transition-transform group-open:rotate-180">
+                            <span class="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+                                style="background:var(--md-sys-color-primary-container);color:var(--md-sys-color-on-primary-container)">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
-                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-neutral-600">
-                            Aceito Pix, transferência bancária e cartão de crédito. As condições de pagamento são combinadas antes do início do projeto, com valores e etapas bem definidos de acordo com o serviço contratado.
+                        <p class="md-typescale-body-medium mt-4" style="color:var(--md-sys-color-on-surface-variant)">
+                            Aceito Pix, transferência bancária e cartão de crédito. As condições de pagamento são
+                            combinadas antes do início do projeto, com valores e etapas bem definidos de acordo com o
+                            serviço contratado.
                         </p>
                     </details>
 
-                    <details class="group rounded-2xl border border-neutral-200 bg-white p-6">
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-neutral-900">
+                    <details class="group rounded-2xl border p-6"
+                        style="border-color:var(--md-sys-color-outline-variant);background:var(--md-sys-color-surface-container-lowest)">
+                        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 md-typescale-title-medium"
+                            style="color:var(--md-sys-color-on-surface)">
                             <span>Já tenho um site no ar, mas ele não gera resultados. Você pode ajudar?</span>
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-50 text-green-600 transition-transform group-open:rotate-180">
+                            <span class="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+                                style="background:var(--md-sys-color-primary-container);color:var(--md-sys-color-on-primary-container)">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
-                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-neutral-600">
-                            Sim. Faço um diagnóstico completo do seu site e das campanhas atuais para identificar gargalos de performance, conversão e rastreamento. A partir daí, você recebe um plano de ações claro para transformar seu site em uma ferramenta que realmente gera resultados.
+                        <p class="md-typescale-body-medium mt-4" style="color:var(--md-sys-color-on-surface-variant)">
+                            Sim. Faço um diagnóstico completo do seu site e das campanhas atuais para identificar
+                            gargalos de performance, conversão e rastreamento. A partir daí, você recebe um plano de
+                            ações claro para transformar seu site em uma ferramenta que realmente gera resultados.
                         </p>
                     </details>
                 </div>
@@ -1325,81 +1516,120 @@
     </section>
 
     <!--Footer-->
-    <footer class="bg-linear-to-tr from-green-50 via-white to-indigo-50">
+    <footer
+        style="background:linear-gradient(to top right, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-surface) 45%, var(--md-sys-color-tertiary-container) 100%)">
         <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-8">
 
                 <div>
-                    <a href="#inicio" class="text-xl font-bold tracking-tight text-neutral-900">Dani.</a>
-                    <p class="mt-4 max-w-xs text-sm text-neutral-500">
-                        Transformo ideias em presença digital, aquisição e crescimento com sites, tráfego pago e dados.
+                    <a href="#inicio" class="md-typescale-title-large" style="color:var(--md-sys-color-on-surface)">
+                        Dani<span style="color:var(--md-sys-color-primary)">.</span>
+                    </a>
+                    <p class="md-typescale-body-medium mt-4 max-w-xs" style="color:var(--md-sys-color-on-surface-variant)">
+                        Transformo ideias em presença digital, aquisição e crescimento com sites, tráfego pago e
+                        dados.
                     </p>
                 </div>
 
                 <div>
-                    <p class="font-bold text-neutral-900">Links rápidos</p>
-                    <ul class="mt-4 space-y-3 text-sm">
-                        <li><a href="#inicio" class="text-neutral-500 hover:text-green-600">Home</a></li>
-                        <li><a href="#servicos" class="text-neutral-500 hover:text-green-600">Serviços</a></li>
-                        <li><a href="#portfolio" class="text-neutral-500 hover:text-green-600">Portfólio</a></li>
-                        <li><a href="#sobre" class="text-neutral-500 hover:text-green-600">Sobre</a></li>
+                    <p class="md-typescale-title-small" style="color:var(--md-sys-color-on-surface)">Links rápidos</p>
+                    <md-list class="mt-2 block">
+                        <md-list-item type="link" href="#inicio">
+                            <div slot="headline">Home</div>
+                        </md-list-item>
+                        <md-list-item type="link" href="#servicos">
+                            <div slot="headline">Serviços</div>
+                        </md-list-item>
+                        <md-list-item type="link" href="#portfolio">
+                            <div slot="headline">Portfólio</div>
+                        </md-list-item>
+                        <md-list-item type="link" href="#sobre">
+                            <div slot="headline">Sobre</div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+
+                <div>
+                    <p class="md-typescale-title-small" style="color:var(--md-sys-color-on-surface)">Serviços</p>
+                    <ul class="mt-4 space-y-3 md-typescale-body-medium">
+                        <li><a href="#servicos" style="color:var(--md-sys-color-on-surface-variant)">Gestão de Google
+                                Ads</a></li>
+                        <li><a href="#servicos" style="color:var(--md-sys-color-on-surface-variant)">Gestão de
+                                tráfego pago (Meta Ads)</a></li>
+                        <li><a href="#servicos" style="color:var(--md-sys-color-on-surface-variant)">Criação de sites
+                                institucionais</a></li>
+                        <li><a href="#servicos" style="color:var(--md-sys-color-on-surface-variant)">Criação de sites
+                                WordPress</a></li>
+                        <li><a href="#servicos" style="color:var(--md-sys-color-on-surface-variant)">Landing
+                                Pages</a></li>
+                        <li><a href="#servicos" style="color:var(--md-sys-color-on-surface-variant)">Inteligência de
+                                dados</a></li>
+                        <li><a href="#servicos" style="color:var(--md-sys-color-on-surface-variant)">Criação de
+                                conteúdos</a></li>
+                        <li><a href="#servicos" style="color:var(--md-sys-color-on-surface-variant)">SEO, AEO e
+                                GEO</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <p class="font-bold text-neutral-900">Serviços</p>
-                    <ul class="mt-4 space-y-3 text-sm">
-                        <li><a href="#servicos" class="text-neutral-500 hover:text-green-600">Gestão de Google Ads</a></li>
-                        <li><a href="#servicos" class="text-neutral-500 hover:text-green-600">Gestão de tráfego pago (Meta Ads)</a></li>
-                        <li><a href="#servicos" class="text-neutral-500 hover:text-green-600">Criação de sites institucionais</a></li>
-                        <li><a href="#servicos" class="text-neutral-500 hover:text-green-600">Criação de sites WordPress</a></li>
-                        <li><a href="#servicos" class="text-neutral-500 hover:text-green-600">Landing Pages</a></li>
-                        <li><a href="#servicos" class="text-neutral-500 hover:text-green-600">Inteligência de dados</a></li>
-                        <li><a href="#servicos" class="text-neutral-500 hover:text-green-600">Criação de conteúdos</a></li>
-                        <li><a href="#servicos" class="text-neutral-500 hover:text-green-600">SEO, AEO e GEO</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <p class="font-bold text-neutral-900">Contato</p>
-                    <ul class="mt-4 space-y-3 text-sm">
-                        <li>
-                            <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-neutral-500 hover:text-green-600">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0">
-                                    <path d="M3.77762 11.9424C2.8296 10.2893 2.37185 8.93948 2.09584 7.57121C1.68762 5.54758 2.62181 3.57081 4.16938 2.30947C4.82345 1.77638 5.57323 1.95852 5.96 2.6524L6.83318 4.21891C7.52529 5.46057 7.87134 6.08139 7.8027 6.73959C7.73407 7.39779 7.26737 7.93386 6.33397 9.00601L3.77762 11.9424ZM3.77762 11.9424C5.69651 15.2883 8.70784 18.3013 12.0576 20.2224M12.0576 20.2224C13.7107 21.1704 15.0605 21.6282 16.4288 21.9042C18.4524 22.3124 20.4292 21.3782 21.6905 19.8306C22.2236 19.1766 22.0415 18.4268 21.3476 18.04L19.7811 17.1668C18.5394 16.4747 17.9186 16.1287 17.2604 16.1973C16.6022 16.2659 16.0661 16.7326 14.994 17.666L12.0576 20.2224Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                                </svg>
-                                (77) 99211-6008
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/bezerradaniels" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-neutral-500 hover:text-green-600">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0">
-                                    <path d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                                    <path d="M16.5 12C16.5 14.4853 14.4853 16.5 12 16.5C9.51472 16.5 7.5 14.4853 7.5 12C7.5 9.51472 9.51472 7.5 12 7.5C14.4853 7.5 16.5 9.51472 16.5 12Z" stroke="currentColor" stroke-width="1.5"/>
-                                    <path d="M17.5078 6.5L17.4988 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                @bezerradaniels
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:contato@danibezerra.com" class="flex items-center gap-2 text-neutral-500 hover:text-green-600">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0">
-                                    <path d="M2 6L8.91302 9.91697C11.4616 11.361 12.5384 11.361 15.087 9.91697L22 6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                                    <path d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                                </svg>
-                                contato@danibezerra.com
-                            </a>
-                        </li>
-                    </ul>
+                    <p class="md-typescale-title-small" style="color:var(--md-sys-color-on-surface)">Contato</p>
+                    <md-list class="mt-2 block">
+                        <md-list-item type="link" href="https://wa.me/5577992116008" target="_blank">
+                            <svg slot="start" viewBox="0 0 24 24" fill="none" style="fill:none"
+                                xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                                <path
+                                    d="M3.77762 11.9424C2.8296 10.2893 2.37185 8.93948 2.09584 7.57121C1.68762 5.54758 2.62181 3.57081 4.16938 2.30947C4.82345 1.77638 5.57323 1.95852 5.96 2.6524L6.83318 4.21891C7.52529 5.46057 7.87134 6.08139 7.8027 6.73959C7.73407 7.39779 7.26737 7.93386 6.33397 9.00601L3.77762 11.9424ZM3.77762 11.9424C5.69651 15.2883 8.70784 18.3013 12.0576 20.2224M12.0576 20.2224C13.7107 21.1704 15.0605 21.6282 16.4288 21.9042C18.4524 22.3124 20.4292 21.3782 21.6905 19.8306C22.2236 19.1766 22.0415 18.4268 21.3476 18.04L19.7811 17.1668C18.5394 16.4747 17.9186 16.1287 17.2604 16.1973C16.6022 16.2659 16.0661 16.7326 14.994 17.666L12.0576 20.2224Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            </svg>
+                            <div slot="headline">(77) 99211-6008</div>
+                        </md-list-item>
+                        <md-list-item type="link" href="https://www.instagram.com/bezerradaniels" target="_blank">
+                            <svg slot="start" viewBox="0 0 24 24" fill="none" style="fill:none"
+                                xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                                <path
+                                    d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                                <path
+                                    d="M16.5 12C16.5 14.4853 14.4853 16.5 12 16.5C9.51472 16.5 7.5 14.4853 7.5 12C7.5 9.51472 9.51472 7.5 12 7.5C14.4853 7.5 16.5 9.51472 16.5 12Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path d="M17.5078 6.5L17.4988 6.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div slot="headline">@bezerradaniels</div>
+                        </md-list-item>
+                        <md-list-item type="link" href="mailto:contato@danibezerra.com">
+                            <svg slot="start" viewBox="0 0 24 24" fill="none" style="fill:none"
+                                xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                                <path d="M2 6L8.91302 9.91697C11.4616 11.361 12.5384 11.361 15.087 9.91697L22 6"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                                <path
+                                    d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            </svg>
+                            <div slot="headline">contato@danibezerra.com</div>
+                        </md-list-item>
+                    </md-list>
                 </div>
 
             </div>
 
-            <div class="mt-12 border-t border-neutral-200/70 pt-8 text-center text-sm text-neutral-500">
+            <md-divider class="mt-8"></md-divider>
+            <div class="mt-8 pt-0 text-center md-typescale-body-small" style="color:var(--md-sys-color-on-surface-variant)">
                 © 2026 Dani. Todos os direitos reservados.
             </div>
         </div>
     </footer>
+
+    <!--FAB de contato (mobile)-->
+    <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp"
+        class="fixed bottom-6 right-6 z-40 lg:hidden">
+        <md-fab variant="primary">
+            <svg slot="icon" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+                <path
+                    d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38A9.95 9.95 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.15c-1.6 0-3.13-.43-4.46-1.24l-.32-.19-3.11.82.83-3.03-.21-.31A8.15 8.15 0 0 1 3.85 12c0-4.5 3.66-8.15 8.19-8.15 4.52 0 8.19 3.65 8.19 8.15s-3.67 8.15-8.19 8.15Zm4.48-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.06 0 1.22.88 2.4 1 2.56.12.16 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
+            </svg>
+        </md-fab>
+    </a>
 
 </body>
 
