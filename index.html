@@ -3,44 +3,55 @@
 
 <head>
     <meta charset="UTF-8">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K7C2SK6F');</script>
+    <!-- End Google Tag Manager -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dani. — Sites, Tráfego Pago e Business Intelligence</title>
+    <title>Dani — Sites, Tráfego Pago e Business Intelligence</title>
     <meta name="description"
         content="Especialista em tráfego pago no Google e Instagram, criação de sites de alta performance e Business Intelligence.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="./src/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <link href="./src/styles/output.css" rel="stylesheet">
 
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7C2SK6F"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!--Hero-->
     <section id="inicio" class="flex min-h-svh items-center bg-hero-bg font-jakarta text-ink">
         <div
             class="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-10">
 
-            <div>
+            <div class="text-center lg:text-left">
                 <span
-                    class="block w-fit rounded-lg bg-green-100 px-3 py-1 text-sm font-medium text-green-900">
-                    Planos a partir de R$199,90/mês
+                    class="mx-auto block w-fit lg:mx-0 rounded-lg bg-green-100 px-3 py-1 text-sm font-medium text-green-900">
+                    Planos a partir de <strong class="text-base font-extrabold text-green-800">R$ 199,90</strong>/mês
                 </span>
 
                 <p class="mt-6 text-lg font-semibold text-ink/75">Olá! Eu sou o Dani 👋</p>
 
-                <h1 class="mt-2 text-balance text-[2rem] font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
-                    Especialista em <span class="whitespace-nowrap text-brand">tráfego pago,</span> <span class="whitespace-nowrap text-brand">criação de sites</span> e <span class="text-brand">Business Intelligence.</span>
+                <h1 class="mt-2 text-balance text-[1.875rem] font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
+                    Especialista em <span class="text-brand sm:whitespace-nowrap">tráfego pago,</span> <span class="text-brand sm:whitespace-nowrap">criação de sites</span> e <span class="text-brand">Business Intelligence.</span>
                 </h1>
 
-                <p class="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink/75">
+                <p class="mx-auto mt-6 max-w-xl text-pretty lg:mx-0 text-lg leading-relaxed text-ink/75">
                     Campanhas no Google e Instagram, sites que convertem e dados que orientam cada decisão.
                     Tudo com foco em performance e em gerar clientes para o seu negócio.
                 </p>
 
-                <ul class="mt-8 flex flex-wrap gap-2">
+                <ul class="mt-8 flex flex-wrap justify-center gap-2 lg:justify-start">
                     <li class="inline-flex items-center gap-2 rounded-lg bg-periwinkle py-1.5 pl-2 pr-3 text-sm font-medium text-ink/80">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4 shrink-0" aria-hidden="true">
                             <path d="M5 12.5L10 17.5L19 7.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -92,19 +103,20 @@
 
                     <div class="sm:col-span-2">
                         <label for="contato-servico" class="block text-sm font-semibold text-ink">Serviço de interesse</label>
-                        <select id="contato-servico" name="servico" required
-                            class="mt-1.5 block w-full rounded-xl border border-periwinkle bg-surface px-4 py-3 text-base text-ink placeholder:text-ink/40 transition focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20">
-                            <option value="" disabled selected>Selecione um serviço</option>
-                            <option>Gestão de Google Ads</option>
-                            <option>Gestão de tráfego pago (Meta Ads)</option>
-                            <option>Criação de sites institucionais</option>
-                            <option>Criação de sites WordPress</option>
-                            <option>Landing Pages</option>
-                            <option>Inteligência de dados</option>
-                            <option>Criação de conteúdos</option>
-                            <option>SEO, AEO e GEO</option>
-                            <option>Outro</option>
-                        </select>
+                        <div class="relative mt-1.5">
+                            <select id="contato-servico" name="servico" required
+                                class="block w-full cursor-pointer appearance-none rounded-xl border border-periwinkle bg-surface py-3 pl-4 pr-11 text-base text-ink transition hover:border-lavender focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 invalid:text-ink/40 [&_option]:text-ink">
+                                <option value="" disabled selected>Selecione um serviço</option>
+                                <option>Tráfego pago</option>
+                                <option>Criação de sites</option>
+                                <option>Landing Pages</option>
+                                <option>SEO, AEO e GEO</option>
+                            </select>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                class="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-brand" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
 
                     <div class="sm:col-span-2">
@@ -396,7 +408,7 @@
     <!--Sites & Landing Pages-->
     <section class="py-16 sm:py-20 lg:py-24">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div>
                     <span class="inline-block rounded-full bg-periwinkle px-3 py-1 uppercase tracking-wider text-brand text-sm font-semibold">Criação de Sites &amp; Landing Pages</span>
@@ -534,7 +546,7 @@
     <!--Google Ads-->
     <section class="py-16 sm:py-20 lg:py-24 bg-soft">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div class="order-2 lg:order-1">
                     <div class="rounded-3xl border border-periwinkle bg-white">
@@ -677,7 +689,7 @@
     <!--Meta Ads-->
     <section class="py-16 sm:py-20 lg:py-24">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div>
                     <span class="inline-block rounded-full bg-periwinkle px-3 py-1 uppercase tracking-wider text-brand text-sm font-semibold">Meta Ads (Instagram &amp; Facebook)</span>
@@ -818,7 +830,7 @@
     <!--Business Intelligence-->
     <section class="py-16 sm:py-20 lg:py-24 bg-soft">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div class="order-2 lg:order-1">
                     <div class="rounded-3xl border border-periwinkle bg-white">
@@ -977,7 +989,7 @@
                 <span class="inline-block rounded-full bg-lavender px-3 py-1 uppercase tracking-wider text-ink text-sm font-semibold">— Portfólio —</span>
 
                 <h2 class="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl mt-4 text-white">
-                    Projetos desenvolvidos pela Dani.
+                    Projetos desenvolvidos pelo Dani.
                 </h2>
 
                 <p class="text-lg leading-relaxed mt-4 text-white/75">
@@ -1004,7 +1016,7 @@
                         <img src="./src/img/portfolio/casa-e-bebe.png" alt="Site da Casa Bebê"
                             class="mx-auto w-full max-w-sm rounded-xl" loading="lazy">
                     </picture>
-                    <p class="text-xs font-semibold mt-4 uppercase text-pink">Hub de Bebês</p>
+                    <p class="text-xs font-semibold mt-4 uppercase text-pink">Hub de babás</p>
                     <p class="text-lg font-bold text-white">Casa
                         Bebê</p>
                 </div>
@@ -1268,7 +1280,7 @@
             <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
                 <div>
-                    <span class="inline-block rounded-full bg-lavender px-3 py-1 uppercase tracking-wider text-ink text-sm font-semibold">Sobre a Dani.</span>
+                    <span class="inline-block rounded-full bg-lavender px-3 py-1 uppercase tracking-wider text-ink text-sm font-semibold">Sobre o Dani.</span>
 
                     <h2 class="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl mt-4 text-white">
                         Especialista em criar experiências digitais memoráveis
@@ -1515,7 +1527,7 @@
             <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-8">
 
                 <div>
-                    <a href="#inicio" class="text-xl font-extrabold text-ink">
+                    <a href="#inicio" class="text-xl font-extrabold text-ink transition hover:opacity-80">
                         Dani<span class="text-brand">.</span>
                     </a>
                     <p class="text-base leading-relaxed mt-4 max-w-xs text-ink/75">
@@ -1549,21 +1561,21 @@
                 <div>
                     <p class="text-base font-semibold text-ink">Serviços</p>
                     <ul class="mt-4 space-y-3 text-base leading-relaxed">
-                        <li><a class="text-ink/75" href="#servicos">Gestão de Google
+                        <li><a class="text-ink/75 transition hover:text-brand" href="#servicos">Gestão de Google
                                 Ads</a></li>
-                        <li><a class="text-ink/75" href="#servicos">Gestão de
+                        <li><a class="text-ink/75 transition hover:text-brand" href="#servicos">Gestão de
                                 tráfego pago (Meta Ads)</a></li>
-                        <li><a class="text-ink/75" href="#servicos">Criação de sites
+                        <li><a class="text-ink/75 transition hover:text-brand" href="#servicos">Criação de sites
                                 institucionais</a></li>
-                        <li><a class="text-ink/75" href="#servicos">Criação de sites
+                        <li><a class="text-ink/75 transition hover:text-brand" href="#servicos">Criação de sites
                                 WordPress</a></li>
-                        <li><a class="text-ink/75" href="#servicos">Landing
+                        <li><a class="text-ink/75 transition hover:text-brand" href="#servicos">Landing
                                 Pages</a></li>
-                        <li><a class="text-ink/75" href="#servicos">Inteligência de
+                        <li><a class="text-ink/75 transition hover:text-brand" href="#servicos">Inteligência de
                                 dados</a></li>
-                        <li><a class="text-ink/75" href="#servicos">Criação de
+                        <li><a class="text-ink/75 transition hover:text-brand" href="#servicos">Criação de
                                 conteúdos</a></li>
-                        <li><a class="text-ink/75" href="#servicos">SEO, AEO e
+                        <li><a class="text-ink/75 transition hover:text-brand" href="#servicos">SEO, AEO e
                                 GEO</a></li>
                     </ul>
                 </div>
@@ -1651,11 +1663,14 @@
             botao.disabled = true;
             botao.textContent = 'Enviando...';
             try {
+                var servico = form.servico.value;
                 var res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
                 var dados = await res.json().catch(function () { return {}; });
                 if (!res.ok || !dados.ok) throw new Error(dados.erro);
                 form.reset();
                 sucesso.classList.remove('hidden');
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'form_contato_enviado', servico: servico });
             } catch (err) {
                 erro.textContent = err.message || 'Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.';
                 erro.classList.remove('hidden');
