@@ -2513,14 +2513,20 @@
                     var servico = form.servico.value;
                     var res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
                     var dados = await res.json().catch(function () { return {}; });
-                    if (!res.ok || !dados.ok) throw new Error(dados.erro);
+                    // Erro devolvido pelo servidor: mostra a mensagem dele, se houver.
+                    if (!res.ok || !dados.ok) {
+                        erroGeral.textContent = dados.erro || 'Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.';
+                        erroGeral.classList.remove('hidden');
+                        return;
+                    }
                     form.reset();
                     campos.forEach(function (campo) { marcar(campo, false); });
                     sucesso.classList.remove('hidden');
                     window.dataLayer = window.dataLayer || [];
                     window.dataLayer.push({ event: 'form_contato_enviado', servico: servico });
                 } catch (err) {
-                    erroGeral.textContent = err.message || 'Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.';
+                    // O fetch só rejeita quando a requisição nem chegou ao servidor.
+                    erroGeral.textContent = 'Sem conexão com o servidor. Verifique sua internet ou fale pelo WhatsApp.';
                     erroGeral.classList.remove('hidden');
                 } finally {
                     botao.disabled = false;
