@@ -50,3 +50,100 @@
         @apply bg-surface font-sans text-ink antialiased;
     }
 }
+
+/* Chevron do FAQ gira quando o item abre */
+.faq-chevron {
+    transition: transform 200ms ease;
+}
+
+details[open] > summary .faq-chevron {
+    transform: rotate(180deg);
+}
+
+/* ----------------------------------------------------------------------
+   Barra de CTA fixa no mobile.
+   Fica escondida abaixo da tela e sobe quando o formulário sai da viewport.
+   O estado é controlado por data-visivel (IntersectionObserver), sem
+   listener de scroll, para não gerar trabalho a cada frame.
+   ---------------------------------------------------------------------- */
+#barra-cta {
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: transform 220ms ease, visibility 220ms;
+}
+
+#barra-cta[data-visivel="true"] {
+    transform: translateY(0);
+    visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #barra-cta {
+        transition: none;
+    }
+}
+
+/* ----------------------------------------------------------------------
+   Tabela comparativa: vira cards empilhados no mobile.
+   Cada célula ganha o rótulo da coluna via data-coluna, sem duplicar
+   o conteúdo no HTML.
+   ---------------------------------------------------------------------- */
+@media (max-width: 767px) {
+    .tabela-comparativo {
+        min-width: 0;
+        display: block;
+    }
+
+    .tabela-comparativo thead {
+        display: none;
+    }
+
+    .tabela-comparativo tbody,
+    .tabela-comparativo tr {
+        display: block;
+    }
+
+    .tabela-comparativo tr {
+        border: 1px solid var(--color-periwinkle);
+        border-radius: 1.5rem;
+        padding: 0.5rem 0.25rem;
+        margin-bottom: 1rem;
+        background: #fff;
+    }
+
+    .tabela-comparativo tr > th[scope="row"] {
+        display: block;
+        padding: 0.75rem 1rem 0.25rem;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .tabela-comparativo td {
+        display: block;
+        padding: 0.5rem 1rem;
+        border-radius: 0.75rem;
+    }
+
+    /* Rótulo da coluna acima do texto de cada célula */
+    .tabela-comparativo td::before {
+        content: attr(data-coluna);
+        display: block;
+        margin-bottom: 0.125rem;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        opacity: 0.55;
+    }
+
+    /* A coluna de destaque mantém o fundo da marca, agora como bloco */
+    .tabela-comparativo td.destaque {
+        margin: 0.5rem 0.5rem 0.25rem;
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+    }
+
+    .tabela-comparativo td.destaque::before {
+        opacity: 0.8;
+    }
+}

@@ -1,0 +1,52 @@
+# ----------------------------------------------------------------------
+# Compressão (Brotli quando disponível, gzip como fallback)
+# ----------------------------------------------------------------------
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Cache do navegador
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # HTML revalida sempre (o conteúdo muda a cada deploy)
+    ExpiresByType text/html "access plus 0 seconds"
+
+    # Assets versionados por nome de arquivo
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|woff2|svg|webp|png|jpe?g)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Tipos MIME (alguns hosts não enviam woff2/webp corretamente)
+# ----------------------------------------------------------------------
+<IfModule mod_mime.c>
+    AddType font/woff2 .woff2
+    AddType image/webp .webp
+    AddType image/svg+xml .svg
+</IfModule>

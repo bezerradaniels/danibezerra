@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --minify",
-    "dev": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch"
+    "build": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --minify && node scripts/inline-css.mjs",
+    "dev": "node scripts/dev.mjs"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.3",
