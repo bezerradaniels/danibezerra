@@ -21,9 +21,11 @@ if (!is_file($configPath)) {
 $config = require $configPath;
 $apiKey = getenv('RESEND_API_KEY') ?: ($config['resend_api_key'] ?? '');
 
-// Honeypot: bots preenchem o campo oculto
+// Honeypot: bots preenchem o campo oculto.
+// Responde 200 para não dar pista ao bot, mas marca registrado=false para o
+// front não contabilizar conversão de algo que nunca virou e-mail.
 if (!empty($_POST['site'])) {
-    responder(200, ['ok' => true]);
+    responder(200, ['ok' => true, 'registrado' => false]);
 }
 
 $campo = fn(string $nome, int $max) => mb_substr(trim((string) ($_POST[$nome] ?? '')), 0, $max);
@@ -93,4 +95,6 @@ if ($resposta === false || $status < 200 || $status >= 300) {
     responder(502, ['ok' => false, 'erro' => 'Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.']);
 }
 
-responder(200, ['ok' => true]);
+// registrado=true: o e-mail saiu de fato. É o que autoriza o front a
+// contabilizar a conversão no GA4/GTM.
+responder(200, ['ok' => true, 'registrado' => true]);

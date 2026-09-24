@@ -9,6 +9,19 @@
     <meta name="description"
         content="Consultoria técnica em presença digital: sites rápidos e rastreáveis, Google Ads mensurado e estrutura para sua empresa ser encontrada no Google e citada nas respostas de IA. 16 anos de experiência e certificações oficiais Google.">
 
+    <!-- Ícones gerados a partir de src/img/logos/favicon.png (1024px, arquivo-fonte).
+         O apple-touch-icon tem fundo opaco porque o iOS pinta de preto o que for
+         transparente na tela de início. -->
+    <link rel="icon" href="./src/img/logos/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="./src/img/logos/favicon-192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="./src/img/logos/apple-touch-icon.png">
+    <meta name="theme-color" content="#675496">
+
+    <!-- Abre a conexão com o GTM já no início: quando o container for baixado,
+         DNS, TCP e TLS já estão resolvidos. Sem crossorigin porque o gtm.js é
+         carregado como script clássico, sem CORS. -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
     <link rel="preload" href="./src/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- CSS injetado inline pelo build (npm run build) para não bloquear a renderização.
@@ -36,10 +49,20 @@
             ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (evento) {
                 window.addEventListener(evento, carregarGTM, opcoes);
             });
+            // Carrega assim que o navegador ficar ocioso, em vez de esperar um
+            // relógio fixo. O timeout é só a rede de segurança para o caso de a
+            // página nunca ficar ociosa.
+            function agendar() {
+                if (window.requestIdleCallback) {
+                    window.requestIdleCallback(carregarGTM, { timeout: 2500 });
+                } else {
+                    setTimeout(carregarGTM, 300);
+                }
+            }
             if (document.readyState === 'complete') {
-                setTimeout(carregarGTM, 2000);
+                agendar();
             } else {
-                window.addEventListener('load', function () { setTimeout(carregarGTM, 2000); }, { once: true });
+                window.addEventListener('load', agendar, { once: true });
             }
         })();
     </script>
@@ -958,8 +981,7 @@
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/5577992116008" target="_blank"
-                        rel="noopener noreferrer"
+                    <a href="#form-contato"
                         class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5">
@@ -1174,8 +1196,7 @@
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/5577992116008" target="_blank"
-                        rel="noopener noreferrer"
+                    <a href="#form-contato"
                         class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5">
@@ -1262,8 +1283,7 @@
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/5577992116008" target="_blank"
-                        rel="noopener noreferrer"
+                    <a href="#form-contato"
                         class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5">
@@ -1490,8 +1510,7 @@
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/5577992116008" target="_blank"
-                        rel="noopener noreferrer"
+                    <a href="#form-contato"
                         class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5">
@@ -1724,7 +1743,7 @@
             </div>
 
             <div class="mt-14 text-center">
-                <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
+                <a href="#form-contato"
                         class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-brand transition hover:bg-periwinkle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         class="h-5 w-5">
@@ -1915,7 +1934,7 @@
             </div>
 
             <div class="mt-10 text-center">
-                <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
+                <a href="#form-contato"
                         class="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         class="h-5 w-5">
@@ -2017,14 +2036,13 @@
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/5577992116008" target="_blank"
-                        rel="noopener noreferrer"
+                    <a href="#form-contato"
                         class="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-brand transition hover:bg-periwinkle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                        <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
-                            <path
-                                d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38A9.95 9.95 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.15c-1.6 0-3.13-.43-4.46-1.24l-.32-.19-3.11.82.83-3.03-.21-.31A8.15 8.15 0 0 1 3.85 12c0-4.5 3.66-8.15 8.19-8.15 4.52 0 8.19 3.65 8.19 8.15s-3.67 8.15-8.19 8.15Zm4.48-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.06 0 1.22.88 2.4 1 2.56.12.16 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
+                        Conversar sobre o meu projeto
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            class="h-5 w-5 shrink-0" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        Falar no WhatsApp
                     </a>
                 </div>
 
@@ -2421,15 +2439,11 @@
         class="fixed inset-x-0 bottom-0 z-40 border-t border-periwinkle bg-surface/95 backdrop-blur-md lg:hidden">
         <div class="flex items-center gap-3 px-4 pt-3" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));">
             <a href="#form-contato"
-                class="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full bg-brand px-5 text-base font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
+                class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-brand px-5 text-base font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
                 Quero meu diagnóstico
-            </a>
-            <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer"
-                aria-label="Falar no WhatsApp"
-                class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-periwinkle bg-white text-brand transition hover:border-lavender focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
-                    <path
-                        d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38A9.95 9.95 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.15c-1.6 0-3.13-.43-4.46-1.24l-.32-.19-3.11.82.83-3.03-.21-.31A8.15 8.15 0 0 1 3.85 12c0-4.5 3.66-8.15 8.19-8.15 4.52 0 8.19 3.65 8.19 8.15s-3.67 8.15-8.19 8.15Zm4.48-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.06 0 1.22.88 2.4 1 2.56.12.16 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    class="h-5 w-5 shrink-0" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </a>
         </div>
@@ -2522,8 +2536,21 @@
                     form.reset();
                     campos.forEach(function (campo) { marcar(campo, false); });
                     sucesso.classList.remove('hidden');
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({ event: 'form_contato_enviado', servico: servico });
+
+                    // Evento de conversão para GA4/GTM.
+                    // Só dispara quando o servidor confirma que o e-mail saiu
+                    // (registrado !== false), de modo que envio barrado pelo
+                    // honeypot não conta como lead.
+                    if (dados.registrado !== false) {
+                        window.dataLayer = window.dataLayer || [];
+                        window.dataLayer.push({
+                            event: 'form_contato_enviado',
+                            form_id: 'form-contato',
+                            form_nome: 'Diagnóstico técnico',
+                            servico: servico,
+                            origem: 'site'
+                        });
+                    }
                 } catch (err) {
                     // O fetch só rejeita quando a requisição nem chegou ao servidor.
                     erroGeral.textContent = 'Sem conexão com o servidor. Verifique sua internet ou fale pelo WhatsApp.';
