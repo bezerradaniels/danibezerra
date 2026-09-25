@@ -1,5 +1,5 @@
 // Modo desenvolvimento: roda o Tailwind em watch e re-injeta o CSS inline
-// no index.html a cada recompilação, para o dev ver a página estilizada.
+// nas páginas a cada recompilação, para o dev ver as páginas estilizadas.
 import { spawn } from 'node:child_process';
 import { watch, existsSync } from 'node:fs';
 
