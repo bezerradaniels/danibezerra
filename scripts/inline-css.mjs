@@ -9,7 +9,9 @@ const CSS = 'src/styles/output.css';
 const ABRE = '<style id="css-inline">';
 const FECHA = '</style>';
 
-const css = readFileSync(CSS, 'utf8').trim();
+// Os url() do output.css são relativos a src/styles/; inline, passam a ser
+// relativos ao index.html. Mesmo caminho do <link rel="preload"> para reaproveitá-lo.
+const css = readFileSync(CSS, 'utf8').trim().replaceAll('url(../fonts/', 'url(./src/fonts/');
 const html = readFileSync(HTML, 'utf8');
 
 const inicio = html.indexOf(ABRE);
