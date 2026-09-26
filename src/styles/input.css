@@ -49,6 +49,12 @@
     body {
         @apply bg-surface font-sans text-ink antialiased;
     }
+
+    /* O Tailwind v4 deixa botões com cursor padrão; restaura a mãozinha */
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
 }
 
 /* Chevron do FAQ gira quando o item abre */
