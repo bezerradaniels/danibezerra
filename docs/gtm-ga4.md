@@ -128,3 +128,93 @@ Para ver quantos visitantes passam da etapa 1 para a 2, vá em **Explorar → Ex
 2. Etapa 2: evento `form_contato_etapa_2`
 
 A queda entre as duas etapas mostra quem pulou ou saiu. Use a dimensão **Serviço de interesse** como detalhamento para ver quais serviços trazem leads mais completos.
+
+## 8. Rastreamento dos botões (CTAs)
+
+Todos os botões de call-to-action do site têm um atributo `data-cta` único no HTML, para identificar qual botão foi clicado. Um único evento GA4, `cta_click`, cobre todos eles — o parâmetro `cta_id` diz qual botão foi.
+
+### Botões mapeados
+
+| `data-cta` | Texto do botão | Onde fica |
+|---|---|---|
+| `header_diagnostico` | Solicitar diagnóstico | Menu do topo |
+| `hero_diagnostico_gratuito` | Solicitar diagnóstico gratuito | Topo da página (mobile) |
+| `form_whatsapp` | Fale comigo no WhatsApp | Abaixo do formulário |
+| `camadas_diagnostico` | Descobrir em que camada meu site está | Seção "quatro camadas" |
+| `servico_site` | Avaliar meu site atual | Seção de serviços — Sites |
+| `servico_ads` | Auditar minha conta do Google Ads | Seção de serviços — Google Ads |
+| `servico_meta` | Revisar minhas campanhas no Meta | Seção de serviços — Meta Ads |
+| `servico_dados` | Organizar meus dados | Seção de serviços — Mensuração |
+| `caminhos_conversar` | Conversar sobre o meu caso | Seção "três caminhos" |
+| `portfolio_projeto` | Ver projeto semelhante ao meu | Seção de portfólio |
+| `etapas_diagnostico` | Solicitar meu diagnóstico | Seção "seis etapas" |
+| `sobre_conversar` | Conversar sobre o meu projeto | Seção "sobre" |
+| `footer_whatsapp` | @bezerradaniels | Rodapé |
+| `footer_email` | contato@danibezerra.com | Rodapé |
+| `barra_diagnostico` | Quero meu diagnóstico | Barra fixa (mobile) |
+
+Se um novo botão for adicionado no futuro, basta colocar `data-cta="algum_id"` nele — a configuração abaixo já cobre qualquer elemento com esse atributo, sem precisar mexer no GTM de novo.
+
+### 8.1 GTM: variável do ID do botão
+
+Em **Variáveis → Variáveis definidas pelo usuário → Nova → JavaScript personalizado**, crie:
+
+- Nome: `JS - cta_id`
+- Código (cole só o conteúdo de dentro do bloco, sem as linhas com ` ```js ` e ` ``` `):
+
+  ```js
+  function () {
+    var el = {{Click Element}};
+    var alvo = el && el.closest ? el.closest('[data-cta]') : null;
+    return alvo ? alvo.getAttribute('data-cta') : undefined;
+  }
+  ```
+
+Se `{{Click Element}}` não aparecer na lista de variáveis, ative-a em **Variáveis → Variáveis internas → Configurar → Click Element** (dentro do grupo "Clicks").
+
+### 8.2 GTM: acionador
+
+Em **Acionadores → Novo → Clique → Todos os elementos**:
+
+- Nome: `Clique - CTA`
+- Este acionador dispara em: **Alguns cliques**
+- Condição: `{{JS - cta_id}}` **não é igual a** `undefined`
+
+Use a variável `JS - cta_id` na condição, não `{{Click Element}}` diretamente. Vários botões têm um ícone SVG dentro: se o clique cair no ícone, `{{Click Element}}` é o SVG (que não tem `data-cta`), e uma condição comparando o elemento exato nunca dispara. A variável já resolve isso com `closest()`, subindo até o `<a>` mesmo quando o clique é no ícone.
+
+Não use a regex `.+` nessa condição: o GTM converte `undefined` no texto `"undefined"`, que satisfaz `.+`, e a tag dispararia em qualquer clique do site.
+
+### 8.3 GTM: tag
+
+Em **Tags → Nova → Google Analytics → Evento do GA4**:
+
+- Nome: `GA4 - cta_click`
+- ID da métrica: o mesmo `{{Google Analytics}}` das outras tags
+- Nome do evento: `cta_click`
+- Parâmetros do evento:
+
+  | Nome do parâmetro | Valor |
+  |---|---|
+  | `cta_id` | `{{JS - cta_id}}` |
+
+- Acionamento: `Clique - CTA`
+
+### 8.4 Testar e publicar
+
+Antes de testar, confirme que a versão do site com os atributos `data-cta` já está no ar. Sem eles, `JS - cta_id` fica sempre `undefined`.
+
+1. **Visualizar**, clique em alguns botões diferentes do site.
+2. Na linha do tempo deve aparecer `cta_click` a cada clique, com a tag `GA4 - cta_click` disparada e o parâmetro `cta_id` com o valor certo (confira na aba **Variables** do evento).
+3. Publique com uma descrição como "Rastreamento de cliques em CTAs".
+
+### 8.5 GA4: dimensão personalizada e relatório
+
+Em **Administrador → Exibição de dados → Definições personalizadas → Criar dimensão personalizada**:
+
+| Nome da dimensão | Escopo | Parâmetro do evento |
+|---|---|---|
+| ID do botão | Evento | `cta_id` |
+
+Depois de criada (as dimensões só valem para dados coletados dali em diante), vá em **Relatórios → Engajamento → Eventos**, clique em `cta_click` e adicione **ID do botão** como dimensão secundária para ver o ranking de cliques por botão. Ou crie uma **Exploração de tabela** livre com dimensão "ID do botão" e métrica "Contagem de eventos" para um ranking direto.
+
+Não marque `cta_click` como evento-chave: ele mede intenção (clique), não a conversão em si, que continua sendo `form_contato_enviado`.
