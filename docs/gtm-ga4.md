@@ -177,6 +177,19 @@ Cada página de serviço tem o mesmo formulário da home no topo (mesmos eventos
 
 Exemplo: `google_ads_form_whatsapp`.
 
+### Botões da página local (Bom Jesus da Lapa)
+
+Página `/criacao-de-sites-em-bom-jesus-da-lapa/`, prefixo `lapa`:
+
+| `data-cta` | Texto do botão | Onde fica |
+|---|---|---|
+| `lapa_header` | Solicitar diagnóstico | Menu do topo (rola até o formulário) |
+| `lapa_form_whatsapp` | Fale comigo no WhatsApp | Abaixo do formulário |
+| `lapa_portfolio_sim` | Ver simbjl.com.br | Seção da Clínica SIM |
+| `lapa_portfolio_hazak` | Ver hazakfit.com.br | Seção da Hazak Fit |
+| `lapa_portfolio_ane_elise` | Ver draaneelise.com.br | Seção da Dra. Ane Elise |
+| `lapa_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa antes dos serviços relacionados |
+
 Se um novo botão for adicionado no futuro, basta colocar `data-cta="algum_id"` nele — a configuração abaixo já cobre qualquer elemento com esse atributo, sem precisar mexer no GTM de novo.
 
 ### 8.1 GTM: variável do ID do botão

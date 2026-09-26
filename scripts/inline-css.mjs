@@ -24,6 +24,8 @@ const PAGINAS = [
   { html: 'anuncios-no-instagram/index.html', fontes: '/src/fonts/' },
   { html: 'seo/index.html', fontes: '/src/fonts/' },
   { html: 'configuracao-google-analytics/index.html', fontes: '/src/fonts/' },
+  // Páginas locais
+  { html: 'criacao-de-sites-em-bom-jesus-da-lapa/index.html', fontes: '/src/fonts/' },
 ];
 
 const base = readFileSync(CSS, 'utf8').trim();
