@@ -183,12 +183,13 @@ Página `/criacao-de-sites-em-bom-jesus-da-lapa/`, prefixo `lapa`:
 
 | `data-cta` | Texto do botão | Onde fica |
 |---|---|---|
-| `lapa_header` | Solicitar diagnóstico | Menu do topo (rola até o formulário) |
+| `lapa_header` | Agendar reunião | Menu do topo (rola até o formulário) |
 | `lapa_form_whatsapp` | Fale comigo no WhatsApp | Abaixo do formulário |
+| `lapa_preco_reuniao` | Agendar reunião | Bloco de preço ("a partir de 12x de R$ 24,99") |
 | `lapa_portfolio_sim` | Ver simbjl.com.br | Seção da Clínica SIM |
 | `lapa_portfolio_hazak` | Ver hazakfit.com.br | Seção da Hazak Fit |
 | `lapa_portfolio_ane_elise` | Ver draaneelise.com.br | Seção da Dra. Ane Elise |
-| `lapa_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa antes dos serviços relacionados |
+| `lapa_final_whatsapp` | Agendar reunião pelo WhatsApp | Faixa roxa antes dos serviços relacionados |
 
 Se um novo botão for adicionado no futuro, basta colocar `data-cta="algum_id"` nele — a configuração abaixo já cobre qualquer elemento com esse atributo, sem precisar mexer no GTM de novo.
 

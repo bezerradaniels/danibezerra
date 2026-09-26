@@ -11,6 +11,9 @@
     var botoes2 = document.getElementById('botoes-etapa-2');
     var botaoPular = document.getElementById('botao-pular');
     var etapaAtual = 1;
+    // Texto de cada página, restaurado quando o envio falha.
+    var textoBotao1 = botao1.textContent.trim();
+    var textoBotao2 = botao2.textContent.trim();
 
     var mensagens = {
         nome: 'Informe seu nome.',
@@ -200,7 +203,7 @@
         var dados = await enviar(1);
         if (!dados) {
             botao1.disabled = false;
-            botao1.textContent = 'Quero meu diagnóstico';
+            botao1.textContent = textoBotao1;
             return;
         }
 
@@ -231,7 +234,7 @@
         if (!dados) {
             botao2.disabled = false;
             botaoPular.disabled = false;
-            botao2.textContent = 'Enviar informações';
+            botao2.textContent = textoBotao2;
             return;
         }
 
