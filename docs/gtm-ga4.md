@@ -153,6 +153,30 @@ Todos os botões de call-to-action do site têm um atributo `data-cta` único no
 | `footer_email` | contato@danibezerra.com | Rodapé |
 | `barra_diagnostico` | Quero meu diagnóstico | Barra fixa (mobile) |
 
+### Botões das páginas de serviço
+
+Cada página de serviço tem o mesmo formulário da home no topo (mesmos eventos `form_contato_enviado` e `form_contato_etapa_2`, com o serviço da página já selecionado) e três CTAs, com o prefixo da página no `data-cta`:
+
+| Sufixo | Texto do botão | Onde fica |
+|---|---|---|
+| `_header` | Solicitar diagnóstico | Menu do topo (rola até o formulário) |
+| `_form_whatsapp` | Fale comigo no WhatsApp | Abaixo do formulário |
+| `_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa antes dos serviços relacionados |
+
+| Prefixo | Página |
+|---|---|
+| `sites` | /criacao-de-sites/ |
+| `blog` | /criacao-de-blog/ |
+| `catalogo` | /criacao-de-catalogo-de-produtos/ |
+| `trafego` | /trafego-pago/ |
+| `google_ads` | /google-ads/ |
+| `meta_ads` | /meta-ads/ |
+| `instagram` | /anuncios-no-instagram/ |
+| `seo` | /seo/ |
+| `analytics` | /configuracao-google-analytics/ |
+
+Exemplo: `google_ads_form_whatsapp`.
+
 Se um novo botão for adicionado no futuro, basta colocar `data-cta="algum_id"` nele — a configuração abaixo já cobre qualquer elemento com esse atributo, sem precisar mexer no GTM de novo.
 
 ### 8.1 GTM: variável do ID do botão

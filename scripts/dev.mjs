@@ -1,9 +1,10 @@
 // Modo desenvolvimento: roda o Tailwind em watch e re-injeta o CSS inline
-// nas páginas a cada recompilação, para o dev ver as páginas estilizadas.
+// (e o JS do formulário) nas páginas a cada recompilação, para o dev ver as páginas estilizadas.
 import { spawn } from 'node:child_process';
 import { watch, existsSync } from 'node:fs';
 
 const CSS = 'src/styles/output.css';
+const JS_FORM = 'src/js/form-contato.js';
 
 const tailwind = spawn(
   process.platform === 'win32' ? 'npx.cmd' : 'npx',
@@ -29,7 +30,8 @@ function observar() {
   }
   injetar();
   watch(CSS, injetar);
-  console.log('[dev] observando ' + CSS + ' para injetar o CSS inline.');
+  watch(JS_FORM, injetar);
+  console.log('[dev] observando ' + CSS + ' e ' + JS_FORM + ' para injetar o CSS e o JS inline.');
 }
 
 observar();

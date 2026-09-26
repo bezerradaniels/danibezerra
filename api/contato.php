@@ -46,7 +46,7 @@ if ($nome === '' || $telefone === '' || $servico === '' || !filter_var($email, F
     responder(422, ['ok' => false, 'erro' => 'Preencha nome, e-mail válido, telefone e serviço de interesse.']);
 }
 
-// WhatsApp: celular brasileiro com DDD existente. Mesmas regras do front (index.html).
+// WhatsApp: celular brasileiro com DDD existente. Mesmas regras do front (src/js/form-contato.js).
 $digitos = preg_replace('/\D/', '', $telefone);
 if (strlen($digitos) > 11 && substr($digitos, 0, 2) === '55') {
     $digitos = substr($digitos, 2);
