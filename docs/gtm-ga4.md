@@ -191,6 +191,34 @@ Página `/criacao-de-sites-em-bom-jesus-da-lapa/`, prefixo `lapa`:
 | `lapa_portfolio_ane_elise` | Ver draaneelise.com.br | Seção da Dra. Ane Elise |
 | `lapa_final_whatsapp` | Agendar reunião pelo WhatsApp | Faixa roxa antes dos serviços relacionados |
 
+### Botões da FAQ e da Academy
+
+Páginas `/faq/` e `/academy/`, prefixos `faq` e `academy`:
+
+| Sufixo | Texto do botão | Onde fica |
+|---|---|---|
+| `_header` | Solicitar diagnóstico | Menu do topo (leva ao formulário da home) |
+| `_busca_whatsapp` | Perguntar no WhatsApp | Aviso de busca sem resultado |
+| `_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa no fim da página |
+
+### Botões do blog (/conteudos/)
+
+| `data-cta` | Texto do botão | Onde fica |
+|---|---|---|
+| `conteudos_header` | Solicitar diagnóstico | Menu do topo da listagem |
+| `conteudos_busca_whatsapp` | Perguntar no WhatsApp | Aviso de busca sem resultado na listagem |
+| `conteudo_header` | Solicitar diagnóstico | Menu do topo de cada post |
+| `conteudo_servico` | Nome do serviço da categoria | Caixa do autor, no fim do post |
+| `conteudo_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa no fim do post |
+
+Os IDs dos posts são os mesmos em todos eles; o post de origem aparece na dimensão **Caminho da página** do GA4.
+
+### Busca interna (evento `search`)
+
+A busca da FAQ, da Academy e do blog envia o evento recomendado do GA4 `search`, com `search_term` (o texto buscado) e `resultados` (quantos itens apareceram). Só dispara depois que a pessoa para de digitar por 1,2 s e com pelo menos 3 caracteres.
+
+No GTM, crie uma tag **GA4 - search** (Evento do Google Analytics, nome `search`) com os parâmetros `search_term` = `{{DLV - search_term}}` e `resultados` = `{{DLV - resultados}}` (variáveis da camada de dados com esses nomes), acionada por um **Evento personalizado** `search`. No GA4, registre `resultados` como métrica personalizada, se quiser analisar buscas sem resultado. `search_term` já é reconhecido pelo relatório de pesquisa no site.
+
 Se um novo botão for adicionado no futuro, basta colocar `data-cta="algum_id"` nele — a configuração abaixo já cobre qualquer elemento com esse atributo, sem precisar mexer no GTM de novo.
 
 ### 8.1 GTM: variável do ID do botão

@@ -1,0 +1,37 @@
+# Dani Bezerra
+
+> Consultoria em presença digital de Daniel Bezerra, em Bom Jesus da Lapa (BA), com atendimento em todo o Brasil: criação de sites, SEO, AEO e GEO, Google Ads, Meta Ads e mensuração com GA4. Certificado oficialmente pelo Google Ads.
+
+Contato: WhatsApp +55 77 99211-6008 · contato@danibezerra.com · Instagram @bezerradaniels
+
+## Serviços
+
+- [Criação de Sites](https://danibezerra.com/criacao-de-sites/): Criação de sites profissionais rápidos, otimizados para SEO e prontos para aparecer no Google e nas IAs. Domínio e código no seu nome. Peça um diagnóstico.
+- [Criação de Blog](https://danibezerra.com/criacao-de-blog/): Criação de blog profissional para empresas, com estrutura de SEO, dados estruturados e páginas rápidas para atrair clientes pelo Google e pelas IAs.
+- [Catálogo de Produtos](https://danibezerra.com/criacao-de-catalogo-de-produtos/): Criação de catálogo de produtos online com pedido pelo WhatsApp, página própria para cada produto e SEO para aparecer no Google. Fácil de atualizar.
+- [Tráfego Pago](https://danibezerra.com/trafego-pago/): Gestão de tráfego pago no Google Ads e no Meta Ads com conversões medidas no GA4. Verba direcionada para o que traz cliente, com relatórios claros.
+- [Google Ads](https://danibezerra.com/google-ads/): Gestão de Google Ads com certificações oficiais do Google. Campanhas de pesquisa e Performance Max com conversões medidas e verba protegida.
+- [Meta Ads](https://danibezerra.com/meta-ads/): Gestão de Meta Ads para anunciar no Facebook e no Instagram com públicos segmentados, criativos testados e API de Conversões instalada.
+- [Anúncios no Instagram](https://danibezerra.com/anuncios-no-instagram/): Anúncios no Instagram no Feed, Stories, Reels e Explorar, com públicos segmentados, criativos testados e conversões medidas. Peça um diagnóstico.
+- [SEO](https://danibezerra.com/seo/): Consultoria de SEO técnico e de conteúdo para sua empresa aparecer no Google e ser citada pelo ChatGPT, Gemini e Perplexity. Diagnóstico com plano priorizado.
+- [Configuração do Google Analytics](https://danibezerra.com/configuracao-google-analytics/): Configuração do Google Analytics 4 com Google Tag Manager: eventos, eventos-chave, integração com Google Ads e relatórios que mostram de onde vêm seus clientes.
+
+## Local
+
+- [Criação de Sites em Bom Jesus da Lapa](https://danibezerra.com/criacao-de-sites-em-bom-jesus-da-lapa/): Criação de sites em Bom Jesus da Lapa a partir de 12x de R$ 24,99, com SEO local para aparecer no Google e no Maps. Agende uma reunião na cidade.
+
+## Conteúdo
+
+- [Perguntas frequentes](https://danibezerra.com/faq/): respostas sobre prazos, preços, contratação e resultados de cada serviço.
+- [Academy](https://danibezerra.com/academy/): base de conhecimento com definições de [SEO](https://danibezerra.com/academy/#seo), [AEO](https://danibezerra.com/academy/#aeo), [GEO](https://danibezerra.com/academy/#geo), [AXO](https://danibezerra.com/academy/#axo), [Dados estruturados](https://danibezerra.com/academy/#dados-estruturados), [Core Web Vitals](https://danibezerra.com/academy/#core-web-vitals), [SEO local](https://danibezerra.com/academy/#seo-local), [Google Search Console](https://danibezerra.com/academy/#search-console), [llms.txt](https://danibezerra.com/academy/#llms-txt), [Rede de Pesquisa](https://danibezerra.com/academy/#rede-de-pesquisa), [Performance Max](https://danibezerra.com/academy/#performance-max), [Palavras-chave negativas](https://danibezerra.com/academy/#palavras-chave-negativas), [Índice de qualidade](https://danibezerra.com/academy/#indice-de-qualidade), [Pixel e API de Conversões](https://danibezerra.com/academy/#pixel-e-api-de-conversoes), [Públicos semelhantes](https://danibezerra.com/academy/#publicos-semelhantes), [Remarketing](https://danibezerra.com/academy/#remarketing), [Formatos de anúncio no Instagram](https://danibezerra.com/academy/#formatos-de-anuncio-no-instagram), [Eventos e eventos-chave (GA4)](https://danibezerra.com/academy/#eventos-chave-ga4), [Google Tag Manager](https://danibezerra.com/academy/#google-tag-manager), [Parâmetros UTM](https://danibezerra.com/academy/#parametros-utm), [CAC e LTV](https://danibezerra.com/academy/#cac-e-ltv), [Renderização no servidor](https://danibezerra.com/academy/#renderizacao-no-servidor), [Site institucional ou landing page](https://danibezerra.com/academy/#site-institucional-ou-landing-page), [Catálogo online](https://danibezerra.com/academy/#catalogo-online).
+
+## Blog
+
+- [Todos os conteúdos](https://danibezerra.com/conteudos/): guias sobre sites, SEO, IA, anúncios e dados.
+- [O que é GEO e como fazer sua empresa ser citada pelo ChatGPT](https://danibezerra.com/conteudos/o-que-e-geo/): GEO (Generative Engine Optimization) é o trabalho para a sua marca aparecer nas respostas de IAs como ChatGPT, Gemini e Perplexity. Na prática, significa ter um site que as IAs conseguem ler, com fatos claros sobre a empresa, e ser mencionado em fontes confiáveis.
+- [Quanto tempo um site novo leva para aparecer no Google?](https://danibezerra.com/conteudos/quanto-tempo-um-site-leva-para-aparecer-no-google/): Um site novo costuma entrar no índice do Google em poucos dias a algumas semanas, mais rápido se o sitemap for enviado pelo Search Console. Aparecer bem posicionado é outra etapa: em buscas com concorrência, leva em geral de 3 a 6 meses.
+
+## Opcional
+
+- [Página inicial](https://danibezerra.com/): visão geral da consultoria, portfólio e formulário de contato.
+- [Sitemap](https://danibezerra.com/sitemap.xml)

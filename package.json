@@ -1,10 +1,12 @@
 {
   "scripts": {
-    "build": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --minify && node scripts/inline-css.mjs",
+    "build": "node scripts/conteudos.mjs && tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --minify && node scripts/inline-css.mjs",
     "dev": "node scripts/dev.mjs"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.3",
-    "tailwindcss": "^4.3.3"
+    "marked": "^18.0.14",
+    "tailwindcss": "^4.3.3",
+    "yaml": "^2.9.1"
   }
 }

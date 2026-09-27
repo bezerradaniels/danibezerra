@@ -1,10 +1,12 @@
 // Modo desenvolvimento: roda o Tailwind em watch e re-injeta o CSS inline
-// (e o JS do formulário) nas páginas a cada recompilação, para o dev ver as páginas estilizadas.
+// (e os JS compartilhados) nas páginas a cada recompilação, para o dev ver as páginas estilizadas.
+// Também regera o blog quando um post de content/conteudos/ é criado ou alterado.
 import { spawn } from 'node:child_process';
 import { watch, existsSync } from 'node:fs';
 
 const CSS = 'src/styles/output.css';
-const JS_FORM = 'src/js/form-contato.js';
+const JS = ['src/js/form-contato.js', 'src/js/busca.js'];
+const POSTS = 'content/conteudos';
 
 const tailwind = spawn(
   process.platform === 'win32' ? 'npx.cmd' : 'npx',
@@ -23,6 +25,19 @@ function injetar() {
   }, 120);
 }
 
+let pendenteBlog = null;
+
+// Regera o blog e injeta o CSS/JS nas páginas novas (o Tailwind só recompila
+// quando aparecem classes novas, então a injeção não pode depender dele).
+function gerarBlog() {
+  clearTimeout(pendenteBlog);
+  pendenteBlog = setTimeout(() => {
+    const node = spawn(process.execPath, ['scripts/conteudos.mjs'], { stdio: 'inherit' });
+    node.on('exit', (code) => { if (code === 0) injetar(); });
+    node.on('error', (e) => console.error('[dev] falha ao gerar o blog:', e.message));
+  }, 150);
+}
+
 function observar() {
   if (!existsSync(CSS)) {
     setTimeout(observar, 300);
@@ -30,10 +45,12 @@ function observar() {
   }
   injetar();
   watch(CSS, injetar);
-  watch(JS_FORM, injetar);
-  console.log('[dev] observando ' + CSS + ' e ' + JS_FORM + ' para injetar o CSS e o JS inline.');
+  JS.forEach((arquivo) => watch(arquivo, injetar));
+  if (existsSync(POSTS)) watch(POSTS, gerarBlog);
+  console.log('[dev] observando ' + CSS + ' e ' + JS.join(', ') + ' para injetar o CSS e o JS inline.');
 }
 
+gerarBlog();
 observar();
 
 function encerrar() {

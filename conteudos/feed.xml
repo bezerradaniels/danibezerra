@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conteúdos — Dani Bezerra</title>
+    <link>https://danibezerra.com/conteudos/</link>
+    <atom:link href="https://danibezerra.com/conteudos/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Guias práticos sobre sites, SEO, visibilidade em IA, anúncios e dados.</description>
+    <language>pt-BR</language>
+    <item>
+      <title>O que é GEO e como fazer sua empresa ser citada pelo ChatGPT</title>
+      <link>https://danibezerra.com/conteudos/o-que-e-geo/</link>
+      <guid isPermaLink="true">https://danibezerra.com/conteudos/o-que-e-geo/</guid>
+      <description>Entenda o que é GEO (Generative Engine Optimization) e veja 5 passos práticos para sua empresa aparecer nas respostas do ChatGPT, Gemini e Perplexity.</description>
+      <category>SEO e IA</category>
+      <pubDate>Sun, 27 Sep 2026 15:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Quanto tempo um site novo leva para aparecer no Google?</title>
+      <link>https://danibezerra.com/conteudos/quanto-tempo-um-site-leva-para-aparecer-no-google/</link>
+      <guid isPermaLink="true">https://danibezerra.com/conteudos/quanto-tempo-um-site-leva-para-aparecer-no-google/</guid>
+      <description>Indexar leva dias; ranquear leva meses. Veja os prazos realistas para um site novo aparecer no Google e o que fazer para acelerar.</description>
+      <category>Sites</category>
+      <pubDate>Sat, 26 Sep 2026 15:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
