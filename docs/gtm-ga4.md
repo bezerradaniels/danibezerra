@@ -149,6 +149,8 @@ Todos os botões de call-to-action do site têm um atributo `data-cta` único no
 | `portfolio_projeto` | Ver projeto semelhante ao meu | Seção de portfólio |
 | `etapas_diagnostico` | Solicitar meu diagnóstico | Seção "seis etapas" |
 | `sobre_conversar` | Conversar sobre o meu projeto | Seção "sobre" |
+| `faq_ver_todas` | Ver todas as perguntas | Abaixo da seção de FAQ (leva a /faq/) |
+| `faq_academy` | Aprender na Academy | Abaixo da seção de FAQ (leva a /academy/) |
 | `footer_whatsapp` | @bezerradaniels | Rodapé |
 | `footer_email` | contato@danibezerra.com | Rodapé |
 | `barra_diagnostico` | Quero meu diagnóstico | Barra fixa (mobile) |
