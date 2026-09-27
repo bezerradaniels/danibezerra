@@ -1,5 +1,7 @@
-// Injeta o CSS compilado dentro do <style id="css-inline"> de cada página e os
-// JS compartilhados (src/js/) nos blocos <script id="js-..."> que a página tiver.
+// Injeta o CSS compilado dentro do <style id="css-inline"> de cada página, o menu
+// principal (src/partials/menu.html + src/js/menu.js) entre <!--menu:inicio--> e
+// <!--menu:fim-->, os dados legais (src/partials/legal.html) entre <!--legal:inicio-->
+// e <!--legal:fim-->, e os JS compartilhados (src/js/) nos blocos <script id="js-...">.
 // Roda depois do Tailwind, como parte do `npm run build`.
 // Motivo: o CSS inteiro tem ~6 KB comprimido. Inline, ele elimina a requisição
 // que bloqueia a renderização e não existe risco de conteúdo sem estilo. O JS do
@@ -52,6 +54,14 @@ const js = Object.fromEntries(Object.entries(SCRIPTS).map(([id, arquivo]) => [
   '\n' + readFileSync(arquivo, 'utf8').trim().split('\n')
     .map((linha) => (linha ? '        ' + linha : linha)).join('\n') + '\n    ',
 ]));
+// Menu principal: marcação de src/partials/menu.html + comportamento de src/js/menu.js,
+// entre <!--menu:inicio--> e <!--menu:fim--> no header de cada página.
+const recuar = (texto, espacos) => texto.trim().split('\n')
+  .map((linha) => (linha ? ' '.repeat(espacos) + linha : linha)).join('\n');
+const menu = '\n' + recuar(readFileSync('src/partials/menu.html', 'utf8'), 12) + '\n'
+  + '            <script>\n' + recuar(readFileSync('src/js/menu.js', 'utf8'), 16) + '\n            </script>\n            ';
+// Razão social, CNPJ e sede, no rodapé de todas as páginas.
+const legal = '\n' + recuar(readFileSync('src/partials/legal.html', 'utf8'), 16) + '\n                ';
 const kb = (n) => (n / 1024).toFixed(1) + ' KB';
 let falhou = false;
 
@@ -74,6 +84,9 @@ for (const { html: arquivo, fontes } of PAGINAS) {
     falhou = true;
     continue;
   }
+
+  html = injetar(html, '<!--menu:inicio-->', '<!--menu:fim-->', menu) ?? html;
+  html = injetar(html, '<!--legal:inicio-->', '<!--legal:fim-->', legal) ?? html;
 
   // Cada script é opcional: só entra nas páginas que têm o bloco.
   for (const [id, conteudo] of Object.entries(js)) {

@@ -1,3 +1,6 @@
 node_modules/
 api/config.php
 .DS_Store
+
+# Arquivos-fonte da Inter Tight (TTF). O site usa os recortes .woff2 de src/fonts/.
+src/fonts/Inter_Tight/

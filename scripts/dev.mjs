@@ -5,7 +5,7 @@ import { spawn } from 'node:child_process';
 import { watch, existsSync } from 'node:fs';
 
 const CSS = 'src/styles/output.css';
-const JS = ['src/js/form-contato.js', 'src/js/busca.js'];
+const JS = ['src/js/form-contato.js', 'src/js/busca.js', 'src/js/menu.js', 'src/partials/menu.html', 'src/partials/legal.html'];
 const POSTS = 'content/conteudos';
 
 const tailwind = spawn(

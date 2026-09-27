@@ -155,6 +155,14 @@ Todos os botões de call-to-action do site têm um atributo `data-cta` único no
 | `footer_email` | contato@danibezerra.com | Rodapé |
 | `barra_diagnostico` | Quero meu diagnóstico | Barra fixa (mobile) |
 
+### Botões do menu principal (todas as páginas)
+
+| `data-cta` | Texto do botão | Onde fica |
+|---|---|---|
+| `menu_diagnostico` | Solicitar diagnóstico | Card do mega menu de Serviços (desktop) |
+| `menu_mobile_diagnostico` | Solicitar diagnóstico | Fim do menu mobile |
+| `menu_mobile_whatsapp` | WhatsApp | Fim do menu mobile |
+
 ### Botões das páginas de serviço
 
 Cada página de serviço tem o mesmo formulário da home no topo (mesmos eventos `form_contato_enviado` e `form_contato_etapa_2`, com o serviço da página já selecionado) e três CTAs, com o prefixo da página no `data-cta`:

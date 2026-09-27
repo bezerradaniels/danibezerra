@@ -213,6 +213,7 @@ ${extraHead}
 
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preload" href="/src/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/src/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- CSS injetado inline pelo build (npm run build). Editar src/styles/input.css, nunca este bloco. -->
     <style id="css-inline"></style>
@@ -231,15 +232,18 @@ ${GTM}
 
     <!--Header-->
     <header class="border-b border-periwinkle bg-surface">
-        <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
+        <div class="relative mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:px-6 lg:h-20 lg:gap-6 lg:px-8">
             <a href="/" aria-label="Dani — página inicial"
-                class="transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
+                class="mr-auto shrink-0 transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:mr-0">
                 <img src="/src/img/images/danibezerra-logo.svg" alt="Dani" width="240" height="100"
                     class="h-9 w-auto lg:h-11">
             </a>
+
+            <!--menu:inicio--><!--menu:fim-->
+
             <a href="/#form-contato"
                 data-cta="${header}"
-                class="inline-flex min-h-11 items-center gap-2 rounded-full bg-brand px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-6 sm:py-3 sm:text-base">
+                class="inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full max-[359px]:hidden bg-brand px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-6 sm:py-3 sm:text-base">
                 Solicitar diagnóstico
             </a>
         </div>
@@ -252,7 +256,10 @@ ${main}
     <!--Footer-->
     <footer class="bg-peach">
         <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-10 text-center text-sm text-ink/75 sm:flex-row sm:justify-between sm:px-6 sm:text-left lg:px-8">
-            <p>© 2026 Dani. Todos os direitos reservados.</p>
+            <div class="space-y-2 sm:max-w-sm">
+                <p>© 2026 Dani. Todos os direitos reservados.</p>
+                <!--legal:inicio--><!--legal:fim-->
+            </div>
             <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
                 <li><a href="/conteudos/" class="inline-flex min-h-11 items-center transition hover:text-brand">Conteúdos</a></li>
                 <li><a href="/faq/" class="inline-flex min-h-11 items-center transition hover:text-brand">FAQ</a></li>
@@ -347,7 +354,7 @@ ${post.faq.map((f) => `                        <details class="group rounded-2xl
       articleSection: cat.nome,
       wordCount: post.palavras,
       author: AUTOR,
-      publisher: { '@type': 'Organization', name: 'Dani Bezerra', url: SITE, logo: `${SITE}/src/img/logos/favicon-192.png` },
+      publisher: { '@type': 'Organization', name: 'Dani Bezerra', legalName: 'DSB Soluções em Publicidade Online Ltda', taxID: '59.747.553/0001-55', url: SITE, logo: `${SITE}/src/img/logos/favicon-192.png` },
       isPartOf: { '@id': `${SITE}/conteudos/#blog` },
     },
     {
@@ -411,7 +418,7 @@ ${faq}
                             <img src="/src/img/images/daniel-bezerra.jpg" alt="Daniel Bezerra" width="64" height="64" loading="lazy" decoding="async" class="h-16 w-16 rounded-full object-cover">
                         </picture>
                         <div class="flex-1">
-                            <p class="text-base font-bold text-ink">Daniel Bezerra</p>
+                            <p class="font-display text-base font-bold text-ink">Daniel Bezerra</p>
                             <p class="mt-1 text-sm leading-relaxed text-ink/75">16 anos em web, mídia paga e dados, com certificações oficiais do Google Ads. Atende de Bom Jesus da Lapa (BA) para todo o Brasil.</p>
                         </div>
                         <a href="${cat.url}" data-cta="conteudo_servico" class="inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-full border border-lavender px-5 py-2.5 text-sm font-semibold text-brand transition hover:bg-periwinkle">
@@ -505,7 +512,7 @@ function paginaListagem(posts) {
                 ${lista}
 
                 <div id="busca-vazio" class="rounded-3xl border border-periwinkle bg-white p-8 text-center" hidden>
-                    <p class="text-lg font-bold text-ink">Nenhum conteúdo encontrado.</p>
+                    <p class="font-display text-lg font-bold text-ink">Nenhum conteúdo encontrado.</p>
                     <p class="mt-2 text-base text-ink/75">Tente outra palavra, veja a <a href="/academy/" class="font-semibold text-brand underline decoration-lavender underline-offset-2">Academy</a> ou pergunte direto para mim.</p>
                     <a href="${wa}" target="_blank" rel="noopener noreferrer" data-cta="conteudos_busca_whatsapp"
                         class="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 text-base font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
