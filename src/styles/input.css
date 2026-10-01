@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
-/* Fontes hospedadas localmente, variáveis de 400 a 800:
-   - Inter Tight: textos (font-sans, padrão do body)
-   - Plus Jakarta Sans: títulos (font-display, aplicada a h1–h6)
-   Os arquivos .woff2 são recortes de src/fonts/Inter_Tight/ e seguem os mesmos
-   unicode-range das duas fontes (latin e latin-ext). */
+/* Fontes hospedadas localmente:
+   - Inter Tight: textos (font-sans, padrão do body), variável de 400 a 800.
+   - Stack Sans Headline: títulos e destaques (font-display, aplicada a h1–h6).
+     Só existe o recorte Bold (peso 700); o extrabold (800) usado nos títulos
+     cai nesse mesmo arquivo, por ser o peso mais próximo disponível.
+   Os arquivos .woff2 do Inter Tight são recortes de src/fonts/Inter_Tight/ e
+   seguem os unicode-range latin e latin-ext da própria fonte. O Stack Sans
+   Headline tem só o recorte latin (src/fonts/Stack Sans/), suficiente para
+   o alfabeto usado em português. */
 @font-face {
     font-family: "Inter Tight";
     font-style: normal;
@@ -24,27 +28,16 @@
 }
 
 @font-face {
-    font-family: "Plus Jakarta Sans";
+    font-family: "Stack Sans Headline";
     font-style: normal;
-    font-weight: 400 800;
+    font-weight: 700;
     font-display: swap;
-    src: url("../fonts/plus-jakarta-sans-latin.woff2") format("woff2");
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: "Plus Jakarta Sans";
-    font-style: normal;
-    font-weight: 400 800;
-    font-display: swap;
-    src: url("../fonts/plus-jakarta-sans-latin-ext.woff2") format("woff2");
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    src: url("../fonts/stack-sans-headline-latin.woff2") format("woff2");
 }
 
 @theme {
     --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
-    --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-    --font-jakarta: var(--font-display);
+    --font-display: "Stack Sans Headline", ui-sans-serif, system-ui, sans-serif;
 
     /* Paleta */
     --color-surface: #fefbff;
@@ -73,7 +66,7 @@
         @apply bg-surface font-sans text-ink antialiased;
     }
 
-    /* Títulos em Plus Jakarta Sans; o resto do texto fica em Inter Tight.
+    /* Títulos em Stack Sans Headline; o resto do texto fica em Inter Tight.
        summary cobre as perguntas recolhíveis (FAQ e menu mobile). Títulos que
        não são h1–h6 (nomes de card, números de destaque) usam a classe font-display. */
     h1,

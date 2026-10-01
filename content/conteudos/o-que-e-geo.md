@@ -65,4 +65,4 @@ Os três se somam: o SEO técnico é a base, e AEO e GEO aproveitam essa base pa
 
 ## Por onde começar
 
-Faça o teste: pergunte a três IAs sobre o seu serviço na sua cidade e veja quem aparece. Se não for você, os passos acima mostram onde agir primeiro. Se quiser ajuda para priorizar, o serviço de [SEO, AEO e GEO](/seo/) começa exatamente por esse diagnóstico.
+Faça o teste: pergunte a três IAs sobre o seu serviço na sua cidade e veja quem aparece. Se não for você, os passos acima mostram onde agir primeiro. Se quiser ajuda para priorizar, o serviço de [SEO, AEO e GEO](/seo/) começa exatamente por aí.

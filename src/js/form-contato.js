@@ -161,7 +161,7 @@
         window.dataLayer.push(Object.assign({
             event: nome,
             form_id: 'form-contato',
-            form_nome: 'Diagnóstico técnico',
+            form_nome: 'Orçamento',
             servico: form.servico.value,
             origem: 'site'
         }, extras));

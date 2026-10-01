@@ -212,7 +212,7 @@ ${extraHead}
     <meta name="theme-color" content="#675496">
 
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preload" href="/src/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/src/fonts/stack-sans-headline-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/src/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- CSS injetado inline pelo build (npm run build). Editar src/styles/input.css, nunca este bloco. -->
@@ -220,6 +220,8 @@ ${extraHead}
 
     <!-- Google Tag Manager (mesmo carregamento adiado da página inicial) -->
 ${GTM}
+
+    <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/fdd586fb-4507-4af3-8d6e-4f6b3b68d254-loader.js"></script>
 
     <script type="application/ld+json">
     ${ldJson}
@@ -244,7 +246,7 @@ ${GTM}
             <a href="/#form-contato"
                 data-cta="${header}"
                 class="inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full max-[359px]:hidden bg-brand px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-6 sm:py-3 sm:text-base">
-                Solicitar diagnóstico
+                Solicitar orçamento
             </a>
         </div>
     </header>

@@ -1,6 +1,6 @@
 # Rastreamento do formulário no GTM e no GA4
 
-Como configurar o Google Tag Manager (contêiner `GTM-K7C2SK6F`) e o GA4 para medir o formulário de diagnóstico, que tem duas etapas.
+Como configurar o Google Tag Manager (contêiner `GTM-K7C2SK6F`) e o GA4 para medir o formulário de orçamento, que tem duas etapas.
 
 ## Como o formulário se comporta
 
@@ -23,7 +23,7 @@ Os dois eventos levam os mesmos parâmetros:
 | `etapa` | `1` ou `2` | número |
 | `servico` | `Gestão de Google Ads` | opção escolhida no formulário |
 | `form_id` | `form-contato` | fixo |
-| `form_nome` | `Diagnóstico técnico` | fixo |
+| `form_nome` | `Orçamento` | fixo |
 | `origem` | `site` | fixo |
 
 Nome, e-mail e telefone **não** vão para o `dataLayer`. O Google proíbe enviar dados pessoais ao GA4, então não os adicione.
@@ -137,30 +137,30 @@ Todos os botões de call-to-action do site têm um atributo `data-cta` único no
 
 | `data-cta` | Texto do botão | Onde fica |
 |---|---|---|
-| `header_diagnostico` | Solicitar diagnóstico | Menu do topo |
-| `hero_diagnostico_gratuito` | Solicitar diagnóstico gratuito | Topo da página (mobile) |
+| `header_orcamento` | Solicitar orçamento | Menu do topo |
+| `hero_orcamento` | Solicitar orçamento | Topo da página (mobile) |
 | `form_whatsapp` | Fale comigo no WhatsApp | Abaixo do formulário |
-| `camadas_diagnostico` | Descobrir em que camada meu site está | Seção "quatro camadas" |
+| `camadas_orcamento` | Descobrir em que camada meu site está | Seção "quatro camadas" |
 | `servico_site` | Avaliar meu site atual | Seção de serviços — Sites |
 | `servico_ads` | Auditar minha conta do Google Ads | Seção de serviços — Google Ads |
 | `servico_meta` | Revisar minhas campanhas no Meta | Seção de serviços — Meta Ads |
 | `servico_dados` | Organizar meus dados | Seção de serviços — Mensuração |
 | `caminhos_conversar` | Conversar sobre o meu caso | Seção "três caminhos" |
 | `portfolio_projeto` | Ver projeto semelhante ao meu | Seção de portfólio |
-| `etapas_diagnostico` | Solicitar meu diagnóstico | Seção "seis etapas" |
+| `etapas_orcamento` | Solicitar meu orçamento | Seção "seis etapas" |
 | `sobre_conversar` | Conversar sobre o meu projeto | Seção "sobre" |
 | `faq_ver_todas` | Ver todas as perguntas | Abaixo da seção de FAQ (leva a /faq/) |
 | `faq_academy` | Aprender na Academy | Abaixo da seção de FAQ (leva a /academy/) |
 | `footer_whatsapp` | @bezerradaniels | Rodapé |
 | `footer_email` | contato@danibezerra.com | Rodapé |
-| `barra_diagnostico` | Quero meu diagnóstico | Barra fixa (mobile) |
+| `barra_orcamento` | Quero meu orçamento | Barra fixa (mobile) |
 
 ### Botões do menu principal (todas as páginas)
 
 | `data-cta` | Texto do botão | Onde fica |
 |---|---|---|
-| `menu_diagnostico` | Solicitar diagnóstico | Card do mega menu de Serviços (desktop) |
-| `menu_mobile_diagnostico` | Solicitar diagnóstico | Fim do menu mobile |
+| `menu_orcamento` | Solicitar orçamento | Card do mega menu de Serviços (desktop) |
+| `menu_mobile_orcamento` | Solicitar orçamento | Fim do menu mobile |
 | `menu_mobile_whatsapp` | WhatsApp | Fim do menu mobile |
 
 ### Botões das páginas de serviço
@@ -169,7 +169,7 @@ Cada página de serviço tem o mesmo formulário da home no topo (mesmos eventos
 
 | Sufixo | Texto do botão | Onde fica |
 |---|---|---|
-| `_header` | Solicitar diagnóstico | Menu do topo (rola até o formulário) |
+| `_header` | Solicitar orçamento | Menu do topo (rola até o formulário) |
 | `_form_whatsapp` | Fale comigo no WhatsApp | Abaixo do formulário |
 | `_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa antes dos serviços relacionados |
 
@@ -207,7 +207,7 @@ Páginas `/faq/` e `/academy/`, prefixos `faq` e `academy`:
 
 | Sufixo | Texto do botão | Onde fica |
 |---|---|---|
-| `_header` | Solicitar diagnóstico | Menu do topo (leva ao formulário da home) |
+| `_header` | Solicitar orçamento | Menu do topo (leva ao formulário da home) |
 | `_busca_whatsapp` | Perguntar no WhatsApp | Aviso de busca sem resultado |
 | `_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa no fim da página |
 
@@ -215,9 +215,9 @@ Páginas `/faq/` e `/academy/`, prefixos `faq` e `academy`:
 
 | `data-cta` | Texto do botão | Onde fica |
 |---|---|---|
-| `conteudos_header` | Solicitar diagnóstico | Menu do topo da listagem |
+| `conteudos_header` | Solicitar orçamento | Menu do topo da listagem |
 | `conteudos_busca_whatsapp` | Perguntar no WhatsApp | Aviso de busca sem resultado na listagem |
-| `conteudo_header` | Solicitar diagnóstico | Menu do topo de cada post |
+| `conteudo_header` | Solicitar orçamento | Menu do topo de cada post |
 | `conteudo_servico` | Nome do serviço da categoria | Caixa do autor, no fim do post |
 | `conteudo_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa no fim do post |
 
