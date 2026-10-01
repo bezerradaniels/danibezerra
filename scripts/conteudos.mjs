@@ -616,9 +616,11 @@ function atualizarLlms(posts) {
     .concat(posts.map((p) => `- [${p.titulo}](${SITE}/conteudos/${p.slug}/): ${p.resposta}`))
     .join('\n') + '\n';
   const titulo = '## Blog';
-  const texto = readFileSync(arquivo, 'utf8');
+  // Normaliza para LF: no Windows o git entrega o arquivo em CRLF, e o regex abaixo não acharia
+  // o bloco existente (o bloco era duplicado a cada checkout novo).
+  const texto = readFileSync(arquivo, 'utf8').replace(/\r\n/g, '\n');
   // O bloco do blog fica antes de "## Opcional", que por convenção vem por último.
-  const semBlog = texto.replace(/## Blog\n[\s\S]*?(?=\n## |$)/, '').replace(/\n{3,}/g, '\n\n');
+  const semBlog = texto.replace(/## Blog\n[\s\S]*?(?=\n## |$)/g, '').replace(/\n{3,}/g, '\n\n');
   const bloco = `${titulo}\n\n${linhas}`;
   const novo = semBlog.includes('## Opcional')
     ? semBlog.replace('## Opcional', `${bloco}\n## Opcional`)
