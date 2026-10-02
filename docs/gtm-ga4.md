@@ -201,6 +201,19 @@ Página `/criacao-de-sites-em-bom-jesus-da-lapa/`, prefixo `lapa`:
 | `lapa_portfolio_ane_elise` | Ver draaneelise.com.br | Seção da Dra. Ane Elise |
 | `lapa_final_whatsapp` | Agendar reunião pelo WhatsApp | Faixa roxa antes dos serviços relacionados |
 
+### Botões da página de sites para clínicas
+
+Página `/criacao-de-sites-para-clinicas/`, prefixo `clinicas`. Não tem formulário: todos os botões abrem o WhatsApp com a mensagem pronta, então o `cta_click` é o único sinal de contato desta página.
+
+| `data-cta` | Texto do botão | Onde fica |
+|---|---|---|
+| `clinicas_header` | Agendar reunião | Menu do topo |
+| `clinicas_hero_whatsapp` | Chamar no WhatsApp | Coluna da direita do topo |
+| `clinicas_preco_whatsapp` | Agendar reunião | Bloco de preço ("a partir de 12x de R$ 24,99") |
+| `clinicas_portfolio_sim` | Ver simbjl.com.br | Seção da Clínica SIM |
+| `clinicas_portfolio_ane_elise` | Ver draaneelise.com.br | Seção da Dra. Ane Elise |
+| `clinicas_final_whatsapp` | Agendar reunião pelo WhatsApp | Faixa azul antes dos serviços relacionados |
+
 ### Botões da FAQ e da Academy
 
 Páginas `/faq/` e `/academy/`, prefixos `faq` e `academy`:

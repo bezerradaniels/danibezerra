@@ -22,6 +22,7 @@ const PAGINAS = [
   { html: 'obrigado/index.html', fontes: '/src/fonts/' },
   // Páginas de serviço
   { html: 'criacao-de-sites/index.html', fontes: '/src/fonts/' },
+  { html: 'criacao-de-sites-para-clinicas/index.html', fontes: '/src/fonts/' },
   { html: 'criacao-de-blog/index.html', fontes: '/src/fonts/' },
   { html: 'criacao-de-catalogo-de-produtos/index.html', fontes: '/src/fonts/' },
   { html: 'trafego-pago/index.html', fontes: '/src/fonts/' },
