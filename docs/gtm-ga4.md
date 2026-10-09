@@ -133,27 +133,31 @@ A queda entre as duas etapas mostra quem pulou ou saiu. Use a dimensão **Servi�
 
 Todos os botões de call-to-action do site têm um atributo `data-cta` único no HTML, para identificar qual botão foi clicado. Um único evento GA4, `cta_click`, cobre todos eles — o parâmetro `cta_id` diz qual botão foi.
 
-### Botões mapeados
+### Botões da home
+
+A home usa a nova identidade visual: o formulário fica na seção Contato (`#contato`), e os botões de orçamento levam até ele (`#form-contato`).
 
 | `data-cta` | Texto do botão | Onde fica |
 |---|---|---|
 | `header_orcamento` | Solicitar orçamento | Menu do topo |
-| `hero_orcamento` | Solicitar orçamento | Topo da página (mobile) |
-| `form_whatsapp` | Fale comigo no WhatsApp | Abaixo do formulário |
-| `camadas_orcamento` | Descobrir em que camada meu site está | Seção "quatro camadas" |
-| `servico_site` | Avaliar meu site atual | Seção de serviços — Sites |
-| `servico_ads` | Auditar minha conta do Google Ads | Seção de serviços — Google Ads |
-| `servico_meta` | Revisar minhas campanhas no Meta | Seção de serviços — Meta Ads |
-| `servico_dados` | Organizar meus dados | Seção de serviços — Mensuração |
-| `caminhos_conversar` | Conversar sobre o meu caso | Seção "três caminhos" |
-| `portfolio_projeto` | Ver projeto semelhante ao meu | Seção de portfólio |
-| `etapas_orcamento` | Solicitar meu orçamento | Seção "seis etapas" |
-| `sobre_conversar` | Conversar sobre o meu projeto | Seção "sobre" |
-| `faq_ver_todas` | Ver todas as perguntas | Abaixo da seção de FAQ (leva a /faq/) |
-| `faq_academy` | Aprender na Academy | Abaixo da seção de FAQ (leva a /academy/) |
-| `footer_whatsapp` | @bezerradaniels | Rodapé |
+| `hero_orcamento` | Solicitar orçamento | Topo da página |
+| `hero_whatsapp` | Falar no WhatsApp | Topo da página |
+| `servico_site` | Sites institucionais | Seção de serviços (leva a /criacao-de-sites/) |
+| `servico_landing` | Landing pages | Seção de serviços (leva ao formulário) |
+| `servico_seo` | SEO, AEO e GEO | Seção de serviços (leva a /seo/) |
+| `servico_ads` | Google Ads | Seção de serviços (leva a /google-ads/) |
+| `servico_meta` | Meta Ads | Seção de serviços (leva a /meta-ads/) |
+| `servico_dados` | Dados e BI | Seção de serviços (leva a /configuracao-google-analytics/) |
+| `faq_whatsapp` | Perguntar no WhatsApp | Seção de FAQ |
+| `contato_whatsapp` | (77) 99211-6008 · WhatsApp | Seção Contato, ao lado do formulário |
+| `contato_email` | contato@danibezerra.com | Seção Contato, ao lado do formulário |
+| `contato_instagram` | @bezerradaniels | Seção Contato, ao lado do formulário |
+| `footer_whatsapp` | (77) 99211-6008 | Rodapé |
+| `footer_instagram` | @bezerradaniels | Rodapé |
 | `footer_email` | contato@danibezerra.com | Rodapé |
 | `barra_orcamento` | Quero meu orçamento | Barra fixa (mobile) |
+
+Até a troca de identidade (outubro de 2026), a home também tinha `form_whatsapp`, `camadas_orcamento`, `caminhos_conversar`, `portfolio_projeto`, `etapas_orcamento`, `sobre_conversar`, `faq_ver_todas` e `faq_academy`, que saíram junto com as seções. Os `servico_*` antigos levavam ao formulário; agora levam às páginas de serviço.
 
 ### Botões do menu principal (todas as páginas)
 
@@ -165,7 +169,7 @@ Todos os botões de call-to-action do site têm um atributo `data-cta` único no
 
 ### Botões das páginas de serviço
 
-Cada página de serviço tem o mesmo formulário da home no topo (mesmos eventos `form_contato_enviado` e `form_contato_etapa_2`, com o serviço da página já selecionado) e três CTAs, com o prefixo da página no `data-cta`:
+Cada página de serviço tem no topo o mesmo formulário da home (mesmos eventos `form_contato_enviado` e `form_contato_etapa_2`, com o serviço da página já selecionado) e três CTAs, com o prefixo da página no `data-cta`:
 
 | Sufixo | Texto do botão | Onde fica |
 |---|---|---|

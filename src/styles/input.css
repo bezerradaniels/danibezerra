@@ -35,9 +35,80 @@
     src: url("../fonts/stack-sans-headline-latin.woff2") format("woff2");
 }
 
+/* Fontes da nova identidade visual (por enquanto só na home, ver .marca-nova):
+   - DM Sans: textos e títulos, variável de 400 a 600 com eixo de tamanho óptico.
+   - DM Mono: eyebrows e rótulos, pesos 400 e 500.
+   - Aminute: fonte da marca, só para logo, preço, números e títulos curtos.
+     font-display: block porque o fallback desfigura os números de destaque.
+   DM Sans e DM Mono são os recortes latin e latin-ext do Google Fonts. */
+@font-face {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url("../fonts/dm-sans-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url("../fonts/dm-sans-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/dm-mono-400-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/dm-mono-400-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../fonts/dm-mono-500-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../fonts/dm-mono-500-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "Aminute";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../fonts/aminute.woff2") format("woff2");
+}
+
 @theme {
     --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
     --font-display: "Stack Sans Headline", ui-sans-serif, system-ui, sans-serif;
+    --font-dm: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-dm-mono: "DM Mono", ui-monospace, monospace;
+    --font-aminute: "Aminute", "DM Sans", sans-serif;
 
     /* Paleta */
     --color-surface: #fefbff;
@@ -51,6 +122,38 @@
     --color-brand: #675496;
     --color-brand-dark: #544380;
     --color-ink: #1e293b;
+
+    /* Nova identidade visual (Manual de Identidade Visual "daniel").
+       Os nomes seguem o manual; os tons sem nome lá vêm do handoff do site.
+       Amarelo nunca como texto sobre fundo claro; acentos em ~10% da área. */
+    --color-azul: #2e6be6;
+    --color-azul-escuro: #2459c4;
+    --color-vermelho: #e0463a;
+    --color-amarelo: #f5b40a;
+    --color-verde: #1a9a55;
+    --color-verde-escuro: #13703f;
+    --color-verde-claro: #e3f3ea;
+    --color-tinta: #1e2228;
+    --color-tinta-suave: #3a3f47;
+    --color-grafite: #5b616b;
+    --color-pagina: #f8fafd;
+    --color-offwhite: #faf9f6;
+    --color-areia: #f1efea;
+    --color-nevoa: #e4e2dc;
+    --color-noite: #15171b;
+    --color-noite-linha: #33373e;
+    --color-pedra: #c9c6be;
+    --color-cinza: #9da3ac;
+
+    /* Escala tipográfica da nova identidade (tamanho, entrelinha, espaçamento, peso). */
+    --text-hero: clamp(40px, 5.6vw, 68px);
+    --text-hero--line-height: 1.04;
+    --text-hero--letter-spacing: -0.03em;
+    --text-hero--font-weight: 600;
+    --text-titulo: clamp(32px, 4vw, 48px);
+    --text-titulo--line-height: 1.1;
+    --text-titulo--letter-spacing: -0.025em;
+    --text-titulo--font-weight: 600;
 
     --animate-marquee: marquee 40s linear infinite;
 
@@ -77,6 +180,12 @@
     h6,
     summary {
         font-family: var(--font-display);
+    }
+
+    /* Páginas já na nova identidade (classe marca-nova no <body>): os títulos
+       herdam a DM Sans do corpo. Quando todas migrarem, a regra acima sai. */
+    .marca-nova :is(h1, h2, h3, h4, h5, h6, summary) {
+        font-family: inherit;
     }
 
     /* O Tailwind v4 deixa botões com cursor padrão; restaura a mãozinha */
