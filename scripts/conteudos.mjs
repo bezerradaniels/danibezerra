@@ -234,7 +234,7 @@ ${GTM}
 
     <!--Header-->
     <header class="border-b border-periwinkle bg-surface">
-        <div class="relative mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:px-6 lg:h-20 lg:gap-6 lg:px-8">
+        <div class="relative mx-auto flex h-16 max-w-[1200px] items-center gap-3 px-5 sm:px-6 lg:h-20 lg:gap-6">
             <a href="/" aria-label="daniel — página inicial"
                 class="mr-auto shrink-0 transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:mr-0">
                 <img src="/src/img/images/danibezerra-logo.svg" alt="daniel" width="195" height="56"
