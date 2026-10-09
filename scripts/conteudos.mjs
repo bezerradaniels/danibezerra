@@ -150,7 +150,7 @@ function renderizar(post) {
 const SETA = (cls) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="${cls}" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>`;
 const ICONE_WA = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5 shrink-0" aria-hidden="true"><path d="M3.5 20.5l1.3-3.9A8.5 8.5 0 1 1 8 19.6l-4.5.9Z" stroke-linejoin="round" /><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8c-.9-.4-1.4-.9-1.8-1.8l.8-1-1-2L9 9.5Z" stroke-linejoin="round" /></svg>`;
 const LUPA = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-brand" aria-hidden="true"><path d="M17 17l4 4M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke-linecap="round" stroke-linejoin="round" /></svg>`;
-const CHEVRON = `<span class="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-periwinkle text-brand"><svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" aria-hidden="true"><path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>`;
+const CHEVRON = `<span class="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-soft text-ink"><svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" aria-hidden="true"><path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>`;
 
 const GTM = `    <script>
         window.dataLayer = window.dataLayer || [];
@@ -233,7 +233,7 @@ ${GTM}
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!--Header-->
-    <header class="border-b border-periwinkle bg-surface">
+    <header class="sticky top-0 z-50 border-b border-periwinkle bg-[#fafafa]/90 backdrop-blur-md">
         <div class="relative mx-auto flex h-16 max-w-[1200px] items-center gap-3 px-5 sm:px-6 lg:h-20 lg:gap-6">
             <a href="/" aria-label="daniel — página inicial"
                 class="mr-auto shrink-0 transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:mr-0">
@@ -256,22 +256,7 @@ ${main}
     </main>
 
     <!--Footer-->
-    <footer class="bg-peach">
-        <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-10 text-center text-sm text-ink/75 sm:flex-row sm:justify-between sm:px-6 sm:text-left lg:px-8">
-            <div class="space-y-2 sm:max-w-sm">
-                <p>© 2026 Dani. Todos os direitos reservados.</p>
-                <!--legal:inicio--><!--legal:fim-->
-            </div>
-            <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                <li><a href="/conteudos/" class="inline-flex min-h-11 items-center transition hover:text-brand">Conteúdos</a></li>
-                <li><a href="/faq/" class="inline-flex min-h-11 items-center transition hover:text-brand">FAQ</a></li>
-                <li><a href="/academy/" class="inline-flex min-h-11 items-center transition hover:text-brand">Academy</a></li>
-                <li><a href="https://wa.me/${WA}" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center transition hover:text-brand">(77) 99211-6008</a></li>
-                <li><a href="https://www.instagram.com/bezerradaniels" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center transition hover:text-brand">@bezerradaniels</a></li>
-                <li><a href="mailto:contato@danibezerra.com" class="inline-flex min-h-11 items-center transition hover:text-brand">contato@danibezerra.com</a></li>
-            </ul>
-        </div>
-    </footer>
+    <footer class="bg-night text-periwinkle"><!--rodape:inicio--><!--rodape:fim--></footer>
 ${scriptBusca ? `
     <!-- JS da busca injetado inline pelo build (npm run build). Editar src/js/busca.js, nunca este bloco. -->
     <script id="js-busca"></script>
@@ -284,10 +269,10 @@ ${scriptBusca ? `
 function cartao(post, { busca = false } = {}) {
   const cat = CATEGORIAS[post.categoria];
   return `
-                    <article ${busca ? 'data-busca-item ' : ''}class="group relative flex h-full flex-col rounded-3xl border border-periwinkle bg-white p-6 transition hover:-translate-y-0.5 hover:border-lavender hover:shadow-lg hover:shadow-brand/10">
-                        <p class="text-xs font-semibold uppercase tracking-wider text-brand">${esc(cat.nome)}</p>
-                        <h3 class="mt-2 text-lg font-bold leading-snug text-ink">
-                            <a href="/conteudos/${post.slug}/" class="after:absolute after:inset-0 after:rounded-3xl focus-visible:outline-none">${esc(post.titulo)}</a>
+                    <article ${busca ? 'data-busca-item ' : ''}class="group relative flex h-full flex-col rounded-[1.75rem] border border-periwinkle bg-offwhite p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-[0_16px_32px_rgba(30,34,40,0.08)]">
+                        <p class="font-mono text-[0.8125rem] text-brand">${esc(cat.nome)}</p>
+                        <h3 class="mt-2 text-xl font-semibold leading-snug text-ink">
+                            <a href="/conteudos/${post.slug}/" class="after:absolute after:inset-0 after:rounded-[1.75rem] focus-visible:outline-none">${esc(post.titulo)}</a>
                         </h3>
                         <p class="mt-2 flex-1 text-base leading-relaxed text-ink/75">${esc(post.descricao)}</p>
                         <p class="mt-4 text-sm text-ink/60">
@@ -306,8 +291,8 @@ function paginaPost(post, todos) {
   const wa = `https://wa.me/${WA}?text=${encodeURIComponent(`Olá, Dani! Li o conteúdo "${post.titulo}" e quero conversar.`)}`;
 
   const sumario = post.titulos.length >= 3 ? `
-                <nav aria-labelledby="titulo-sumario" class="mt-10 rounded-2xl border border-periwinkle bg-soft p-6">
-                    <p id="titulo-sumario" class="text-sm font-semibold uppercase tracking-wider text-brand">Neste conteúdo</p>
+                <nav aria-labelledby="titulo-sumario" class="mt-10 rounded-[20px] border border-periwinkle bg-soft p-6">
+                    <p id="titulo-sumario" class="font-mono text-sm text-brand">Neste conteúdo</p>
                     <ol class="mt-3 list-decimal space-y-1.5 pl-5 text-base text-ink/80 marker:text-brand">
 ${post.titulos.map((t) => `                        <li><a href="#${t.id}" class="transition hover:text-brand">${esc(t.texto)}</a></li>`).join('\n')}
                     </ol>
@@ -315,10 +300,10 @@ ${post.titulos.map((t) => `                        <li><a href="#${t.id}" class=
 
   const faq = post.faq.length ? `
                 <section aria-labelledby="perguntas" class="mt-14">
-                    <h2 id="perguntas" class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">Perguntas frequentes</h2>
+                    <h2 id="perguntas" class="text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-[1.1] tracking-[-0.025em] text-ink">Perguntas frequentes</h2>
                     <div class="mt-6 space-y-4">
-${post.faq.map((f) => `                        <details class="group rounded-2xl border border-periwinkle bg-white p-6">
-                            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold text-ink">
+${post.faq.map((f) => `                        <details class="group rounded-[20px] border border-periwinkle bg-offwhite px-5 py-4 sm:px-7 sm:py-5">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-ink sm:text-lg">
                                 <h3>${esc(f.pergunta)}</h3>
                                 ${CHEVRON}
                             </summary>
@@ -333,9 +318,9 @@ ${post.faq.map((f) => `                        <details class="group rounded-2xl
     .slice(0, 3);
   const blocoRelacionados = relacionados.length ? `
         <!--Outros conteúdos-->
-        <section class="bg-soft py-16 sm:py-20">
-            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <h2 class="text-center text-2xl font-extrabold leading-tight tracking-tight text-ink sm:text-3xl">Continue lendo</h2>
+        <section class="bg-soft py-16 sm:py-24">
+            <div class="mx-auto max-w-[1200px] px-5 sm:px-6">
+                <h2 class="text-center text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-[1.1] tracking-[-0.025em] text-ink">Continue lendo</h2>
                 <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">${relacionados.map((p) => cartao(p)).join('')}
                 </div>
             </div>
@@ -378,7 +363,7 @@ ${post.faq.map((f) => `                        <details class="group rounded-2xl
   const main = `        <article>
             <!--Cabeçalho do post-->
             <header class="bg-hero-bg">
-                <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+                <div class="mx-auto max-w-3xl px-5 py-12 sm:px-6 sm:py-16">
                     <nav aria-label="Você está em">
                         <ol class="flex flex-wrap items-center gap-2 text-sm text-ink/75">
                             <li><a href="/" class="transition hover:text-brand">Início</a></li>
@@ -388,7 +373,7 @@ ${post.faq.map((f) => `                        <details class="group rounded-2xl
                             <li><span aria-current="page" class="font-semibold text-brand">${esc(cat.nome)}</span></li>
                         </ol>
                     </nav>
-                    <h1 class="mt-6 text-balance text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl">${esc(post.titulo)}</h1>
+                    <h1 class="mt-6 text-balance text-[clamp(2.125rem,5vw,3.5rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-ink">${esc(post.titulo)}</h1>
                     <p class="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink/70">
                         <span>Por <strong class="font-semibold text-ink">Daniel Bezerra</strong></span>
                         <span aria-hidden="true">·</span>
@@ -400,10 +385,10 @@ ${post.faq.map((f) => `                        <details class="group rounded-2xl
             </header>
 
             <div class="bg-surface py-12 sm:py-16">
-                <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl px-5 sm:px-6">
                     <!-- Resposta curta primeiro: é o trecho que buscadores e IAs mais citam. -->
-                    <aside aria-label="Resposta curta" class="rounded-2xl border-l-4 border-brand bg-white p-6 shadow-sm">
-                        <p class="text-sm font-semibold uppercase tracking-wider text-brand">Resposta curta</p>
+                    <aside aria-label="Resposta curta" class="rounded-[20px] border-l-4 border-brand bg-white p-6">
+                        <p class="font-mono text-sm text-brand">Resposta curta</p>
                         <p class="mt-2 text-lg leading-relaxed text-ink">${esc(post.resposta)}</p>
                     </aside>
 ${sumario}
@@ -414,16 +399,16 @@ ${post.html.trim().split('\n').map((l) => (l ? '                        ' + l : 
 ${faq}
 
                     <!--Autor-->
-                    <footer class="mt-14 flex flex-col gap-4 rounded-3xl border border-periwinkle bg-white p-6 sm:flex-row sm:items-center">
+                    <footer class="mt-14 flex flex-col gap-4 rounded-[1.75rem] border border-periwinkle bg-white p-6 sm:flex-row sm:items-center">
                         <picture>
                             <source srcset="/src/img/images/daniel-bezerra.webp" type="image/webp">
                             <img src="/src/img/images/daniel-bezerra.jpg" alt="Daniel Bezerra" width="64" height="64" loading="lazy" decoding="async" class="h-16 w-16 rounded-full object-cover">
                         </picture>
                         <div class="flex-1">
-                            <p class="font-display text-base font-bold text-ink">Daniel Bezerra</p>
+                            <p class="font-display text-lg font-semibold text-ink">Daniel Bezerra</p>
                             <p class="mt-1 text-sm leading-relaxed text-ink/75">16 anos em web, mídia paga e dados, com certificações oficiais do Google Ads. Atende de Bom Jesus da Lapa (BA) para todo o Brasil.</p>
                         </div>
-                        <a href="${cat.url}" data-cta="conteudo_servico" class="inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-full border border-lavender px-5 py-2.5 text-sm font-semibold text-brand transition hover:bg-periwinkle">
+                        <a href="${cat.url}" data-cta="conteudo_servico" class="inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold text-ink shadow-[inset_0_0_0_1.5px_#1e2228] transition hover:bg-ink hover:text-offwhite">
                             ${esc(cat.servico)}
                             ${SETA('h-4 w-4')}
                         </a>
@@ -433,9 +418,11 @@ ${faq}
         </article>
 
         <!--CTA final-->
-        <section class="bg-brand py-16 sm:py-20">
-            <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">Quer aplicar isso no seu negócio?</h2>
+        <section class="relative isolate overflow-hidden bg-brand py-16 sm:py-24">
+            <svg viewBox="0 0 100 100" class="pointer-events-none absolute -right-12 -top-14 -z-10 h-44 w-44 fill-current text-yellow sm:h-56 sm:w-56" aria-hidden="true"><path d="M89.2 50.0 L89.3 52.1 L89.6 54.2 L90.1 56.3 L90.6 58.6 L91.1 61.0 L91.5 63.5 L91.6 66.0 L91.4 68.4 L90.8 70.8 L89.8 73.0 L88.4 75.0 L86.7 76.7 L84.7 78.1 L82.4 79.2 L80.1 80.1 L77.8 80.9 L75.5 81.5 L73.4 82.2 L71.4 83.0 L69.6 83.9 L67.9 85.1 L66.2 86.4 L64.5 87.9 L62.8 89.5 L61.0 91.1 L59.1 92.7 L57.0 94.0 L54.7 95.1 L52.4 95.8 L50.0 96.0 L47.6 95.8 L45.3 95.1 L43.0 94.0 L40.9 92.7 L39.0 91.1 L37.2 89.5 L35.5 87.9 L33.8 86.4 L32.1 85.1 L30.4 83.9 L28.6 83.0 L26.6 82.2 L24.5 81.5 L22.2 80.9 L19.9 80.1 L17.6 79.2 L15.3 78.1 L13.3 76.7 L11.6 75.0 L10.2 73.0 L9.2 70.8 L8.6 68.4 L8.4 66.0 L8.5 63.5 L8.9 61.0 L9.4 58.6 L9.9 56.3 L10.4 54.2 L10.7 52.1 L10.8 50.0 L10.7 47.9 L10.4 45.8 L9.9 43.7 L9.4 41.4 L8.9 39.0 L8.5 36.5 L8.4 34.0 L8.6 31.6 L9.2 29.2 L10.2 27.0 L11.6 25.0 L13.3 23.3 L15.3 21.9 L17.6 20.8 L19.9 19.9 L22.2 19.1 L24.5 18.5 L26.6 17.8 L28.6 17.0 L30.4 16.1 L32.1 14.9 L33.8 13.6 L35.5 12.1 L37.2 10.5 L39.0 8.9 L40.9 7.3 L43.0 6.0 L45.3 4.9 L47.6 4.2 L50.0 4.0 L52.4 4.2 L54.7 4.9 L57.0 6.0 L59.1 7.3 L61.0 8.9 L62.8 10.5 L64.5 12.1 L66.2 13.6 L67.9 14.9 L69.6 16.1 L71.4 17.0 L73.4 17.8 L75.5 18.5 L77.8 19.1 L80.1 19.9 L82.4 20.8 L84.7 21.9 L86.7 23.3 L88.4 25.0 L89.8 27.0 L90.8 29.2 L91.4 31.6 L91.6 34.0 L91.5 36.5 L91.1 39.0 L90.6 41.4 L90.1 43.7 L89.6 45.8 L89.3 47.9Z"/></svg>
+            <svg viewBox="0 0 100 100" class="pointer-events-none absolute -bottom-12 -left-10 -z-10 h-36 w-36 fill-current text-green sm:h-44 sm:w-44" aria-hidden="true"><circle cx="32" cy="32" r="26"/><circle cx="68" cy="32" r="26"/><circle cx="32" cy="68" r="26"/><circle cx="68" cy="68" r="26"/></svg>
+            <div class="mx-auto max-w-3xl px-5 text-center sm:px-6">
+                <h2 class="text-[clamp(1.875rem,4vw,3rem)] font-semibold leading-[1.1] tracking-[-0.025em] text-white">Quer aplicar isso no seu negócio?</h2>
                 <p class="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/80">Me conte o seu caso. Você recebe um retorno em até 24h úteis, direto comigo.</p>
                 <a href="${wa}" target="_blank" rel="noopener noreferrer" data-cta="conteudo_final_whatsapp"
                     class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-base font-semibold text-brand transition hover:bg-periwinkle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
@@ -476,7 +463,7 @@ function paginaListagem(posts) {
 
   const main = `        <!--Topo com busca-->
         <section class="bg-hero-bg">
-            <div class="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-16 lg:px-8">
+            <div class="mx-auto max-w-3xl px-5 py-12 text-center sm:px-6 sm:py-16">
                 <nav aria-label="Você está em">
                     <ol class="flex items-center justify-center gap-2 text-sm text-ink/75">
                         <li><a href="/" class="transition hover:text-brand">Início</a></li>
@@ -484,8 +471,8 @@ function paginaListagem(posts) {
                         <li><span aria-current="page" class="font-semibold text-brand">Conteúdos</span></li>
                     </ol>
                 </nav>
-                <span class="mt-6 inline-block rounded-full bg-periwinkle px-3 py-1 text-sm font-semibold uppercase tracking-wider text-brand">Blog</span>
-                <h1 class="mt-4 text-balance text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl">
+                <span class="mt-6 inline-block font-mono text-sm text-brand">Blog</span>
+                <h1 class="mt-4 text-balance text-[clamp(2.125rem,5vw,3.5rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-ink">
                     Conteúdos sobre sites, Google e IA
                 </h1>
                 <p class="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-ink/75 sm:text-lg">
@@ -509,12 +496,12 @@ function paginaListagem(posts) {
 
         <!--Lista-->
         <section class="bg-surface py-12 sm:py-16">
-            <div class="mx-auto max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-[1200px] space-y-10 px-5 sm:px-6">
                 <h2 class="sr-only">Todos os conteúdos</h2>
                 ${lista}
 
-                <div id="busca-vazio" class="rounded-3xl border border-periwinkle bg-white p-8 text-center" hidden>
-                    <p class="font-display text-lg font-bold text-ink">Nenhum conteúdo encontrado.</p>
+                <div id="busca-vazio" class="rounded-[1.75rem] border border-periwinkle bg-white p-8 text-center" hidden>
+                    <p class="font-display text-[1.375rem] font-semibold leading-tight text-ink">Nenhum conteúdo encontrado.</p>
                     <p class="mt-2 text-base text-ink/75">Tente outra palavra, veja a <a href="/academy/" class="font-semibold text-brand underline decoration-lavender underline-offset-2">Academy</a> ou pergunte direto para mim.</p>
                     <a href="${wa}" target="_blank" rel="noopener noreferrer" data-cta="conteudos_busca_whatsapp"
                         class="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 text-base font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">

@@ -1,6 +1,7 @@
 // Injeta o CSS compilado dentro do <style id="css-inline"> de cada página, o menu
 // principal (src/partials/menu.html + src/js/menu.js) entre <!--menu:inicio--> e
-// <!--menu:fim-->, os dados legais (src/partials/legal.html) entre <!--legal:inicio-->
+// <!--menu:fim-->, o rodapé (src/partials/rodape.html) entre <!--rodape:inicio--> e
+// <!--rodape:fim-->, os dados legais (src/partials/legal.html) entre <!--legal:inicio-->
 // e <!--legal:fim-->, e os JS compartilhados (src/js/) nos blocos <script id="js-...">.
 // Roda depois do Tailwind, como parte do `npm run build`.
 // Motivo: o CSS inteiro tem ~6 KB comprimido. Inline, ele elimina a requisição
@@ -61,6 +62,9 @@ const recuar = (texto, espacos) => texto.trim().split('\n')
   .map((linha) => (linha ? ' '.repeat(espacos) + linha : linha)).join('\n');
 const menu = '\n' + recuar(readFileSync('src/partials/menu.html', 'utf8'), 12) + '\n'
   + '            <script>\n' + recuar(readFileSync('src/js/menu.js', 'utf8'), 16) + '\n            </script>\n            ';
+// Rodapé completo (src/partials/rodape.html), entre <!--rodape:inicio--> e <!--rodape:fim-->.
+// Entra antes dos dados legais, porque o próprio rodapé traz o bloco <!--legal-->.
+const rodape = '\n' + recuar(readFileSync('src/partials/rodape.html', 'utf8'), 8) + '\n        ';
 // Razão social, CNPJ e sede, no rodapé de todas as páginas.
 const legal = '\n' + recuar(readFileSync('src/partials/legal.html', 'utf8'), 16) + '\n                ';
 const kb = (n) => (n / 1024).toFixed(1) + ' KB';
@@ -87,6 +91,7 @@ for (const { html: arquivo, fontes } of PAGINAS) {
   }
 
   html = injetar(html, '<!--menu:inicio-->', '<!--menu:fim-->', menu) ?? html;
+  html = injetar(html, '<!--rodape:inicio-->', '<!--rodape:fim-->', rodape) ?? html;
   html = injetar(html, '<!--legal:inicio-->', '<!--legal:fim-->', legal) ?? html;
 
   // Cada script é opcional: só entra nas páginas que têm o bloco.

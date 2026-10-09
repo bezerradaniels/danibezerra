@@ -346,11 +346,11 @@ details[open] > summary .faq-chevron {
    e fica parada para quem prefere menos movimento. Os dois grupos de logos no
    HTML são idênticos, por isso o loop em -50% é contínuo. */
 .faixa-logos {
-    animation: marquee 50s linear infinite;
+    animation: marquee 90s linear infinite;
 }
 
 .faixa-logos:hover {
-    animation-duration: 150s;
+    animation-duration: 270s;
 }
 
 @media (prefers-reduced-motion: reduce) {
