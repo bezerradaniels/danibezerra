@@ -209,11 +209,11 @@ ${extraHead}
     <link rel="icon" href="/src/img/logos/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/src/img/logos/favicon-192.png" sizes="192x192" type="image/png">
     <link rel="apple-touch-icon" href="/src/img/logos/apple-touch-icon.png">
-    <meta name="theme-color" content="#675496">
+    <meta name="theme-color" content="#2E6BE6">
 
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preload" href="/src/fonts/stack-sans-headline-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/src/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/src/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/src/fonts/google-sans-code-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- CSS injetado inline pelo build (npm run build). Editar src/styles/input.css, nunca este bloco. -->
     <style id="css-inline"></style>
@@ -235,10 +235,10 @@ ${GTM}
     <!--Header-->
     <header class="border-b border-periwinkle bg-surface">
         <div class="relative mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:px-6 lg:h-20 lg:gap-6 lg:px-8">
-            <a href="/" aria-label="Dani — página inicial"
+            <a href="/" aria-label="daniel — página inicial"
                 class="mr-auto shrink-0 transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:mr-0">
-                <img src="/src/img/images/danibezerra-logo.svg" alt="Dani" width="240" height="100"
-                    class="h-9 w-auto lg:h-11">
+                <img src="/src/img/images/danibezerra-logo.svg" alt="daniel" width="195" height="56"
+                    class="h-7 w-auto lg:h-8">
             </a>
 
             <!--menu:inicio--><!--menu:fim-->

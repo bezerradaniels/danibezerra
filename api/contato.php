@@ -98,7 +98,7 @@ $whatsappLink = 'https://wa.me/55' . $digitos;
 $linhasHtml = '';
 foreach ($linhas as $rotulo => $valor) {
     $linhasHtml .= '<tr>'
-        . '<td style="padding:10px 0;border-bottom:1px solid #f0edf7;font-size:13px;color:#675496;font-weight:600;white-space:nowrap;vertical-align:top;width:1%;">' . $e($rotulo) . '</td>'
+        . '<td style="padding:10px 0;border-bottom:1px solid #f0edf7;font-size:13px;color:#2E6BE6;font-weight:600;white-space:nowrap;vertical-align:top;width:1%;">' . $e($rotulo) . '</td>'
         . '<td style="padding:10px 0 10px 16px;border-bottom:1px solid #f0edf7;font-size:15px;color:#1e293b;">' . $e($valor) . '</td>'
         . '</tr>';
 }
@@ -107,7 +107,7 @@ $mensagemHtml = '';
 if ($mensagem !== '') {
     $mensagemHtml = '
         <tr><td style="padding:28px 32px 0;">
-            <p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#675496;text-transform:uppercase;letter-spacing:.04em;">Como posso ajudar sua empresa hoje?</p>
+            <p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#2E6BE6;text-transform:uppercase;letter-spacing:.04em;">Como posso ajudar sua empresa hoje?</p>
             <p style="margin:0;padding:16px 18px;background:#f8f1f6;border-radius:12px;font-size:15px;line-height:1.6;color:#1e293b;">' . nl2br($e($mensagem)) . '</p>
         </td></tr>';
 }
@@ -117,7 +117,7 @@ $html = '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta nam
     . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8f1f6;padding:32px 16px;">'
     . '<tr><td align="center">'
     . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:20px;overflow:hidden;">'
-    . '<tr><td style="background:#675496;padding:28px 32px;">'
+    . '<tr><td style="background:#2E6BE6;padding:28px 32px;">'
     . '<p style="margin:0;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ffffff;opacity:.85;">Dani Bezerra · Consultoria Digital</p>'
     . '<h1 style="margin:8px 0 0;font-size:22px;font-weight:800;color:#ffffff;">' . $e($titulo) . '</h1>'
     . '<p style="margin:6px 0 0;font-size:13px;color:#ffffff;opacity:.8;">' . $e($selo) . '</p>'
@@ -127,8 +127,8 @@ $html = '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta nam
     . '</td></tr>'
     . $mensagemHtml
     . '<tr><td style="padding:28px 32px 32px;">'
-    . '<a href="' . $e($whatsappLink) . '" style="display:inline-block;background:#675496;color:#ffffff;text-decoration:none;font-size:15px;font-weight:700;padding:13px 22px;border-radius:999px;">Responder no WhatsApp</a>'
-    . '<a href="mailto:' . $e($email) . '" style="display:inline-block;margin-left:10px;color:#675496;text-decoration:none;font-size:15px;font-weight:700;padding:13px 10px;">Responder por e-mail</a>'
+    . '<a href="' . $e($whatsappLink) . '" style="display:inline-block;background:#2E6BE6;color:#ffffff;text-decoration:none;font-size:15px;font-weight:700;padding:13px 22px;border-radius:999px;">Responder no WhatsApp</a>'
+    . '<a href="mailto:' . $e($email) . '" style="display:inline-block;margin-left:10px;color:#2E6BE6;text-decoration:none;font-size:15px;font-weight:700;padding:13px 10px;">Responder por e-mail</a>'
     . '</td></tr>'
     . '<tr><td style="padding:18px 32px;background:#fefbff;border-top:1px solid #f0edf7;">'
     . '<p style="margin:0;font-size:12px;color:#1e293b;opacity:.55;">Enviado automaticamente pelo formulário em danibezerra.com. Responda diretamente este e-mail — o campo "Responder" já está configurado para ' . $e($email) . '.</p>'
