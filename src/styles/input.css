@@ -341,3 +341,37 @@ details[open] > summary .faq-chevron {
     color: var(--color-ink);
     font-weight: 700;
 }
+
+/* Faixa de logos de clientes: rolagem infinita que desacelera ao passar o mouse
+   e fica parada para quem prefere menos movimento. Os dois grupos de logos no
+   HTML são idênticos, por isso o loop em -50% é contínuo. */
+.faixa-logos {
+    animation: marquee 50s linear infinite;
+}
+
+.faixa-logos:hover {
+    animation-duration: 150s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .faixa-logos {
+        animation: none;
+    }
+}
+
+/* Bordas com desfoque progressivo, como no logo-cloud original: o backdrop-filter
+   aparece só onde a máscara é opaca, suavizando a entrada e a saída dos logos. */
+.borda-desfoque {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.borda-desfoque-esq {
+    -webkit-mask-image: linear-gradient(to right, #000, transparent);
+    mask-image: linear-gradient(to right, #000, transparent);
+}
+
+.borda-desfoque-dir {
+    -webkit-mask-image: linear-gradient(to left, #000, transparent);
+    mask-image: linear-gradient(to left, #000, transparent);
+}
