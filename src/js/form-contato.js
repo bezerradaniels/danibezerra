@@ -271,10 +271,11 @@
     botaoPular.addEventListener('click', irParaObrigado);
 
     // Barra de CTA no mobile: aparece quando o formulário sai da viewport
-    // e some quando ele volta, para nunca cobrir o botão de envio.
+    // e some quando ele volta, para nunca cobrir o botão de envio. Na home,
+    // só depois de passar os botões do hero ([data-fim-hero]).
     var barra = document.getElementById('barra-cta');
     if (barra && 'IntersectionObserver' in window) {
-        var ctaHero = document.querySelector('#inicio a[href="#form-contato"]');
+        var fimHero = document.querySelector('#inicio [data-fim-hero]');
         var estado = { formVisivel: true, passouHero: false };
 
         function atualizar() {
@@ -287,12 +288,12 @@
             atualizar();
         }, { rootMargin: '0px 0px -80px 0px' }).observe(form);
 
-        if (ctaHero) {
+        if (fimHero) {
             new IntersectionObserver(function (entradas) {
                 var e = entradas[0];
                 estado.passouHero = !e.isIntersecting && e.boundingClientRect.top < 0;
                 atualizar();
-            }).observe(ctaHero);
+            }).observe(fimHero);
         } else {
             estado.passouHero = true;
         }

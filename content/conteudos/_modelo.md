@@ -7,7 +7,7 @@
 titulo: Como escolher palavras-chave para o Google Ads
 
 # Opcional. Título só para a aba e o Google, se quiser um diferente do H1.
-# " | Dani Bezerra" é adicionado automaticamente. Ideal: até 60 caracteres no total.
+# " | Daniel Bezerra" é adicionado automaticamente. Ideal: até 60 caracteres no total.
 # titulo_seo: Palavras-chave no Google Ads: como escolher
 
 # Obrigatório. Meta description (aparece no Google). Ideal: até 160 caracteres.

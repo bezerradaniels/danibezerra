@@ -148,9 +148,14 @@ function renderizar(post) {
 // Peças de layout (mesmo visual das demais páginas)
 
 const SETA = (cls) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="${cls}" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>`;
-const ICONE_WA = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5 shrink-0" aria-hidden="true"><path d="M3.5 20.5l1.3-3.9A8.5 8.5 0 1 1 8 19.6l-4.5.9Z" stroke-linejoin="round" /><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8c-.9-.4-1.4-.9-1.8-1.8l.8-1-1-2L9 9.5Z" stroke-linejoin="round" /></svg>`;
-const LUPA = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-brand" aria-hidden="true"><path d="M17 17l4 4M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke-linecap="round" stroke-linejoin="round" /></svg>`;
-const CHEVRON = `<span class="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-periwinkle text-brand"><svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" aria-hidden="true"><path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>`;
+const ICONE_WA = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 shrink-0" aria-hidden="true"><path d="M3.5 20.5l1.3-3.9A8.5 8.5 0 1 1 8 19.6l-4.5.9Z" stroke-linejoin="round" /><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8c-.9-.4-1.4-.9-1.8-1.8l.8-1-1-2L9 9.5Z" stroke-linejoin="round" /></svg>`;
+const LUPA = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pointer-events-none absolute top-1/2 left-5 size-5 -translate-y-1/2 text-grafite" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.6-3.6" stroke-linecap="round" /></svg>`;
+// Sinal de + que vira − quando o <details> abre (a barra vertical gira e some).
+const MAIS_MENOS = `<span class="relative flex size-8 flex-none items-center justify-center rounded-full bg-areia text-tinta transition-colors duration-300 group-open:bg-tinta group-open:text-offwhite" aria-hidden="true"><span class="absolute h-[1.5px] w-3 rounded-full bg-current"></span><span class="absolute h-3 w-[1.5px] rounded-full bg-current transition-transform duration-300 group-open:scale-y-0 group-open:rotate-90"></span></span>`;
+const BOTAO_PRIMARIO = 'rounded-full bg-azul px-7 py-4 text-center font-semibold text-white transition hover:bg-azul-escuro focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul motion-safe:active:scale-[0.98]';
+// Cada categoria ganha uma das quatro cores da marca no ponto do rótulo.
+const CORES_PONTO = ['bg-azul', 'bg-vermelho', 'bg-amarelo', 'bg-verde'];
+const corDaCategoria = (categoria) => CORES_PONTO[Object.keys(CATEGORIAS).indexOf(categoria) % CORES_PONTO.length];
 
 const GTM = `    <script>
         window.dataLayer = window.dataLayer || [];
@@ -197,23 +202,24 @@ function documento({ title, description, url, tipoOg, ld, extraHead = '', header
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
     <link rel="canonical" href="${url}">
-    <link rel="alternate" type="application/rss+xml" title="Conteúdos — Dani Bezerra" href="${SITE}/conteudos/feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="Conteúdos — Daniel Bezerra" href="${SITE}/conteudos/feed.xml">
 
     <meta property="og:type" content="${tipoOg}">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:site_name" content="Dani Bezerra">
+    <meta property="og:site_name" content="Daniel Bezerra">
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${url}">
 ${extraHead}
-    <link rel="icon" href="/src/img/logos/favicon-32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/src/img/logos/favicon-192.png" sizes="192x192" type="image/png">
-    <link rel="apple-touch-icon" href="/src/img/logos/apple-touch-icon.png">
-    <meta name="theme-color" content="#675496">
+    <link rel="icon" href="/src/img/marca/svg/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/src/img/marca/png/favicon/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/src/img/marca/png/favicon/icon-192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="/src/img/marca/png/favicon/apple-touch-icon.png">
+    <meta name="theme-color" content="#2E6BE6">
 
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preload" href="/src/fonts/stack-sans-headline-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/src/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/src/fonts/braveold-medium.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- CSS injetado inline pelo build (npm run build). Editar src/styles/input.css, nunca este bloco. -->
     <style id="css-inline"></style>
@@ -232,20 +238,19 @@ ${GTM}
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7C2SK6F"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <!--Header-->
-    <header class="border-b border-periwinkle bg-surface">
-        <div class="relative mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:px-6 lg:h-20 lg:gap-6 lg:px-8">
-            <a href="/" aria-label="Dani — página inicial"
-                class="mr-auto shrink-0 transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:mr-0">
-                <img src="/src/img/images/danibezerra-logo.svg" alt="Dani" width="240" height="100"
-                    class="h-9 w-auto lg:h-11">
+    <!--Header: fixo no topo, como na home. O menu vem de src/partials/menu.html.-->
+    <header class="header-fixo sticky top-0 z-40 border-b border-nevoa bg-offwhite/92 backdrop-blur-md">
+        <div class="relative mx-auto flex h-[60px] max-w-[1200px] items-center gap-3 px-5 sm:px-6 lg:h-[76px] lg:gap-6">
+            <a href="/" aria-label="Daniel Bezerra, página inicial"
+                class="mr-auto flex h-[30px] shrink-0 rounded-sm text-tinta transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azul lg:mr-0">
+                <!--logo:inicio--><!--logo:fim-->
             </a>
 
             <!--menu:inicio--><!--menu:fim-->
 
             <a href="/#form-contato"
                 data-cta="${header}"
-                class="inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full max-[359px]:hidden bg-brand px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-6 sm:py-3 sm:text-base">
+                class="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full bg-tinta px-5 text-[15px] font-medium whitespace-nowrap text-offwhite transition hover:bg-tinta-suave focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul motion-safe:active:scale-[0.98] max-sm:hidden">
                 Solicitar orçamento
             </a>
         </div>
@@ -255,42 +260,48 @@ ${GTM}
 ${main}
     </main>
 
-    <!--Footer-->
-    <footer class="bg-peach">
-        <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-10 text-center text-sm text-ink/75 sm:flex-row sm:justify-between sm:px-6 sm:text-left lg:px-8">
-            <div class="space-y-2 sm:max-w-sm">
-                <p>© 2026 Dani. Todos os direitos reservados.</p>
-                <!--legal:inicio--><!--legal:fim-->
-            </div>
-            <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                <li><a href="/conteudos/" class="inline-flex min-h-11 items-center transition hover:text-brand">Conteúdos</a></li>
-                <li><a href="/faq/" class="inline-flex min-h-11 items-center transition hover:text-brand">FAQ</a></li>
-                <li><a href="/academy/" class="inline-flex min-h-11 items-center transition hover:text-brand">Academy</a></li>
-                <li><a href="https://wa.me/${WA}" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center transition hover:text-brand">(77) 99211-6008</a></li>
-                <li><a href="https://www.instagram.com/bezerradaniels" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center transition hover:text-brand">@bezerradaniels</a></li>
-                <li><a href="mailto:contato@danibezerra.com" class="inline-flex min-h-11 items-center transition hover:text-brand">contato@danibezerra.com</a></li>
-            </ul>
-        </div>
-    </footer>
+    <!--Footer: src/partials/rodape.html, injetado pelo build.-->
+    <!--rodape:inicio--><!--rodape:fim-->
 ${scriptBusca ? `
     <!-- JS da busca injetado inline pelo build (npm run build). Editar src/js/busca.js, nunca este bloco. -->
     <script id="js-busca"></script>
-` : ''}</body>
+` : ''}
+    <!-- Entrada suave ao rolar, injetada inline pelo build (npm run build). Editar src/js/revelar.js, nunca este bloco. -->
+    <script id="js-revelar"></script>
+</body>
 
 </html>
 `;
 }
 
+// Fecho das páginas: cartão Noite com as formas de apoio do manual (ponto e arco).
+function ctaFinal({ titulo, texto, wa, cta }) {
+  return `        <!--CTA final: cartão Noite com as formas de apoio do manual (ponto e arco).-->
+        <section class="px-6 py-28 max-sm:px-5 max-sm:py-16">
+            <div data-revelar class="relative mx-auto flex max-w-[1200px] flex-col items-start gap-6 overflow-hidden rounded-[40px] bg-noite px-16 py-20 text-offwhite max-lg:px-10 max-lg:py-14 max-sm:rounded-[32px] max-sm:px-7 max-sm:py-12">
+                <span class="flutuar absolute -top-12 -right-12 size-44 rounded-full bg-amarelo max-sm:-top-10 max-sm:-right-10 max-sm:size-28" aria-hidden="true"></span>
+                <span class="absolute right-0 bottom-0 size-24 rounded-tl-full bg-verde max-lg:hidden" aria-hidden="true"></span>
+                <h2 class="relative max-w-[680px] text-titulo text-balance max-sm:pr-12">${titulo}</h2>
+                <p class="relative max-w-[520px] text-[18px] text-pretty text-pedra">${texto}</p>
+                <a href="${wa}" target="_blank" rel="noopener noreferrer" data-cta="${cta}"
+                    class="relative mt-2 inline-flex items-center justify-center gap-2.5 max-sm:w-full ${BOTAO_PRIMARIO} focus-visible:outline-offwhite">
+                    ${ICONE_WA}
+                    Falar comigo no WhatsApp
+                </a>
+            </div>
+        </section>`;
+}
+
 function cartao(post, { busca = false } = {}) {
   const cat = CATEGORIAS[post.categoria];
   return `
-                    <article ${busca ? 'data-busca-item ' : ''}class="group relative flex h-full flex-col rounded-3xl border border-periwinkle bg-white p-6 transition hover:-translate-y-0.5 hover:border-lavender hover:shadow-lg hover:shadow-brand/10">
-                        <p class="text-xs font-semibold uppercase tracking-wider text-brand">${esc(cat.nome)}</p>
-                        <h3 class="mt-2 text-lg font-bold leading-snug text-ink">
-                            <a href="/conteudos/${post.slug}/" class="after:absolute after:inset-0 after:rounded-3xl focus-visible:outline-none">${esc(post.titulo)}</a>
+                    <article ${busca ? 'data-busca-item ' : ''}data-revelar class="group relative flex h-full flex-col gap-3 rounded-[28px] bg-white p-9 inset-ring inset-ring-nevoa transition duration-300 hover:shadow-[0_16px_32px_rgb(30_34_40/0.08)] motion-safe:hover:-translate-y-1 max-sm:p-7">
+                        <p class="flex items-center gap-2 text-[14px] text-grafite"><span class="size-2.5 flex-none rounded-full ${corDaCategoria(post.categoria)}" aria-hidden="true"></span>${esc(cat.nome)}</p>
+                        <h3 class="text-[22px] leading-[1.25] font-semibold">
+                            <a href="/conteudos/${post.slug}/" class="transition-colors group-hover:text-azul after:absolute after:inset-0 after:rounded-[28px] focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-azul">${esc(post.titulo)}</a>
                         </h3>
-                        <p class="mt-2 flex-1 text-base leading-relaxed text-ink/75">${esc(post.descricao)}</p>
-                        <p class="mt-4 text-sm text-ink/60">
+                        <p class="flex-1 text-[16px] text-pretty text-tinta-suave">${esc(post.descricao)}</p>
+                        <p class="mt-2 text-[13px] tracking-[0.02em] text-grafite">
                             <time datetime="${post.atualizado}">${dataExtenso(post.atualizado)}</time> · ${post.minutos} min de leitura
                         </p>
                     </article>`;
@@ -303,26 +314,26 @@ function paginaPost(post, todos) {
   const url = `${SITE}/conteudos/${post.slug}/`;
   const cat = CATEGORIAS[post.categoria];
   const atualizou = post.atualizado !== post.publicado;
-  const wa = `https://wa.me/${WA}?text=${encodeURIComponent(`Olá, Dani! Li o conteúdo "${post.titulo}" e quero conversar.`)}`;
+  const wa = `https://wa.me/${WA}?text=${encodeURIComponent(`Olá, Daniel! Li o conteúdo "${post.titulo}" e quero conversar.`)}`;
 
   const sumario = post.titulos.length >= 3 ? `
-                <nav aria-labelledby="titulo-sumario" class="mt-10 rounded-2xl border border-periwinkle bg-soft p-6">
-                    <p id="titulo-sumario" class="text-sm font-semibold uppercase tracking-wider text-brand">Neste conteúdo</p>
-                    <ol class="mt-3 list-decimal space-y-1.5 pl-5 text-base text-ink/80 marker:text-brand">
-${post.titulos.map((t) => `                        <li><a href="#${t.id}" class="transition hover:text-brand">${esc(t.texto)}</a></li>`).join('\n')}
+                <nav aria-labelledby="titulo-sumario" class="mt-10 rounded-[20px] bg-white p-7 inset-ring inset-ring-nevoa">
+                    <p id="titulo-sumario" class="text-[13px] tracking-[0.02em] text-grafite">Neste conteúdo</p>
+                    <ol class="mt-3 list-decimal space-y-1.5 pl-5 text-[16px] text-tinta-suave marker:text-azul">
+${post.titulos.map((t) => `                        <li><a href="#${t.id}" class="transition hover:text-azul">${esc(t.texto)}</a></li>`).join('\n')}
                     </ol>
                 </nav>` : '';
 
   const faq = post.faq.length ? `
-                <section aria-labelledby="perguntas" class="mt-14">
-                    <h2 id="perguntas" class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">Perguntas frequentes</h2>
-                    <div class="mt-6 space-y-4">
-${post.faq.map((f) => `                        <details class="group rounded-2xl border border-periwinkle bg-white p-6">
-                            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold text-ink">
+                <section aria-labelledby="perguntas" class="mt-16">
+                    <h2 id="perguntas" class="text-[clamp(26px,3vw,34px)] leading-[1.15] font-semibold tracking-[-0.01em]">Perguntas frequentes</h2>
+                    <div class="mt-6 flex flex-col gap-2.5">
+${post.faq.map((f) => `                        <details name="faq" class="group overflow-hidden rounded-[20px] bg-white inset-ring inset-ring-nevoa">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-5 px-7 py-[22px] text-[18px] font-semibold max-sm:gap-4 max-sm:px-5 max-sm:py-[18px] max-sm:text-[17px] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-azul [&::-webkit-details-marker]:hidden">
                                 <h3>${esc(f.pergunta)}</h3>
-                                ${CHEVRON}
+                                ${MAIS_MENOS}
                             </summary>
-                            <p class="mt-4 text-base leading-relaxed text-ink/75">${esc(f.resposta)}</p>
+                            <p class="px-7 pb-6 text-[16px] text-pretty text-tinta-suave max-sm:px-5">${esc(f.resposta)}</p>
                         </details>`).join('\n')}
                     </div>
                 </section>` : '';
@@ -333,10 +344,10 @@ ${post.faq.map((f) => `                        <details class="group rounded-2xl
     .slice(0, 3);
   const blocoRelacionados = relacionados.length ? `
         <!--Outros conteúdos-->
-        <section class="bg-soft py-16 sm:py-20">
-            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <h2 class="text-center text-2xl font-extrabold leading-tight tracking-tight text-ink sm:text-3xl">Continue lendo</h2>
-                <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">${relacionados.map((p) => cartao(p)).join('')}
+        <section class="border-t border-nevoa bg-white">
+            <div class="mx-auto flex max-w-[1200px] flex-col gap-10 px-6 py-24 max-sm:px-5 max-sm:py-16">
+                <h2 data-revelar class="text-[clamp(26px,3vw,34px)] leading-[1.15] font-semibold tracking-[-0.01em]">Continue lendo</h2>
+                <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-6">${relacionados.map((p) => cartao(p)).join('')}
                 </div>
             </div>
         </section>` : '';
@@ -356,7 +367,7 @@ ${post.faq.map((f) => `                        <details class="group rounded-2xl
       articleSection: cat.nome,
       wordCount: post.palavras,
       author: AUTOR,
-      publisher: { '@type': 'Organization', name: 'Dani Bezerra', legalName: 'DSB Soluções em Publicidade Online Ltda', taxID: '59.747.553/0001-55', url: SITE, logo: `${SITE}/src/img/logos/favicon-192.png` },
+      publisher: { '@type': 'Organization', name: 'Daniel Bezerra', legalName: 'DSB Soluções em Publicidade Online Ltda', taxID: '59.747.553/0001-55', url: SITE, logo: `${SITE}/src/img/marca/png/favicon/icon-192.png` },
       isPartOf: { '@id': `${SITE}/conteudos/#blog` },
     },
     {
@@ -376,35 +387,33 @@ ${post.faq.map((f) => `                        <details class="group rounded-2xl
   }
 
   const main = `        <article>
-            <!--Cabeçalho do post-->
-            <header class="bg-hero-bg">
-                <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-                    <nav aria-label="Você está em">
-                        <ol class="flex flex-wrap items-center gap-2 text-sm text-ink/75">
-                            <li><a href="/" class="transition hover:text-brand">Início</a></li>
-                            <li aria-hidden="true">/</li>
-                            <li><a href="/conteudos/" class="transition hover:text-brand">Conteúdos</a></li>
-                            <li aria-hidden="true">/</li>
-                            <li><span aria-current="page" class="font-semibold text-brand">${esc(cat.nome)}</span></li>
-                        </ol>
-                    </nav>
-                    <h1 class="mt-6 text-balance text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl">${esc(post.titulo)}</h1>
-                    <p class="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink/70">
-                        <span>Por <strong class="font-semibold text-ink">Daniel Bezerra</strong></span>
-                        <span aria-hidden="true">·</span>
-                        <span>${atualizou ? 'Atualizado em' : 'Publicado em'} <time datetime="${post.atualizado}">${dataExtenso(post.atualizado)}</time></span>
-                        <span aria-hidden="true">·</span>
-                        <span>${post.minutos} min de leitura</span>
-                    </p>
-                </div>
+            <!--Cabeçalho do post. O h1 fica fora da animação de entrada: é o maior elemento da dobra (LCP).-->
+            <header class="mx-auto flex max-w-[800px] flex-col gap-6 px-6 pt-14 pb-12 max-sm:px-5 max-sm:pt-8 max-sm:pb-10">
+                <nav aria-label="Você está em" class="surgir">
+                    <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-grafite">
+                        <li><a href="/" class="transition hover:text-azul">Início</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li><a href="/conteudos/" class="transition hover:text-azul">Conteúdos</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li class="flex items-center gap-2"><span class="size-2 flex-none rounded-full ${corDaCategoria(post.categoria)}" aria-hidden="true"></span><span aria-current="page" class="text-tinta">${esc(cat.nome)}</span></li>
+                    </ol>
+                </nav>
+                <h1 class="text-chamada text-balance">${esc(post.titulo)}</h1>
+                <p class="surgir flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-grafite [--ordem:1]">
+                    <span>Por <strong class="font-semibold text-tinta">Daniel Bezerra</strong></span>
+                    <span aria-hidden="true">·</span>
+                    <span>${atualizou ? 'Atualizado em' : 'Publicado em'} <time datetime="${post.atualizado}">${dataExtenso(post.atualizado)}</time></span>
+                    <span aria-hidden="true">·</span>
+                    <span>${post.minutos} min de leitura</span>
+                </p>
             </header>
 
-            <div class="bg-surface py-12 sm:py-16">
-                <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-nevoa bg-offwhite">
+                <div class="mx-auto max-w-[800px] px-6 py-16 max-sm:px-5 max-sm:py-12">
                     <!-- Resposta curta primeiro: é o trecho que buscadores e IAs mais citam. -->
-                    <aside aria-label="Resposta curta" class="rounded-2xl border-l-4 border-brand bg-white p-6 shadow-sm">
-                        <p class="text-sm font-semibold uppercase tracking-wider text-brand">Resposta curta</p>
-                        <p class="mt-2 text-lg leading-relaxed text-ink">${esc(post.resposta)}</p>
+                    <aside aria-label="Resposta curta" class="surgir flex flex-col gap-3 rounded-[28px] bg-areia p-9 [--ordem:2] max-sm:p-7">
+                        <p class="flex items-center gap-2 text-[14px] text-grafite"><span class="size-2.5 flex-none rounded-full bg-azul" aria-hidden="true"></span>Resposta curta</p>
+                        <p class="text-[20px] leading-[1.5] text-pretty text-tinta max-sm:text-[18px]">${esc(post.resposta)}</p>
                     </aside>
 ${sumario}
 
@@ -414,40 +423,29 @@ ${post.html.trim().split('\n').map((l) => (l ? '                        ' + l : 
 ${faq}
 
                     <!--Autor-->
-                    <footer class="mt-14 flex flex-col gap-4 rounded-3xl border border-periwinkle bg-white p-6 sm:flex-row sm:items-center">
-                        <picture>
+                    <footer class="mt-16 flex flex-col gap-5 rounded-[28px] bg-white p-7 inset-ring inset-ring-nevoa sm:flex-row sm:items-center">
+                        <picture class="flex-none">
                             <source srcset="/src/img/images/daniel-bezerra.webp" type="image/webp">
-                            <img src="/src/img/images/daniel-bezerra.jpg" alt="Daniel Bezerra" width="64" height="64" loading="lazy" decoding="async" class="h-16 w-16 rounded-full object-cover">
+                            <img src="/src/img/images/daniel-bezerra.jpg" alt="Daniel Bezerra" width="64" height="64" loading="lazy" decoding="async" class="size-16 rounded-full object-cover">
                         </picture>
                         <div class="flex-1">
-                            <p class="font-display text-base font-bold text-ink">Daniel Bezerra</p>
-                            <p class="mt-1 text-sm leading-relaxed text-ink/75">16 anos em web, mídia paga e dados, com certificações oficiais do Google Ads. Atende de Bom Jesus da Lapa (BA) para todo o Brasil.</p>
+                            <p class="font-braveold text-[18px] leading-[1.25] font-semibold">Daniel Bezerra</p>
+                            <p class="mt-1 text-[15px] text-tinta-suave">16 anos em web, mídia paga e dados, com certificações oficiais do Google Ads. Atende de Bom Jesus da Lapa (BA) para todo o Brasil.</p>
                         </div>
-                        <a href="${cat.url}" data-cta="conteudo_servico" class="inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-full border border-lavender px-5 py-2.5 text-sm font-semibold text-brand transition hover:bg-periwinkle">
+                        <a href="${cat.url}" data-cta="conteudo_servico" class="group/servico inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-full px-5 text-[15px] font-semibold text-tinta inset-ring-[1.5px] inset-ring-tinta transition hover:bg-tinta hover:text-offwhite focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul">
                             ${esc(cat.servico)}
-                            ${SETA('h-4 w-4')}
+                            ${SETA('size-4 transition-transform duration-300 group-hover/servico:translate-x-0.5')}
                         </a>
                     </footer>
                 </div>
             </div>
         </article>
 
-        <!--CTA final-->
-        <section class="bg-brand py-16 sm:py-20">
-            <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">Quer aplicar isso no seu negócio?</h2>
-                <p class="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/80">Me conte o seu caso. Você recebe um retorno em até 24h úteis, direto comigo.</p>
-                <a href="${wa}" target="_blank" rel="noopener noreferrer" data-cta="conteudo_final_whatsapp"
-                    class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-base font-semibold text-brand transition hover:bg-periwinkle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                    ${ICONE_WA}
-                    Falar comigo no WhatsApp
-                </a>
-            </div>
-        </section>
+${ctaFinal({ titulo: 'Quer aplicar isso no seu negócio?', texto: 'Me conte o seu caso. Você recebe um retorno em até 24h úteis, direto comigo.', wa, cta: 'conteudo_final_whatsapp' })}
 ${blocoRelacionados}`;
 
   return documento({
-    title: `${post.tituloSeo} | Dani Bezerra`,
+    title: `${post.tituloSeo} | Daniel Bezerra`,
     description: post.descricao,
     url,
     tipoOg: 'article',
@@ -466,58 +464,56 @@ ${blocoRelacionados}`;
 
 function paginaListagem(posts) {
   const url = `${SITE}/conteudos/`;
-  const wa = `https://wa.me/${WA}?text=${encodeURIComponent('Olá, Dani! Vim pelos conteúdos do site e tenho uma dúvida.')}`;
+  const wa = `https://wa.me/${WA}?text=${encodeURIComponent('Olá, Daniel! Vim pelos conteúdos do site e tenho uma dúvida.')}`;
   const ultima = posts.reduce((m, p) => (p.atualizado > m ? p.atualizado : m), '0000-00-00');
 
   const lista = posts.length
-    ? `<div data-busca-grupo class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">${posts.map((p) => cartao(p, { busca: true })).join('')}
+    ? `<div data-busca-grupo class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-6">${posts.map((p) => cartao(p, { busca: true })).join('')}
                 </div>`
-    : '<p class="text-center text-lg text-ink/75">Os primeiros conteúdos estão a caminho.</p>';
+    : '<p class="text-[18px] text-tinta-suave">Os primeiros conteúdos estão a caminho.</p>';
 
-  const main = `        <!--Topo com busca-->
-        <section class="bg-hero-bg">
-            <div class="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-16 lg:px-8">
-                <nav aria-label="Você está em">
-                    <ol class="flex items-center justify-center gap-2 text-sm text-ink/75">
-                        <li><a href="/" class="transition hover:text-brand">Início</a></li>
-                        <li aria-hidden="true">/</li>
-                        <li><span aria-current="page" class="font-semibold text-brand">Conteúdos</span></li>
-                    </ol>
-                </nav>
-                <span class="mt-6 inline-block rounded-full bg-periwinkle px-3 py-1 text-sm font-semibold uppercase tracking-wider text-brand">Blog</span>
-                <h1 class="mt-4 text-balance text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl">
-                    Conteúdos sobre sites, Google e IA
-                </h1>
-                <p class="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-ink/75 sm:text-lg">
-                    Guias práticos sobre SEO, visibilidade em IA, anúncios e dados, escritos para quem decide sobre o próprio negócio.
-                </p>
+  const main = `        <!--Topo com busca. O h1 fica fora da animação de entrada: é o maior elemento da dobra (LCP).-->
+        <section class="mx-auto flex max-w-[1200px] flex-col gap-6 px-6 pt-14 pb-20 max-sm:px-5 max-sm:pt-8 max-sm:pb-14">
+            <nav aria-label="Você está em" class="surgir">
+                <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-grafite">
+                    <li><a href="/" class="transition hover:text-azul">Início</a></li>
+                    <li aria-hidden="true">/</li>
+                    <li class="flex items-center gap-2"><span class="ponto-cores size-2 flex-none rounded-full bg-azul" aria-hidden="true"></span><span aria-current="page" class="text-tinta">Conteúdos</span></li>
+                </ol>
+            </nav>
 
-                <!-- A busca só aparece com JS; sem ele, todos os conteúdos já estão listados. -->
-                <form id="busca-form" role="search" class="mx-auto mt-8 max-w-xl" hidden>
-                    <label for="busca" class="sr-only">Buscar nos conteúdos</label>
-                    <div class="relative">
-                        ${LUPA}
-                        <input id="busca" type="search" autocomplete="off" enterkeyhint="search"
-                            placeholder="Busque por SEO, Google Ads, GA4…"
-                            class="block w-full rounded-full border border-periwinkle bg-white py-3.5 pl-12 pr-12 text-base text-ink shadow-sm placeholder:text-ink/40 transition focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20">
-                        <kbd class="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 rounded-md border border-periwinkle px-2 py-0.5 text-xs text-ink/50 sm:block" aria-hidden="true">/</kbd>
-                    </div>
-                    <p id="busca-contador" class="mt-3 min-h-5 text-sm font-medium text-brand" role="status" aria-live="polite"></p>
-                </form>
-            </div>
+            <h1 class="max-w-[900px] text-chamada text-balance">Conteúdos sobre sites, Google e IA</h1>
+
+            <p class="surgir max-w-[640px] text-[19px] text-pretty text-tinta-suave [--ordem:1]">
+                Guias práticos sobre SEO, visibilidade em IA, anúncios e dados, escritos para quem decide sobre o próprio negócio.
+            </p>
+
+            <!-- A busca só aparece com JS; sem ele, todos os conteúdos já estão listados. -->
+            <form id="busca-form" role="search" class="surgir w-full max-w-[640px] [--ordem:2]" hidden>
+                <label for="busca" class="sr-only">Buscar nos conteúdos</label>
+                <div class="relative">
+                    ${LUPA}
+                    <input id="busca" type="search" autocomplete="off" enterkeyhint="search"
+                        placeholder="Busque por SEO, Google Ads, GA4…"
+                        class="w-full rounded-full border-[1.5px] border-nevoa bg-white py-4 pr-6 pl-[52px] sm:pr-14 text-[16px] text-tinta placeholder:text-cinza transition focus:border-azul focus:outline-none">
+                    <kbd class="pointer-events-none absolute top-1/2 right-5 hidden -translate-y-1/2 rounded-md border border-nevoa px-2 py-0.5 text-[12px] text-grafite sm:block" aria-hidden="true">/</kbd>
+                </div>
+                <p id="busca-contador" class="mt-3 min-h-5 text-[14px] text-azul" role="status" aria-live="polite"></p>
+            </form>
         </section>
 
         <!--Lista-->
-        <section class="bg-surface py-12 sm:py-16">
-            <div class="mx-auto max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
-                <h2 class="sr-only">Todos os conteúdos</h2>
+        <section class="border-t border-nevoa bg-areia">
+            <div class="mx-auto flex max-w-[1200px] flex-col gap-10 px-6 py-24 max-sm:px-5 max-sm:py-14">
+                <!-- font-sans: título só para leitores de tela; sem isso o navegador baixaria a Braveold Regular por um texto que ninguém vê. -->
+                <h2 class="sr-only font-sans">Todos os conteúdos</h2>
                 ${lista}
 
-                <div id="busca-vazio" class="rounded-3xl border border-periwinkle bg-white p-8 text-center" hidden>
-                    <p class="font-display text-lg font-bold text-ink">Nenhum conteúdo encontrado.</p>
-                    <p class="mt-2 text-base text-ink/75">Tente outra palavra, veja a <a href="/academy/" class="font-semibold text-brand underline decoration-lavender underline-offset-2">Academy</a> ou pergunte direto para mim.</p>
+                <div id="busca-vazio" class="flex flex-col items-start gap-3 rounded-[28px] bg-white p-9 inset-ring inset-ring-nevoa max-sm:p-7" hidden>
+                    <p class="font-braveold text-[22px] leading-[1.25] font-semibold">Nenhum conteúdo encontrado.</p>
+                    <p class="text-tinta-suave">Tente outra palavra, veja a <a href="/academy/" class="font-medium text-azul underline decoration-nevoa decoration-2 underline-offset-[3px] transition hover:text-azul-escuro hover:decoration-current">Academy</a> ou pergunte direto para mim.</p>
                     <a href="${wa}" target="_blank" rel="noopener noreferrer" data-cta="conteudos_busca_whatsapp"
-                        class="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 text-base font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
+                        class="mt-3 inline-flex items-center justify-center gap-2.5 max-sm:w-full ${BOTAO_PRIMARIO}">
                         ${ICONE_WA}
                         Perguntar no WhatsApp
                     </a>
@@ -531,7 +527,7 @@ function paginaListagem(posts) {
       {
         '@type': 'Blog',
         '@id': `${url}#blog`,
-        name: 'Conteúdos — Dani Bezerra',
+        name: 'Conteúdos — Daniel Bezerra',
         url,
         inLanguage: 'pt-BR',
         author: AUTOR,
@@ -555,7 +551,7 @@ function paginaListagem(posts) {
   };
 
   return documento({
-    title: 'Conteúdos sobre Sites, SEO, IA e Anúncios | Dani Bezerra',
+    title: 'Conteúdos sobre Sites, SEO, IA e Anúncios | Daniel Bezerra',
     description: 'Guias práticos sobre criação de sites, SEO, visibilidade em IA, Google Ads, Meta Ads e GA4, escritos para quem decide sobre o próprio negócio.',
     url,
     tipoOg: 'website',
@@ -581,7 +577,7 @@ function feed(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Conteúdos — Dani Bezerra</title>
+    <title>Conteúdos — Daniel Bezerra</title>
     <link>${SITE}/conteudos/</link>
     <atom:link href="${SITE}/conteudos/feed.xml" rel="self" type="application/rss+xml" />
     <description>Guias práticos sobre sites, SEO, visibilidade em IA, anúncios e dados.</description>

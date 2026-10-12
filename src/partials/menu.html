@@ -1,160 +1,164 @@
-<!-- Menu principal, injetado pelo build (scripts/inline-css.mjs) no header de todas as páginas.
+<!-- Menu principal, injetado pelo build (scripts/inline-css.mjs) no header das páginas internas.
      Editar este arquivo (e src/js/menu.js), nunca o bloco injetado nas páginas. -->
 <nav id="menu-principal" aria-label="Principal" class="order-last lg:order-none lg:flex lg:flex-1 lg:justify-center">
 
     <!--Desktop-->
-    <ul class="hidden items-center gap-1 lg:flex">
+    <ul class="hidden items-center gap-1 text-[15px] font-medium lg:flex">
         <li data-menu-item>
             <button type="button" data-menu-botao aria-expanded="false" aria-controls="menu-servicos"
-                class="group inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-base font-semibold text-ink/80 transition hover:text-brand aria-expanded:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
+                class="group inline-flex min-h-11 items-center gap-1 rounded-full px-3.5 text-tinta transition hover:text-azul aria-expanded:text-azul focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul">
                 Serviços
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4 transition group-aria-expanded:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 transition-transform duration-200 group-aria-expanded:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
             </button>
 
             <!-- Mega menu: ocupa a largura do container do header -->
             <div id="menu-servicos" data-menu-painel hidden
-                class="absolute inset-x-4 top-full z-50 mt-2 rounded-3xl border border-periwinkle bg-white p-8 shadow-xl shadow-brand/10 sm:inset-x-6 lg:inset-x-8">
-                <div class="grid grid-cols-[1fr_1fr_1fr_17rem] gap-8">
+                class="painel-menu absolute inset-x-5 top-full z-50 mt-2 rounded-[28px] bg-white p-8 font-normal shadow-[0_24px_48px_-16px_rgb(30_34_40/0.2)] inset-ring inset-ring-nevoa sm:inset-x-6">
+                <div class="grid grid-cols-[1fr_1fr_1fr_18rem] gap-8">
                     <div>
-                        <p class="text-xs font-semibold uppercase tracking-wider text-brand">Sites</p>
-                        <ul class="mt-4 space-y-1">
-                            <li><a href="/criacao-de-sites/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">Criação de sites</a></li>
-                            <li><a href="/criacao-de-blog/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">Criação de blog</a></li>
-                            <li><a href="/criacao-de-catalogo-de-produtos/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">Catálogo de produtos</a></li>
-                            <li><a href="/criacao-de-sites-em-bom-jesus-da-lapa/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">Sites em Bom Jesus da Lapa</a></li>
+                        <p class="flex items-center gap-2 text-[13px] tracking-[0.02em] text-grafite"><span class="size-2 rounded-full bg-azul" aria-hidden="true"></span>Sites</p>
+                        <ul class="mt-3 flex flex-col">
+                            <li><a href="/criacao-de-sites/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Criação de sites</a></li>
+                            <li><a href="/criacao-de-sites-para-clinicas/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Sites para clínicas</a></li>
+                            <li><a href="/criacao-de-blog/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Criação de blog</a></li>
+                            <li><a href="/criacao-de-catalogo-de-produtos/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Catálogo de produtos</a></li>
+                            <li><a href="/criacao-de-sites-em-bom-jesus-da-lapa/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Sites em Bom Jesus da Lapa</a></li>
                         </ul>
                     </div>
                     <div>
-                        <p class="text-xs font-semibold uppercase tracking-wider text-brand">Anúncios</p>
-                        <ul class="mt-4 space-y-1">
-                            <li><a href="/trafego-pago/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">Tráfego pago</a></li>
-                            <li><a href="/google-ads/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">Google Ads</a></li>
-                            <li><a href="/meta-ads/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">Meta Ads</a></li>
-                            <li><a href="/anuncios-no-instagram/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">Anúncios no Instagram</a></li>
+                        <p class="flex items-center gap-2 text-[13px] tracking-[0.02em] text-grafite"><span class="size-2 rounded-full bg-vermelho" aria-hidden="true"></span>Anúncios</p>
+                        <ul class="mt-3 flex flex-col">
+                            <li><a href="/trafego-pago/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Tráfego pago</a></li>
+                            <li><a href="/google-ads/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Google Ads</a></li>
+                            <li><a href="/meta-ads/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Meta Ads</a></li>
+                            <li><a href="/anuncios-no-instagram/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Anúncios no Instagram</a></li>
                         </ul>
                     </div>
                     <div>
-                        <p class="text-xs font-semibold uppercase tracking-wider text-brand">Busca e dados</p>
-                        <ul class="mt-4 space-y-1">
-                            <li><a href="/seo/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">SEO, AEO e GEO</a></li>
-                            <li><a href="/configuracao-google-analytics/" class="block rounded-lg py-1.5 text-base text-ink/80 transition hover:text-brand aria-[current=page]:font-semibold aria-[current=page]:text-brand">Google Analytics</a></li>
+                        <p class="flex items-center gap-2 text-[13px] tracking-[0.02em] text-grafite"><span class="size-2 rounded-full bg-verde" aria-hidden="true"></span>Busca e dados</p>
+                        <ul class="mt-3 flex flex-col">
+                            <li><a href="/seo/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">SEO, AEO e GEO</a></li>
+                            <li><a href="/configuracao-google-analytics/" class="block py-1.5 text-[16px] text-tinta-suave transition hover:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Google Analytics</a></li>
                         </ul>
                     </div>
-                    <div class="flex flex-col rounded-2xl bg-soft p-6">
-                        <p class="font-display text-base font-bold text-ink">Não sabe por onde começar?</p>
-                        <p class="mt-2 flex-1 text-sm leading-relaxed text-ink/75">Eu avalio seu site, seus anúncios e sua presença no Google e te mando um orçamento sob medida.</p>
+                    <div class="flex flex-col rounded-[20px] bg-areia p-6">
+                        <p class="font-braveold text-[18px] leading-[1.25] font-medium text-tinta">Não sabe por onde começar?</p>
+                        <p class="mt-2 flex-1 text-[15px] leading-normal text-tinta-suave">Eu avalio seu site, seus anúncios e sua presença no Google e te mando um orçamento sob medida.</p>
                         <a href="/#form-contato" data-cta="menu_orcamento"
-                            class="mt-4 inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-brand px-5 text-sm font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
+                            class="group/cta mt-4 inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-azul px-5 text-[15px] font-medium text-white transition hover:bg-azul-escuro focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul">
                             Solicitar orçamento
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 transition-transform duration-200 group-hover/cta:translate-x-0.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
                         </a>
                     </div>
                 </div>
             </div>
         </li>
 
+        <li><a href="/#portfolio" class="inline-flex min-h-11 items-center rounded-full px-3.5 text-tinta transition hover:text-azul focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul">Portfólio</a></li>
+        <li><a href="/#sobre" class="inline-flex min-h-11 items-center rounded-full px-3.5 text-tinta transition hover:text-azul focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul">Sobre</a></li>
+
         <li data-menu-item class="relative">
             <button type="button" data-menu-botao aria-expanded="false" aria-controls="menu-aprenda"
-                class="group inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-base font-semibold text-ink/80 transition hover:text-brand aria-expanded:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
+                class="group inline-flex min-h-11 items-center gap-1 rounded-full px-3.5 text-tinta transition hover:text-azul aria-expanded:text-azul focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul">
                 Aprenda
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4 transition group-aria-expanded:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 transition-transform duration-200 group-aria-expanded:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
             </button>
 
-            <!-- Dropdown menor, alinhado ao botão. mt-7 leva o painel até a borda do header. -->
+            <!-- Dropdown menor, alinhado ao botão. mt-[22px] leva o painel até a borda do header. -->
             <div id="menu-aprenda" data-menu-painel hidden
-                class="absolute left-1/2 top-full z-50 mt-7 w-80 -translate-x-1/2 rounded-3xl border border-periwinkle bg-white p-3 shadow-xl shadow-brand/10">
+                class="painel-menu absolute left-1/2 top-full z-50 mt-[22px] w-80 -translate-x-1/2 rounded-[28px] bg-white p-3 font-normal shadow-[0_24px_48px_-16px_rgb(30_34_40/0.2)] inset-ring inset-ring-nevoa">
                 <ul>
-                    <li><a href="/conteudos/" class="block rounded-2xl p-3 transition hover:bg-soft aria-[current=page]:bg-soft">
-                        <span class="block text-base font-semibold text-ink">Conteúdos</span>
-                        <span class="mt-0.5 block text-sm text-ink/70">Guias práticos sobre sites, SEO e anúncios</span>
+                    <li><a href="/conteudos/" class="block rounded-[18px] p-3.5 transition hover:bg-areia aria-[current=page]:bg-areia">
+                        <span class="block text-[16px] font-medium text-tinta">Conteúdos</span>
+                        <span class="mt-0.5 block text-[14px] leading-normal text-grafite">Guias práticos sobre sites, SEO e anúncios</span>
                     </a></li>
-                    <li><a href="/academy/" class="block rounded-2xl p-3 transition hover:bg-soft aria-[current=page]:bg-soft">
-                        <span class="block text-base font-semibold text-ink">Academy</span>
-                        <span class="mt-0.5 block text-sm text-ink/70">Os termos do marketing digital, explicados</span>
+                    <li><a href="/academy/" class="block rounded-[18px] p-3.5 transition hover:bg-areia aria-[current=page]:bg-areia">
+                        <span class="block text-[16px] font-medium text-tinta">Academy</span>
+                        <span class="mt-0.5 block text-[14px] leading-normal text-grafite">Os termos do marketing digital, explicados</span>
                     </a></li>
-                    <li><a href="/faq/" class="block rounded-2xl p-3 transition hover:bg-soft aria-[current=page]:bg-soft">
-                        <span class="block text-base font-semibold text-ink">Perguntas frequentes</span>
-                        <span class="mt-0.5 block text-sm text-ink/70">Prazos, preços e como funciona cada serviço</span>
+                    <li><a href="/faq/" class="block rounded-[18px] p-3.5 transition hover:bg-areia aria-[current=page]:bg-areia">
+                        <span class="block text-[16px] font-medium text-tinta">Perguntas frequentes</span>
+                        <span class="mt-0.5 block text-[14px] leading-normal text-grafite">Prazos, preços e como funciona cada serviço</span>
                     </a></li>
                 </ul>
             </div>
         </li>
-
-        <li><a href="/#portfolio" class="inline-flex min-h-11 items-center rounded-full px-4 text-base font-semibold text-ink/80 transition hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">Portfólio</a></li>
-        <li><a href="/#sobre" class="inline-flex min-h-11 items-center rounded-full px-4 text-base font-semibold text-ink/80 transition hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">Sobre</a></li>
     </ul>
 
-    <!--Mobile-->
-    <button type="button" id="menu-toggle" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"
-        class="group flex h-11 w-11 items-center justify-center rounded-full border border-periwinkle bg-white text-brand transition hover:bg-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:hidden">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5 group-aria-expanded:hidden" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" /></svg>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden h-5 w-5 group-aria-expanded:block" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" /></svg>
+    <!--Mobile: mesmo botão "Menu" da home; o rótulo troca para "Fechar" (src/js/menu.js).-->
+    <button type="button" id="menu-toggle" aria-expanded="false" aria-controls="menu-mobile"
+        class="group flex h-11 items-center gap-2.5 rounded-full px-4 text-[16px] font-semibold text-tinta inset-ring-[1.5px] inset-ring-tinta [-webkit-tap-highlight-color:transparent] active:bg-areia aria-expanded:bg-tinta aria-expanded:text-offwhite focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul lg:hidden">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" class="size-5" aria-hidden="true">
+            <path d="M3 7h14M3 13h14" class="group-aria-expanded:hidden" />
+            <path d="M5 5l10 10M15 5L5 15" class="hidden group-aria-expanded:inline" />
+        </svg>
+        <span data-menu-rotulo>Menu</span>
     </button>
 
     <div id="menu-mobile" hidden
-        class="absolute inset-x-0 top-full z-50 max-h-[calc(100svh-4rem)] overflow-y-auto border-b border-periwinkle bg-surface px-4 pb-8 pt-4 shadow-xl shadow-brand/10 sm:px-6 lg:hidden">
-        <div class="space-y-2">
-            <details class="group rounded-2xl border border-periwinkle bg-white" open>
-                <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between px-5 text-base font-bold text-ink">
-                    Sites
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5 text-brand transition group-open:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        class="painel-menu absolute inset-x-0 top-full z-50 max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-nevoa bg-offwhite px-5 pt-2 pb-6 shadow-[0_24px_48px_-16px_rgb(30_34_40/0.2)] sm:px-6 lg:hidden">
+        <div class="flex flex-col text-[18px] font-medium">
+            <details class="group border-b border-nevoa" open>
+                <summary class="flex min-h-13 cursor-pointer list-none items-center justify-between font-sans text-tinta [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-azul [&::-webkit-details-marker]:hidden">
+                    <span class="flex items-center gap-2.5"><span class="size-2 rounded-full bg-azul" aria-hidden="true"></span>Sites</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 text-grafite transition-transform duration-200 group-open:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 </summary>
-                <ul class="border-t border-periwinkle px-2 py-2">
-                    <li><a href="/criacao-de-sites/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Criação de sites</a></li>
-                    <li><a href="/criacao-de-blog/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Criação de blog</a></li>
-                    <li><a href="/criacao-de-catalogo-de-produtos/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Catálogo de produtos</a></li>
-                    <li><a href="/criacao-de-sites-em-bom-jesus-da-lapa/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Sites em Bom Jesus da Lapa</a></li>
+                <ul class="pb-3 text-[16px] font-normal">
+                    <li><a href="/criacao-de-sites/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Criação de sites</a></li>
+                    <li><a href="/criacao-de-sites-para-clinicas/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Sites para clínicas</a></li>
+                    <li><a href="/criacao-de-blog/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Criação de blog</a></li>
+                    <li><a href="/criacao-de-catalogo-de-produtos/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Catálogo de produtos</a></li>
+                    <li><a href="/criacao-de-sites-em-bom-jesus-da-lapa/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Sites em Bom Jesus da Lapa</a></li>
                 </ul>
             </details>
 
-            <details class="group rounded-2xl border border-periwinkle bg-white">
-                <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between px-5 text-base font-bold text-ink">
-                    Anúncios
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5 text-brand transition group-open:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <details class="group border-b border-nevoa">
+                <summary class="flex min-h-13 cursor-pointer list-none items-center justify-between font-sans text-tinta [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-azul [&::-webkit-details-marker]:hidden">
+                    <span class="flex items-center gap-2.5"><span class="size-2 rounded-full bg-vermelho" aria-hidden="true"></span>Anúncios</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 text-grafite transition-transform duration-200 group-open:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 </summary>
-                <ul class="border-t border-periwinkle px-2 py-2">
-                    <li><a href="/trafego-pago/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Tráfego pago</a></li>
-                    <li><a href="/google-ads/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Google Ads</a></li>
-                    <li><a href="/meta-ads/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Meta Ads</a></li>
-                    <li><a href="/anuncios-no-instagram/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Anúncios no Instagram</a></li>
+                <ul class="pb-3 text-[16px] font-normal">
+                    <li><a href="/trafego-pago/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Tráfego pago</a></li>
+                    <li><a href="/google-ads/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Google Ads</a></li>
+                    <li><a href="/meta-ads/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Meta Ads</a></li>
+                    <li><a href="/anuncios-no-instagram/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Anúncios no Instagram</a></li>
                 </ul>
             </details>
 
-            <details class="group rounded-2xl border border-periwinkle bg-white">
-                <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between px-5 text-base font-bold text-ink">
-                    Busca e dados
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5 text-brand transition group-open:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <details class="group border-b border-nevoa">
+                <summary class="flex min-h-13 cursor-pointer list-none items-center justify-between font-sans text-tinta [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-azul [&::-webkit-details-marker]:hidden">
+                    <span class="flex items-center gap-2.5"><span class="size-2 rounded-full bg-amarelo" aria-hidden="true"></span>Busca e dados</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 text-grafite transition-transform duration-200 group-open:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 </summary>
-                <ul class="border-t border-periwinkle px-2 py-2">
-                    <li><a href="/seo/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">SEO, AEO e GEO</a></li>
-                    <li><a href="/configuracao-google-analytics/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Google Analytics</a></li>
+                <ul class="pb-3 text-[16px] font-normal">
+                    <li><a href="/seo/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">SEO, AEO e GEO</a></li>
+                    <li><a href="/configuracao-google-analytics/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Google Analytics</a></li>
                 </ul>
             </details>
 
-            <details class="group rounded-2xl border border-periwinkle bg-white">
-                <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between px-5 text-base font-bold text-ink">
-                    Aprenda
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5 text-brand transition group-open:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <a href="/#portfolio" class="flex min-h-13 items-center border-b border-nevoa text-tinta [-webkit-tap-highlight-color:transparent] active:text-azul focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-azul">Portfólio</a>
+            <a href="/#sobre" class="flex min-h-13 items-center border-b border-nevoa text-tinta [-webkit-tap-highlight-color:transparent] active:text-azul focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-azul">Sobre</a>
+            <details class="group">
+                <summary class="flex min-h-13 cursor-pointer list-none items-center justify-between font-sans text-tinta [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-azul [&::-webkit-details-marker]:hidden">
+                    <span class="flex items-center gap-2.5"><span class="size-2 rounded-full bg-verde" aria-hidden="true"></span>Aprenda</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 text-grafite transition-transform duration-200 group-open:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 </summary>
-                <ul class="border-t border-periwinkle px-2 py-2">
-                    <li><a href="/conteudos/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Conteúdos</a></li>
-                    <li><a href="/academy/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Academy</a></li>
-                    <li><a href="/faq/" class="flex min-h-11 items-center rounded-xl px-3 text-base text-ink/80 transition hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">Perguntas frequentes</a></li>
+                <ul class="pb-3 text-[16px] font-normal">
+                    <li><a href="/conteudos/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Conteúdos</a></li>
+                    <li><a href="/academy/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Academy</a></li>
+                    <li><a href="/faq/" class="flex min-h-11 items-center pl-[18px] text-tinta-suave active:text-azul aria-[current=page]:font-medium aria-[current=page]:text-azul">Perguntas frequentes</a></li>
                 </ul>
             </details>
-
-            <a href="/#portfolio" class="flex min-h-12 items-center rounded-2xl border border-periwinkle bg-white px-5 text-base font-bold text-ink transition hover:bg-soft">Portfólio</a>
-            <a href="/#sobre" class="flex min-h-12 items-center rounded-2xl border border-periwinkle bg-white px-5 text-base font-bold text-ink transition hover:bg-soft">Sobre</a>
         </div>
 
-        <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
             <a href="/#form-contato" data-cta="menu_mobile_orcamento"
-                class="inline-flex min-h-12 items-center justify-center rounded-full bg-brand px-6 text-base font-semibold text-white transition hover:bg-brand-dark">
+                class="flex min-h-13 items-center justify-center rounded-full bg-azul px-6 text-[16px] font-semibold text-white [-webkit-tap-highlight-color:transparent] active:bg-azul-escuro focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul">
                 Solicitar orçamento
             </a>
             <a href="https://wa.me/5577992116008" target="_blank" rel="noopener noreferrer" data-cta="menu_mobile_whatsapp"
-                class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-lavender bg-white px-6 text-base font-semibold text-brand transition hover:bg-periwinkle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5 shrink-0" aria-hidden="true"><path d="M3.5 20.5l1.3-3.9A8.5 8.5 0 1 1 8 19.6l-4.5.9Z" stroke-linejoin="round" /><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8c-.9-.4-1.4-.9-1.8-1.8l.8-1-1-2L9 9.5Z" stroke-linejoin="round" /></svg>
+                class="flex min-h-13 items-center justify-center gap-2 rounded-full px-6 text-[16px] font-semibold text-tinta inset-ring-[1.5px] inset-ring-tinta [-webkit-tap-highlight-color:transparent] active:bg-areia focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 shrink-0" aria-hidden="true"><path d="M3.5 20.5l1.3-3.9A8.5 8.5 0 1 1 8 19.6l-4.5.9Z" stroke-linejoin="round" /><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8c-.9-.4-1.4-.9-1.8-1.8l.8-1-1-2L9 9.5Z" stroke-linejoin="round" /></svg>
                 WhatsApp
             </a>
         </div>

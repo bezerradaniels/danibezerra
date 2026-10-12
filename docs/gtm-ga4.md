@@ -135,13 +135,13 @@ Todos os botões de call-to-action do site têm um atributo `data-cta` único no
 
 ### Botões da home
 
-A home usa a nova identidade visual: o formulário fica na seção Contato (`#contato`), e os botões de orçamento levam até ele (`#form-contato`).
+Na home o formulário fica na seção Contato (`#contato`), e os botões de orçamento levam até ele (`#form-contato`).
 
 | `data-cta` | Texto do botão | Onde fica |
 |---|---|---|
 | `header_orcamento` | Solicitar orçamento | Menu do topo |
-| `hero_orcamento` | Solicitar orçamento | Topo da página |
-| `hero_whatsapp` | Falar no WhatsApp | Topo da página |
+| `hero_orcamento` | Solicitar orçamento | Topo da página (só a partir de 640px; no celular o topo tem só o WhatsApp) |
+| `hero_whatsapp` | Falar no WhatsApp | Topo da página (verde e sozinho no celular) |
 | `servico_site` | Sites institucionais | Seção de serviços (leva a /criacao-de-sites/) |
 | `servico_landing` | Landing pages | Seção de serviços (leva ao formulário) |
 | `servico_seo` | SEO, AEO e GEO | Seção de serviços (leva a /seo/) |
@@ -152,10 +152,12 @@ A home usa a nova identidade visual: o formulário fica na seção Contato (`#co
 | `contato_whatsapp` | (77) 99211-6008 · WhatsApp | Seção Contato, ao lado do formulário |
 | `contato_email` | contato@danibezerra.com | Seção Contato, ao lado do formulário |
 | `contato_instagram` | @bezerradaniels | Seção Contato, ao lado do formulário |
-| `footer_whatsapp` | (77) 99211-6008 | Rodapé |
-| `footer_instagram` | @bezerradaniels | Rodapé |
-| `footer_email` | contato@danibezerra.com | Rodapé |
+| `footer_whatsapp` | (77) 99211-6008 | Rodapé (todas as páginas) |
+| `footer_instagram` | @bezerradaniels | Rodapé (todas as páginas) |
+| `footer_email` | contato@danibezerra.com | Rodapé (todas as páginas) |
 | `barra_orcamento` | Quero meu orçamento | Barra fixa (mobile) |
+
+O rodapé é o mesmo em todas as páginas (`src/partials/rodape.html` nas internas), então os três `footer_*` valem para o site inteiro; a página de origem aparece na dimensão **Caminho da página** do GA4.
 
 Até a troca de identidade (outubro de 2026), a home também tinha `form_whatsapp`, `camadas_orcamento`, `caminhos_conversar`, `portfolio_projeto`, `etapas_orcamento`, `sobre_conversar`, `faq_ver_todas` e `faq_academy`, que saíram junto com as seções. Os `servico_*` antigos levavam ao formulário; agora levam às páginas de serviço.
 
@@ -169,13 +171,14 @@ Até a troca de identidade (outubro de 2026), a home também tinha `form_whatsap
 
 ### Botões das páginas de serviço
 
-Cada página de serviço tem no topo o mesmo formulário da home (mesmos eventos `form_contato_enviado` e `form_contato_etapa_2`, com o serviço da página já selecionado) e três CTAs, com o prefixo da página no `data-cta`:
+Cada página de serviço tem no topo o mesmo formulário da home (mesmos eventos `form_contato_enviado` e `form_contato_etapa_2`, com o serviço da página já selecionado) e quatro CTAs, com o prefixo da página no `data-cta`:
 
 | Sufixo | Texto do botão | Onde fica |
 |---|---|---|
 | `_header` | Solicitar orçamento | Menu do topo (rola até o formulário) |
 | `_form_whatsapp` | Fale comigo no WhatsApp | Abaixo do formulário |
-| `_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa antes dos serviços relacionados |
+| `_final_whatsapp` | Falar comigo no WhatsApp | Cartão escuro antes dos serviços relacionados |
+| `_barra` | Quero meu orçamento | Barra fixa (mobile), rola até o formulário |
 
 | Prefixo | Página |
 |---|---|
@@ -198,12 +201,14 @@ Página `/criacao-de-sites-em-bom-jesus-da-lapa/`, prefixo `lapa`:
 | `data-cta` | Texto do botão | Onde fica |
 |---|---|---|
 | `lapa_header` | Agendar reunião | Menu do topo (rola até o formulário) |
+| `lapa_hero_whatsapp` | Chamar no WhatsApp | Topo, abaixo do card "12x R$ 24,99" (abre o WhatsApp com a mensagem pronta) |
 | `lapa_form_whatsapp` | Fale comigo no WhatsApp | Abaixo do formulário |
 | `lapa_preco_reuniao` | Agendar reunião | Bloco de preço ("a partir de 12x de R$ 24,99") |
 | `lapa_portfolio_sim` | Ver simbjl.com.br | Seção da Clínica SIM |
 | `lapa_portfolio_hazak` | Ver hazakfit.com.br | Seção da Hazak Fit |
 | `lapa_portfolio_ane_elise` | Ver draaneelise.com.br | Seção da Dra. Ane Elise |
-| `lapa_final_whatsapp` | Agendar reunião pelo WhatsApp | Faixa roxa antes dos serviços relacionados |
+| `lapa_final_whatsapp` | Agendar reunião pelo WhatsApp | Cartão escuro antes dos serviços relacionados |
+| `lapa_barra` | Quero agendar uma reunião | Barra fixa (mobile), rola até o formulário |
 
 ### Botões da página de sites para clínicas
 
@@ -216,7 +221,7 @@ Página `/criacao-de-sites-para-clinicas/`, prefixo `clinicas`. Não tem formul�
 | `clinicas_preco_whatsapp` | Agendar reunião | Bloco de preço ("a partir de 12x de R$ 24,99") |
 | `clinicas_portfolio_sim` | Ver simbjl.com.br | Seção da Clínica SIM |
 | `clinicas_portfolio_ane_elise` | Ver draaneelise.com.br | Seção da Dra. Ane Elise |
-| `clinicas_final_whatsapp` | Agendar reunião pelo WhatsApp | Faixa azul antes dos serviços relacionados |
+| `clinicas_final_whatsapp` | Agendar reunião pelo WhatsApp | Cartão escuro antes dos serviços relacionados |
 
 ### Botões da FAQ e da Academy
 
@@ -226,7 +231,7 @@ Páginas `/faq/` e `/academy/`, prefixos `faq` e `academy`:
 |---|---|---|
 | `_header` | Solicitar orçamento | Menu do topo (leva ao formulário da home) |
 | `_busca_whatsapp` | Perguntar no WhatsApp | Aviso de busca sem resultado |
-| `_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa no fim da página |
+| `_final_whatsapp` | Falar comigo no WhatsApp | Cartão escuro no fim da página |
 
 ### Botões do blog (/conteudos/)
 
@@ -236,7 +241,7 @@ Páginas `/faq/` e `/academy/`, prefixos `faq` e `academy`:
 | `conteudos_busca_whatsapp` | Perguntar no WhatsApp | Aviso de busca sem resultado na listagem |
 | `conteudo_header` | Solicitar orçamento | Menu do topo de cada post |
 | `conteudo_servico` | Nome do serviço da categoria | Caixa do autor, no fim do post |
-| `conteudo_final_whatsapp` | Falar comigo no WhatsApp | Faixa roxa no fim do post |
+| `conteudo_final_whatsapp` | Falar comigo no WhatsApp | Cartão escuro no fim do post |
 
 Os IDs dos posts são os mesmos em todos eles; o post de origem aparece na dimensão **Caminho da página** do GA4.
 

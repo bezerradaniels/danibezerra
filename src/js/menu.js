@@ -78,9 +78,11 @@
     var toggle = document.getElementById('menu-toggle');
     var mobile = document.getElementById('menu-mobile');
 
+    var rotulo = toggle && toggle.querySelector('[data-menu-rotulo]');
+
     function definirMobile(abrirMenu) {
         toggle.setAttribute('aria-expanded', abrirMenu ? 'true' : 'false');
-        toggle.setAttribute('aria-label', abrirMenu ? 'Fechar menu' : 'Abrir menu');
+        if (rotulo) rotulo.textContent = abrirMenu ? 'Fechar' : 'Menu';
         mobile.hidden = !abrirMenu;
         // Trava a rolagem da página atrás do menu.
         document.documentElement.classList.toggle('overflow-hidden', abrirMenu);

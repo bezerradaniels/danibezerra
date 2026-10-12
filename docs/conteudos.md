@@ -36,7 +36,7 @@ Cada post sai com: resposta curta no topo, sumário (a partir de 3 tópicos `##`
 
 ## Checklist de SEO, AEO, GEO e AXO
 
-- **Título** com a pergunta ou o termo que a pessoa pesquisa. Se ficar longo, use `titulo_seo` para uma versão de até ~45 caracteres (o site acrescenta " | Dani Bezerra").
+- **Título** com a pergunta ou o termo que a pessoa pesquisa. Se ficar longo, use `titulo_seo` para uma versão de até ~45 caracteres (o site acrescenta " | Daniel Bezerra").
 - **Descrição** de até 160 caracteres, dizendo o que a pessoa vai aprender.
 - **Resposta curta** que responde o título sozinha, sem depender do resto do texto. É o trecho mais citado por buscadores e IAs.
 - **Fatos, não adjetivos**: números, prazos, preços, nomes de ferramentas e datas.

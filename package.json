@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "node scripts/conteudos.mjs && tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --minify && node scripts/inline-css.mjs",
+    "build": "node scripts/conteudos.mjs && node scripts/inline-css.mjs --limpar && tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --minify && node scripts/inline-css.mjs",
     "dev": "node scripts/dev.mjs"
   },
   "dependencies": {

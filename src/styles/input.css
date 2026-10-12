@@ -1,14 +1,29 @@
 @import "tailwindcss";
 
-/* Fontes hospedadas localmente:
-   - Inter Tight: textos (font-sans, padrão do body), variável de 400 a 800.
-   - Stack Sans Headline: títulos e destaques (font-display, aplicada a h1–h6).
-     Só existe o recorte Bold (peso 700); o extrabold (800) usado nos títulos
-     cai nesse mesmo arquivo, por ser o peso mais próximo disponível.
-   Os arquivos .woff2 do Inter Tight são recortes de src/fonts/Inter_Tight/ e
-   seguem os unicode-range latin e latin-ext da própria fonte. O Stack Sans
-   Headline tem só o recorte latin (src/fonts/Stack Sans/), suficiente para
-   o alfabeto usado em português. */
+/* O Tailwind procura classes em todos os arquivos do projeto, inclusive no CSS
+   compilado da vez anterior. Sem esta linha, uma classe retirada do HTML ainda
+   sobrevive a um build, porque continua "aparecendo" no output.css antigo. */
+@source not "./output.css";
+
+/* Duas fontes, hospedadas localmente:
+
+   Inter Tight: textos e rótulos (parágrafos, listas, formulários, botões, menu,
+   selos). É a fonte padrão de todas as páginas (--font-sans). Arquivo variável,
+   de 400 a 800, em dois recortes (latin e latin-ext) com os mesmos unicode-range
+   do Google Fonts: o navegador só baixa o latin-ext se a página precisar dele.
+
+   Braveold (Trustha Studio, fonte do Manual de Identidade Visual): títulos.
+   Vale para h1–h6 e para as perguntas recolhíveis (summary), pela regra em
+   @layer base; preços, números de destaque e títulos que não são h1–h6 usam a
+   classe font-braveold.
+   - Medium 500: o peso dos títulos. Também atende o 600, que a família não tem
+     (semibold nas classes vira Medium, como o manual pede).
+   - Regular 400 e Bold 700: para um título fora do peso padrão.
+   O arquivo cobre o português (latin e acentos); setas e ordinais caem na fonte
+   do sistema. Light e Black existem na família, mas o site não usa.
+
+   O manual prevê a Braveold também no texto corrido; o site usa a Inter Tight
+   ali por leitura (decisão de outubro de 2026). */
 @font-face {
     font-family: "Inter Tight";
     font-style: normal;
@@ -28,108 +43,44 @@
 }
 
 @font-face {
-    font-family: "Stack Sans Headline";
+    font-family: "Braveold";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/braveold-regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Braveold";
+    font-style: normal;
+    font-weight: 500 600;
+    font-display: swap;
+    src: url("../fonts/braveold-medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Braveold";
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url("../fonts/stack-sans-headline-latin.woff2") format("woff2");
-}
-
-/* Fontes da nova identidade visual (por enquanto só na home, ver .marca-nova):
-   - DM Sans: textos e títulos, variável de 400 a 600 com eixo de tamanho óptico.
-   - DM Mono: eyebrows e rótulos, pesos 400 e 500.
-   - Aminute: fonte da marca, só para logo, preço, números e títulos curtos.
-     font-display: block porque o fallback desfigura os números de destaque.
-   DM Sans e DM Mono são os recortes latin e latin-ext do Google Fonts. */
-@font-face {
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: 400 600;
-    font-display: swap;
-    src: url("../fonts/dm-sans-latin.woff2") format("woff2");
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: 400 600;
-    font-display: swap;
-    src: url("../fonts/dm-sans-latin-ext.woff2") format("woff2");
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-    font-family: "DM Mono";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("../fonts/dm-mono-400-latin.woff2") format("woff2");
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: "DM Mono";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("../fonts/dm-mono-400-latin-ext.woff2") format("woff2");
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-    font-family: "DM Mono";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("../fonts/dm-mono-500-latin.woff2") format("woff2");
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: "DM Mono";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("../fonts/dm-mono-500-latin-ext.woff2") format("woff2");
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-    font-family: "Aminute";
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url("../fonts/aminute.woff2") format("woff2");
+    src: url("../fonts/braveold-bold.woff2") format("woff2");
 }
 
 @theme {
     --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
-    --font-display: "Stack Sans Headline", ui-sans-serif, system-ui, sans-serif;
-    --font-dm: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-    --font-dm-mono: "DM Mono", ui-monospace, monospace;
-    --font-aminute: "Aminute", "DM Sans", sans-serif;
+    --font-braveold: "Braveold", ui-serif, Georgia, serif;
 
-    /* Paleta */
-    --color-surface: #fefbff;
-    --color-soft: #f8f1f6;
-    --color-hero-bg: #f8f1f6;
-    --color-peach: #fdf0e8;
-    --color-orchid: #e599fe;
-    --color-pink: #fbaffe;
-    --color-lavender: #c8b3fd;
-    --color-periwinkle: #e2e0f9;
-    --color-brand: #675496;
-    --color-brand-dark: #544380;
-    --color-ink: #1e293b;
-
-    /* Nova identidade visual (Manual de Identidade Visual "daniel").
-       Os nomes seguem o manual; os tons sem nome lá vêm do handoff do site.
+    /* Paleta do Manual de Identidade Visual. Os nomes seguem o manual; os tons
+       sem nome lá (azul-escuro, verde-escuro, verde-claro, amarelo-claro,
+       amarelo-escuro, tinta-suave, página, noite-linha, pedra, cinza) são
+       derivados para estados, selos e contraste.
        Amarelo nunca como texto sobre fundo claro; acentos em ~10% da área. */
     --color-azul: #2e6be6;
     --color-azul-escuro: #2459c4;
     --color-vermelho: #e0463a;
     --color-amarelo: #f5b40a;
+    --color-amarelo-claro: #fdeec9;
+    --color-amarelo-escuro: #6b4f00;
     --color-verde: #1a9a55;
     --color-verde-escuro: #13703f;
     --color-verde-claro: #e3f3ea;
@@ -145,33 +96,39 @@
     --color-pedra: #c9c6be;
     --color-cinza: #9da3ac;
 
-    /* Escala tipográfica da nova identidade (tamanho, entrelinha, espaçamento, peso). */
+    /* Escala tipográfica (tamanho, entrelinha, espaçamento, peso). O manual pede
+       Medium com -1% nos títulos; o peso 600 cai no arquivo Medium.
+       - hero: h1 da home.
+       - chamada: h1 das páginas internas, que têm títulos mais longos.
+       - titulo: h2 de seção. */
     --text-hero: clamp(40px, 5.6vw, 68px);
     --text-hero--line-height: 1.04;
-    --text-hero--letter-spacing: -0.03em;
+    --text-hero--letter-spacing: -0.01em;
     --text-hero--font-weight: 600;
+    --text-chamada: clamp(34px, 4.4vw, 54px);
+    --text-chamada--line-height: 1.08;
+    --text-chamada--letter-spacing: -0.01em;
+    --text-chamada--font-weight: 600;
     --text-titulo: clamp(32px, 4vw, 48px);
     --text-titulo--line-height: 1.1;
-    --text-titulo--letter-spacing: -0.025em;
+    --text-titulo--letter-spacing: -0.01em;
     --text-titulo--font-weight: 600;
 
-    --animate-marquee: marquee 40s linear infinite;
-
-    @keyframes marquee {
-        to {
-            transform: translateX(-50%);
-        }
-    }
+    /* Curva das animações de entrada: sai rápido e assenta devagar. */
+    --ease-suave: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 @layer base {
+    /* Padrão de todas as páginas: corpo em Inter Tight 17/27, Tinta sobre o fundo
+       claro da identidade. */
     body {
-        @apply bg-surface font-sans text-ink antialiased;
+        @apply bg-pagina font-sans text-[17px]/[1.6] text-tinta antialiased;
     }
 
-    /* Títulos em Stack Sans Headline; o resto do texto fica em Inter Tight.
-       summary cobre as perguntas recolhíveis (FAQ e menu mobile). Títulos que
-       não são h1–h6 (nomes de card, números de destaque) usam a classe font-display. */
+    /* Títulos em Braveold; o resto do texto fica em Inter Tight. summary cobre as
+       perguntas recolhíveis (FAQ). Títulos que não são h1–h6 (preços, números de
+       destaque, nomes em cards) usam a classe font-braveold; um summary que é
+       rótulo, e não título, usa font-sans (grupos do menu mobile). */
     h1,
     h2,
     h3,
@@ -179,13 +136,7 @@
     h5,
     h6,
     summary {
-        font-family: var(--font-display);
-    }
-
-    /* Páginas já na nova identidade (classe marca-nova no <body>): os títulos
-       herdam a DM Sans do corpo. Quando todas migrarem, a regra acima sai. */
-    .marca-nova :is(h1, h2, h3, h4, h5, h6, summary) {
-        font-family: inherit;
+        font-family: var(--font-braveold);
     }
 
     /* O Tailwind v4 deixa botões com cursor padrão; restaura a mãozinha */
@@ -193,15 +144,196 @@
     [role="button"]:not(:disabled) {
         cursor: pointer;
     }
+
+    /* Âncoras (#form-contato, perguntas da FAQ) param abaixo do header fixo, e a
+       rolagem até elas é suave. A home ajusta o recuo com as classes scroll-pt-*
+       do próprio <html>. */
+    html {
+        scroll-padding-top: 5.5rem;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
 }
 
-/* Chevron do FAQ gira quando o item abre */
-.faq-chevron {
-    transition: transform 200ms ease;
+/* ----------------------------------------------------------------------
+   Logo no HTML (src/partials/logo.html): o nome herda a cor do texto e o
+   ponto do "i" alterna devagar entre as quatro cores da marca, como descreve
+   o manual ("um sinal de atenção que alterna entre azul, vermelho, amarelo
+   e verde"). Fica a maior parte do ciclo no azul, a cor que lidera a paleta.
+   ---------------------------------------------------------------------- */
+.logo-ponto {
+    fill: var(--color-azul);
 }
 
-details[open] > summary .faq-chevron {
-    transform: rotate(180deg);
+@media (prefers-reduced-motion: no-preference) {
+    .logo-ponto {
+        animation: ponto-cores 18s ease-in-out 2s infinite;
+    }
+
+    /* O mesmo ciclo, para pontos feitos com fundo (eyebrow do hero). */
+    .ponto-cores {
+        animation: ponto-cores-fundo 18s ease-in-out 2s infinite;
+    }
+}
+
+@keyframes ponto-cores {
+    0%, 46%, 100% { fill: var(--color-azul); }
+    52%, 62% { fill: var(--color-vermelho); }
+    68%, 78% { fill: var(--color-amarelo); }
+    84%, 94% { fill: var(--color-verde); }
+}
+
+@keyframes ponto-cores-fundo {
+    0%, 46%, 100% { background-color: var(--color-azul); }
+    52%, 62% { background-color: var(--color-vermelho); }
+    68%, 78% { background-color: var(--color-amarelo); }
+    84%, 94% { background-color: var(--color-verde); }
+}
+
+/* ----------------------------------------------------------------------
+   Animações. Tudo aqui é enfeite: sem JavaScript, ou com
+   prefers-reduced-motion, o conteúdo aparece direto, sem movimento.
+   Só opacity e transform, para não gerar layout a cada frame.
+   ---------------------------------------------------------------------- */
+
+/* Entrada ao rolar: src/js/revelar.js põe .revelar nos elementos [data-revelar]
+   que estão abaixo da dobra e .revelado quando entram na tela. As duas classes
+   saem no fim da transição, para não brigar com o hover do próprio elemento. */
+.revelar {
+    opacity: 0;
+    transform: translateY(18px);
+}
+
+.revelar.revelado {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.7s var(--ease-suave), transform 0.7s var(--ease-suave);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    /* Entrada da primeira dobra, só com CSS: não espera o JavaScript. A ordem
+       (--ordem) escalona os elementos. O h1 fica de fora de propósito: é o
+       maior elemento da dobra (LCP) e precisa pintar no primeiro frame. */
+    .surgir {
+        animation: surgir 0.8s var(--ease-suave) both;
+        animation-delay: calc(var(--ordem, 0) * 90ms + 60ms);
+    }
+
+    /* Círculos decorativos: flutuam devagar, sem chamar atenção. */
+    .flutuar {
+        animation: flutuar 9s ease-in-out infinite;
+    }
+
+    /* Cata-vento: o ponto de quatro cores do símbolo, girando. */
+    .cata-vento {
+        animation: girar 28s linear infinite;
+    }
+
+    /* Formas orgânicas dos cards de "A nova busca" (home): giram bem devagar. */
+    .forma-gira {
+        animation: girar 70s linear infinite;
+    }
+
+    /* Carrossel de clientes (home): a trilha tem a lista de logos três vezes e anda
+       um terço da própria largura, então o recomeço não aparece. Para com o mouse em cima. */
+    .carrossel-trilho {
+        animation: carrossel 32s linear infinite;
+    }
+
+    .carrossel:hover .carrossel-trilho {
+        animation-play-state: paused;
+    }
+
+    /* Os quatro pontos do rodapé sobem um de cada vez. */
+    .pontos-marca > * {
+        animation: saltar 3.6s ease-in-out infinite;
+        animation-delay: calc(var(--ordem, 0) * 0.18s);
+    }
+
+    /* Perguntas e menus em <details> abrem e fecham com altura animada.
+       Só nos navegadores com interpolate-size; nos outros, abre na hora. */
+    @supports (interpolate-size: allow-keywords) {
+        :root {
+            interpolate-size: allow-keywords;
+        }
+
+        details::details-content {
+            height: 0;
+            overflow: clip;
+            transition: height 0.32s var(--ease-suave), content-visibility 0.32s allow-discrete;
+        }
+
+        details[open]::details-content {
+            height: auto;
+        }
+    }
+
+    /* Header fixo: ganha uma sombra leve depois dos primeiros pixels de rolagem.
+       Animação ligada à rolagem; sem suporte, fica só a borda. */
+    @supports (animation-timeline: scroll()) {
+        .header-fixo {
+            animation: header-sombra linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 96px;
+        }
+    }
+
+    /* Painéis de menu (home e mega menu): entram com um fade curto. */
+    .painel-menu:not([hidden]) {
+        animation: surgir-menu 0.2s var(--ease-suave);
+    }
+}
+
+@keyframes surgir {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+}
+
+@keyframes surgir-menu {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes flutuar {
+    50% {
+        transform: translate(-8px, 10px) scale(1.05);
+    }
+}
+
+@keyframes carrossel {
+    to {
+        transform: translateX(calc(-100% / 3));
+    }
+}
+
+@keyframes girar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes saltar {
+    0%, 28%, 100% {
+        transform: none;
+    }
+
+    14% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes header-sombra {
+    to {
+        box-shadow: 0 10px 30px -12px rgb(30 34 40 / 0.14);
+    }
 }
 
 /* ----------------------------------------------------------------------
@@ -213,7 +345,7 @@ details[open] > summary .faq-chevron {
 #barra-cta {
     transform: translateY(100%);
     visibility: hidden;
-    transition: transform 220ms ease, visibility 220ms;
+    transition: transform 320ms var(--ease-suave), visibility 320ms;
 }
 
 #barra-cta[data-visivel="true"] {
@@ -228,78 +360,15 @@ details[open] > summary .faq-chevron {
 }
 
 /* ----------------------------------------------------------------------
-   Tabela comparativa: vira cards empilhados no mobile.
-   Cada célula ganha o rótulo da coluna via data-coluna, sem duplicar
-   o conteúdo no HTML.
-   ---------------------------------------------------------------------- */
-@media (max-width: 767px) {
-    .tabela-comparativo {
-        min-width: 0;
-        display: block;
-    }
-
-    .tabela-comparativo thead {
-        display: none;
-    }
-
-    .tabela-comparativo tbody,
-    .tabela-comparativo tr {
-        display: block;
-    }
-
-    .tabela-comparativo tr {
-        border: 1px solid var(--color-periwinkle);
-        border-radius: 1.5rem;
-        padding: 0.5rem 0.25rem;
-        margin-bottom: 1rem;
-        background: #fff;
-    }
-
-    .tabela-comparativo tr > th[scope="row"] {
-        display: block;
-        padding: 0.75rem 1rem 0.25rem;
-        font-size: 1rem;
-        font-weight: 700;
-    }
-
-    .tabela-comparativo td {
-        display: block;
-        padding: 0.5rem 1rem;
-        border-radius: 0.75rem;
-    }
-
-    /* Rótulo da coluna acima do texto de cada célula */
-    .tabela-comparativo td::before {
-        content: attr(data-coluna);
-        display: block;
-        margin-bottom: 0.125rem;
-        font-size: 0.6875rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        opacity: 0.55;
-    }
-
-    /* A coluna de destaque mantém o fundo da marca, agora como bloco */
-    .tabela-comparativo td.destaque {
-        margin: 0.5rem 0.5rem 0.25rem;
-        padding: 0.75rem 1rem;
-        border-radius: 1rem;
-    }
-
-    .tabela-comparativo td.destaque::before {
-        opacity: 0.8;
-    }
-}
-
-/* ----------------------------------------------------------------------
    Texto dos posts do blog (/conteudos/), gerado a partir de Markdown.
    Os elementos chegam sem classes, então o estilo vem daqui.
+   Corpo em Inter Tight 17/29; os títulos (h2–h4) ficam em Braveold Medium pela
+   regra de @layer base.
    ---------------------------------------------------------------------- */
 .conteudo {
-    color: color-mix(in oklab, var(--color-ink) 85%, transparent);
+    color: var(--color-tinta-suave);
     font-size: 1.0625rem;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
 .conteudo > * + * {
@@ -309,26 +378,25 @@ details[open] > summary .faq-chevron {
 .conteudo h2,
 .conteudo h3,
 .conteudo h4 {
-    color: var(--color-ink);
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    color: var(--color-tinta);
+    font-weight: 500;
+    letter-spacing: -0.01em;
     line-height: 1.25;
-    scroll-margin-top: 1.5rem;
 }
 
 .conteudo h2 {
     margin-top: 2.25em;
-    font-size: 1.75rem;
+    font-size: 1.875rem;
 }
 
 .conteudo h3 {
     margin-top: 1.75em;
-    font-size: 1.3125rem;
+    font-size: 1.4375rem;
 }
 
 .conteudo h4 {
     margin-top: 1.5em;
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
 }
 
 .conteudo h2 + *,
@@ -338,20 +406,22 @@ details[open] > summary .faq-chevron {
 }
 
 .conteudo a {
-    color: var(--color-brand);
-    font-weight: 600;
+    color: var(--color-azul);
+    font-weight: 500;
     text-decoration: underline;
-    text-decoration-color: var(--color-lavender);
+    text-decoration-color: var(--color-nevoa);
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
+    transition: color 0.15s, text-decoration-color 0.15s;
 }
 
 .conteudo a:hover {
-    color: var(--color-brand-dark);
+    color: var(--color-azul-escuro);
+    text-decoration-color: currentColor;
 }
 
 .conteudo strong {
-    color: var(--color-ink);
+    color: var(--color-tinta);
     font-weight: 700;
 }
 
@@ -373,30 +443,32 @@ details[open] > summary .faq-chevron {
 }
 
 .conteudo li::marker {
-    color: var(--color-brand);
+    color: var(--color-azul);
 }
 
 .conteudo blockquote {
-    border-left: 4px solid var(--color-lavender);
-    background: var(--color-soft);
-    border-radius: 0 1rem 1rem 0;
+    border-left: 4px solid var(--color-azul);
+    background: var(--color-areia);
+    border-radius: 0 1.25rem 1.25rem 0;
     padding: 1rem 1.25rem;
-    color: var(--color-ink);
+    color: var(--color-tinta);
 }
 
+/* Código fica na fonte monoespaçada do sistema: a Braveold não tem versão mono. */
 .conteudo code {
-    background: var(--color-soft);
-    border: 1px solid var(--color-periwinkle);
+    background: var(--color-areia);
+    border: 1px solid var(--color-nevoa);
     border-radius: 0.375rem;
     padding: 0.1em 0.35em;
-    font-size: 0.9em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875em;
 }
 
 .conteudo pre {
     overflow-x: auto;
-    background: var(--color-ink);
-    color: #fff;
-    border-radius: 1rem;
+    background: var(--color-noite);
+    color: var(--color-offwhite);
+    border-radius: 1.25rem;
     padding: 1rem 1.25rem;
     font-size: 0.875rem;
     line-height: 1.6;
@@ -410,12 +482,12 @@ details[open] > summary .faq-chevron {
 }
 
 .conteudo img {
-    border-radius: 1rem;
+    border-radius: 1.25rem;
     height: auto;
 }
 
 .conteudo hr {
-    border-color: var(--color-periwinkle);
+    border-color: var(--color-nevoa);
     margin: 2.5em 0;
 }
 
@@ -431,14 +503,14 @@ details[open] > summary .faq-chevron {
 
 .conteudo th,
 .conteudo td {
-    border: 1px solid var(--color-periwinkle);
+    border: 1px solid var(--color-nevoa);
     padding: 0.625rem 0.875rem;
     text-align: left;
     vertical-align: top;
 }
 
 .conteudo th {
-    background: var(--color-soft);
-    color: var(--color-ink);
-    font-weight: 700;
+    background: var(--color-areia);
+    color: var(--color-tinta);
+    font-weight: 500;
 }

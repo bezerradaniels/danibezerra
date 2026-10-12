@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Conteúdos — Dani Bezerra</title>
+    <title>Conteúdos — Daniel Bezerra</title>
     <link>https://danibezerra.com/conteudos/</link>
     <atom:link href="https://danibezerra.com/conteudos/feed.xml" rel="self" type="application/rss+xml" />
     <description>Guias práticos sobre sites, SEO, visibilidade em IA, anúncios e dados.</description>
