@@ -142,13 +142,22 @@ Na home o formulário fica na seção Contato (`#contato`), e os botões de orç
 | `header_orcamento` | Solicitar orçamento | Menu do topo |
 | `hero_orcamento` | Solicitar orçamento | Topo da página (só a partir de 640px; no celular o topo tem só o WhatsApp) |
 | `hero_whatsapp` | Falar no WhatsApp | Topo da página (verde e sozinho no celular) |
+| `certificacoes_orcamento` | Solicitar orçamento | Fim da seção de certificações (leva ao formulário) |
+| `problema_orcamento` | Solicitar orçamento | Fim da seção "O problema" (leva ao formulário) |
+| `camadas_orcamento` | Solicitar orçamento | Fim da seção "quatro camadas" / A nova busca (leva ao formulário) |
 | `servico_site` | Sites institucionais | Seção de serviços (leva a /criacao-de-sites/) |
 | `servico_landing` | Landing pages | Seção de serviços (leva ao formulário) |
 | `servico_seo` | SEO, AEO e GEO | Seção de serviços (leva a /seo/) |
 | `servico_ads` | Google Ads | Seção de serviços (leva a /google-ads/) |
 | `servico_meta` | Meta Ads | Seção de serviços (leva a /meta-ads/) |
 | `servico_dados` | Dados e BI | Seção de serviços (leva a /configuracao-google-analytics/) |
+| `servicos_orcamento` | Solicitar orçamento | Fim da seção de serviços (leva ao formulário) |
+| `portfolio_projeto` | Solicitar orçamento para o seu projeto | Fim da seção de portfólio (leva ao formulário) |
+| `etapas_orcamento` | Solicitar meu orçamento | Fim da seção "seis etapas" / Método (leva ao formulário) |
+| `sobre_conversar` | Conversar sobre o meu projeto | Fim da seção "sobre" (leva ao formulário) |
 | `faq_whatsapp` | Perguntar no WhatsApp | Seção de FAQ |
+| `faq_orcamento` | Solicitar orçamento | Fim da seção de FAQ (leva ao formulário) |
+| `faq_ver_todas` | Ver todas as perguntas | Fim da seção de FAQ (leva a /faq/) |
 | `contato_whatsapp` | (77) 99211-6008 · WhatsApp | Seção Contato, ao lado do formulário |
 | `contato_email` | contato@danibezerra.com | Seção Contato, ao lado do formulário |
 | `contato_instagram` | @bezerradaniels | Seção Contato, ao lado do formulário |
@@ -158,8 +167,6 @@ Na home o formulário fica na seção Contato (`#contato`), e os botões de orç
 | `barra_orcamento` | Quero meu orçamento | Barra fixa (mobile) |
 
 O rodapé é o mesmo em todas as páginas (`src/partials/rodape.html` nas internas), então os três `footer_*` valem para o site inteiro; a página de origem aparece na dimensão **Caminho da página** do GA4.
-
-Até a troca de identidade (outubro de 2026), a home também tinha `form_whatsapp`, `camadas_orcamento`, `caminhos_conversar`, `portfolio_projeto`, `etapas_orcamento`, `sobre_conversar`, `faq_ver_todas` e `faq_academy`, que saíram junto com as seções. Os `servico_*` antigos levavam ao formulário; agora levam às páginas de serviço.
 
 ### Botões do menu principal (todas as páginas)
 
