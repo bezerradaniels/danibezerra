@@ -360,6 +360,67 @@
 }
 
 /* ----------------------------------------------------------------------
+   Página 100dvh de captação (/orcamento-site/): no mobile (< 1024px) o
+   formulário vira uma folha que sobe de baixo; no desktop fica aberto como
+   coluna fixa. O script da página só alterna data-aberto.
+   ---------------------------------------------------------------------- */
+
+/* Telas baixas (notebooks com a barra do navegador): a página compacta título
+   e espaçamentos para caber em 100dvh sem rolar. */
+@custom-variant tela-baixa (@media (max-height: 46rem));
+
+/* Destaque de palavra-chave (<mark class="destaque">): faixa de marca-texto na
+   parte de baixo da linha. Um fundo cheio cobriria as descendentes da linha de
+   cima nos títulos, que têm entrelinha curta. */
+.destaque {
+    background: linear-gradient(transparent 38%, var(--color-amarelo-claro) 38%, var(--color-amarelo-claro) 94%, transparent 94%);
+    color: var(--color-tinta);
+    padding-inline: 0.1em;
+    margin-inline: -0.02em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+@media not all and (min-width: 64rem) {
+    #modal-orcamento {
+        pointer-events: none;
+        visibility: hidden;
+        transition: visibility 0.36s;
+    }
+
+    #modal-orcamento[data-aberto="true"] {
+        pointer-events: auto;
+        visibility: visible;
+    }
+
+    #modal-orcamento-fundo {
+        opacity: 0;
+        transition: opacity 0.32s var(--ease-suave);
+    }
+
+    #modal-orcamento[data-aberto="true"] #modal-orcamento-fundo {
+        opacity: 1;
+    }
+
+    #modal-orcamento-folha {
+        transform: translateY(100%);
+        transition: transform 0.38s var(--ease-suave);
+    }
+
+    #modal-orcamento[data-aberto="true"] #modal-orcamento-folha {
+        transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        #modal-orcamento,
+        #modal-orcamento-fundo,
+        #modal-orcamento-folha {
+            transition: none;
+        }
+    }
+}
+
+/* ----------------------------------------------------------------------
    Texto dos posts do blog (/conteudos/), gerado a partir de Markdown.
    Os elementos chegam sem classes, então o estilo vem daqui.
    Corpo em Inter Tight 17/29; os títulos (h2–h4) ficam em Braveold Medium pela
