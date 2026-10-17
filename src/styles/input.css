@@ -101,7 +101,7 @@
        - hero: h1 da home.
        - chamada: h1 das páginas internas, que têm títulos mais longos.
        - titulo: h2 de seção. */
-    --text-hero: clamp(40px, 5.6vw, 68px);
+    --text-hero: clamp(36px, 4vw, 48px);
     --text-hero--line-height: 1.04;
     --text-hero--letter-spacing: -0.01em;
     --text-hero--font-weight: 600;

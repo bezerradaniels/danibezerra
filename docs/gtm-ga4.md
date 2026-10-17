@@ -135,13 +135,11 @@ Todos os botões de call-to-action do site têm um atributo `data-cta` único no
 
 ### Botões da home
 
-Na home o formulário fica na seção Contato (`#contato`), e os botões de orçamento levam até ele (`#form-contato`).
+Na home o formulário fica no hero (`#inicio`), e os botões de orçamento levam até ele (`#form-contato`).
 
 | `data-cta` | Texto do botão | Onde fica |
 |---|---|---|
 | `header_orcamento` | Solicitar orçamento | Menu do topo |
-| `hero_orcamento` | Solicitar orçamento | Topo da página (só a partir de 640px; no celular o topo tem só o WhatsApp) |
-| `hero_whatsapp` | Falar no WhatsApp | Topo da página (verde e sozinho no celular) |
 | `certificacoes_orcamento` | Solicitar orçamento | Fim da seção de certificações (leva ao formulário) |
 | `problema_orcamento` | Solicitar orçamento | Fim da seção "O problema" (leva ao formulário) |
 | `camadas_orcamento` | Solicitar orçamento | Fim da seção "quatro camadas" / A nova busca (leva ao formulário) |
@@ -158,9 +156,6 @@ Na home o formulário fica na seção Contato (`#contato`), e os botões de orç
 | `faq_whatsapp` | Perguntar no WhatsApp | Seção de FAQ |
 | `faq_orcamento` | Solicitar orçamento | Fim da seção de FAQ (leva ao formulário) |
 | `faq_ver_todas` | Ver todas as perguntas | Fim da seção de FAQ (leva a /faq/) |
-| `contato_whatsapp` | (77) 99211-6008 · WhatsApp | Seção Contato, ao lado do formulário |
-| `contato_email` | contato@danibezerra.com | Seção Contato, ao lado do formulário |
-| `contato_instagram` | @bezerradaniels | Seção Contato, ao lado do formulário |
 | `footer_whatsapp` | (77) 99211-6008 | Rodapé (todas as páginas) |
 | `footer_instagram` | @bezerradaniels | Rodapé (todas as páginas) |
 | `footer_email` | contato@danibezerra.com | Rodapé (todas as páginas) |
