@@ -50,3 +50,8 @@
     AddType image/webp .webp
     AddType image/svg+xml .svg
 </IfModule>
+
+# ----------------------------------------------------------------------
+# Página 404 própria (no lugar da página padrão da hospedagem)
+# ----------------------------------------------------------------------
+ErrorDocument 404 /404.html
