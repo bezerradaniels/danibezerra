@@ -244,7 +244,8 @@
         animation: carrossel 32s linear infinite;
     }
 
-    .carrossel:hover .carrossel-trilho {
+    .carrossel:hover .carrossel-trilho,
+    .carrossel:focus-within .carrossel-trilho {
         animation-play-state: paused;
     }
 
