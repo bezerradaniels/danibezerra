@@ -21,7 +21,7 @@ Os dois eventos levam os mesmos parâmetros:
 | Parâmetro | Exemplo | Observação |
 |---|---|---|
 | `etapa` | `1` ou `2` | número |
-| `servico` | `Gestão de Google Ads` | opção escolhida no formulário |
+| `servico` | `Tráfego pago, SEO e IA` | serviços escolhidos no formulário; na home a escolha é múltipla e vem separada por vírgula |
 | `form_id` | `form-contato` | fixo |
 | `form_nome` | `Orçamento` | fixo |
 | `origem` | `site` | fixo |
