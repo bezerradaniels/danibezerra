@@ -210,6 +210,11 @@ function documento({ title, description, url, tipoOg, ld, extraHead = '', header
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${url}">
+    <meta property="og:image" content="${SITE}/src/img/og/og-padrao.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Daniel Bezerra: sites, Google Ads e visibilidade em IA">
+    <meta name="twitter:card" content="summary_large_image">
 ${extraHead}
     <link rel="icon" href="/src/img/marca/svg/favicon/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/src/img/marca/png/favicon/favicon-32.png" sizes="32x32" type="image/png">
