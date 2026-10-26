@@ -34,6 +34,8 @@ $nome = $campo('nome', 120);
 $email = $campo('email', 200);
 $telefone = $campo('telefone', 40);
 $servico = $campo('servico', 120);
+// Lead de material rico (ex.: infográfico): formulário de etapa única, sem serviço de interesse.
+$material = $campo('material', 160);
 
 // O formulário tem duas etapas. A etapa 2 reenvia os dados da etapa 1 junto
 // com os opcionais, para o segundo e-mail chegar com todas as respostas.
@@ -41,6 +43,11 @@ $etapa = ($_POST['etapa'] ?? '1') === '2' ? 2 : 1;
 $empresa = $etapa === 2 ? $campo('empresa', 160) : '';
 $local = $etapa === 2 ? $campo('local', 160) : '';
 $mensagem = $etapa === 2 ? $campo('mensagem', 5000) : '';
+
+if ($material !== '') {
+    $etapa = 1;
+    $servico = $material;
+}
 
 if ($nome === '' || $telefone === '' || $servico === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     responder(422, ['ok' => false, 'erro' => 'Preencha nome, e-mail válido, telefone e serviço de interesse.']);
@@ -84,8 +91,8 @@ $linhas = [
     'Nome' => $nome,
     'E-mail' => $email,
     'Telefone/WhatsApp' => $telefone,
-    'Serviço de interesse' => $servico,
 ];
+$linhas[$material !== '' ? 'Material' : 'Serviço de interesse'] = $servico;
 if ($etapa === 2) {
     $linhas['Empresa'] = $empresa !== '' ? $empresa : '—';
     $linhas['Local da empresa'] = $local !== '' ? $local : '—';
@@ -93,6 +100,10 @@ if ($etapa === 2) {
 
 $titulo = $etapa === 2 ? 'Contato completo pelo site' : 'Novo contato pelo site';
 $selo = $etapa === 2 ? 'Etapa 2 de 2 · todas as respostas' : 'Etapa 1 de 2 · lead recebido';
+if ($material !== '') {
+    $titulo = 'Novo lead de material';
+    $selo = 'Acesso liberado ao material';
+}
 $whatsappLink = 'https://wa.me/55' . $digitos;
 
 $linhasHtml = '';
@@ -150,7 +161,7 @@ $payload = [
     'from' => $config['from'],
     'to' => [$config['to']],
     'reply_to' => $email,
-    'subject' => ($etapa === 2 ? 'Contato completo: ' : 'Novo contato: ') . "$nome ($servico)",
+    'subject' => ($material !== '' ? 'Lead de material: ' : ($etapa === 2 ? 'Contato completo: ' : 'Novo contato: ')) . "$nome ($servico)",
     'html' => $html,
     'text' => $texto,
 ];

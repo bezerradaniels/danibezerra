@@ -17,6 +17,7 @@ const SCRIPTS = {
   'js-form-contato': 'src/js/form-contato.js',
   'js-busca': 'src/js/busca.js',
   'js-revelar': 'src/js/revelar.js',
+  'js-form-infografico': 'src/js/form-infografico.js',
 };
 
 // Os url() do output.css são relativos a src/styles/; inline, passam a ser
@@ -41,6 +42,9 @@ const PAGINAS = [
   // Conteúdo
   { html: 'faq/index.html', fontes: '/src/fonts/' },
   { html: 'academy/index.html', fontes: '/src/fonts/' },
+  // Infográfico: landing de cadastro e a página do infográfico
+  { html: 'engenharia-de-demanda-2026/index.html', fontes: '/src/fonts/' },
+  { html: 'engenharia-de-demanda-2026/infografico/index.html', fontes: '/src/fonts/' },
 ];
 
 // Blog: a listagem e cada post gerado por scripts/conteudos.mjs entram sozinhos.
