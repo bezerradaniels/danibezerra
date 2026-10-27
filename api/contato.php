@@ -166,24 +166,95 @@ $payload = [
     'text' => $texto,
 ];
 
-$ch = curl_init('https://api.resend.com/emails');
-curl_setopt_array($ch, [
-    CURLOPT_POST => true,
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_TIMEOUT => 15,
-    CURLOPT_HTTPHEADER => [
-        'Authorization: Bearer ' . $apiKey,
-        'Content-Type: application/json',
-    ],
-    CURLOPT_POSTFIELDS => json_encode($payload, JSON_UNESCAPED_UNICODE),
-]);
-$resposta = curl_exec($ch);
-$status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$erroCurl = curl_error($ch);
+// Envia um e-mail pela API do Resend. Devolve true se ele saiu.
+function enviarEmail(string $apiKey, array $payload): bool
+{
+    $ch = curl_init('https://api.resend.com/emails');
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 15,
+        CURLOPT_HTTPHEADER => [
+            'Authorization: Bearer ' . $apiKey,
+            'Content-Type: application/json',
+        ],
+        CURLOPT_POSTFIELDS => json_encode($payload, JSON_UNESCAPED_UNICODE),
+    ]);
+    $resposta = curl_exec($ch);
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $erroCurl = curl_error($ch);
 
-if ($resposta === false || $status < 200 || $status >= 300) {
-    error_log("Resend falhou ($status): " . ($erroCurl ?: $resposta));
+    if ($resposta === false || $status < 200 || $status >= 300) {
+        error_log("Resend falhou ($status): " . ($erroCurl ?: $resposta));
+        return false;
+    }
+    return true;
+}
+
+if (!enviarEmail($apiKey, $payload)) {
     responder(502, ['ok' => false, 'erro' => 'Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.']);
+}
+
+// Materiais com PDF para o lead. O nome vem do campo oculto `material` do formulário; o arquivo
+// sai desta lista, nunca do que o navegador mandou.
+$pdfs = [
+    'Infográfico Engenharia de Demanda 2026' => [
+        'arquivo' => __DIR__ . '/../engenharia-de-demanda-2026/guia-rapido-engenharia-de-demanda-2026.pdf',
+        'url' => 'https://danibezerra.com/engenharia-de-demanda-2026/guia-rapido-engenharia-de-demanda-2026.pdf',
+        'titulo' => 'Como transformar anúncios em clientes',
+        'infografico' => 'https://danibezerra.com/engenharia-de-demanda-2026/infografico/',
+    ],
+];
+
+// E-mail para o lead com o guia em PDF (anexo e link). Se falhar, o acesso já foi liberado e o
+// lead já chegou ao Daniel: só registra no log, sem travar o cadastro.
+if (isset($pdfs[$material]) && is_file($pdfs[$material]['arquivo'])) {
+    $pdf = $pdfs[$material];
+    $primeiroNome = explode(' ', $nome)[0];
+
+    $htmlLead = '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' . $e($pdf['titulo']) . '</title></head>'
+        . '<body style="margin:0;padding:0;background:#f1efea;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">'
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f1efea;padding:32px 16px;">'
+        . '<tr><td align="center">'
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:20px;overflow:hidden;">'
+        . '<tr><td style="background:#15171b;padding:28px 32px;">'
+        . '<p style="margin:0;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ffffff;opacity:.85;">Daniel Bezerra · Guia rápido 2026</p>'
+        . '<h1 style="margin:8px 0 0;font-size:22px;font-weight:800;color:#ffffff;">' . $e($pdf['titulo']) . '</h1>'
+        . '</td></tr>'
+        . '<tr><td style="padding:28px 32px 0;font-size:15px;line-height:1.6;color:#1e2228;">'
+        . '<p style="margin:0 0 14px;">Olá, ' . $e($primeiroNome) . '!</p>'
+        . '<p style="margin:0 0 14px;">Obrigado por acessar o infográfico de Engenharia de Demanda. Como prometido, o guia rápido em PDF segue anexo a este e-mail, para você ler com calma ou compartilhar com a equipe.</p>'
+        . '<p style="margin:0;">Se o anexo não abrir, use o botão abaixo.</p>'
+        . '</td></tr>'
+        . '<tr><td style="padding:24px 32px 32px;">'
+        . '<a href="' . $e($pdf['url']) . '" style="display:inline-block;background:#2e6be6;color:#ffffff;text-decoration:none;font-size:15px;font-weight:700;padding:13px 22px;border-radius:999px;">Baixar o guia em PDF</a>'
+        . '<a href="' . $e($pdf['infografico']) . '" style="display:inline-block;margin-left:10px;color:#2e6be6;text-decoration:none;font-size:15px;font-weight:700;padding:13px 10px;">Ver o infográfico</a>'
+        . '</td></tr>'
+        . '<tr><td style="padding:18px 32px;background:#faf9f6;border-top:1px solid #e4e2dc;">'
+        . '<p style="margin:0;font-size:12px;color:#1e2228;opacity:.55;">Você recebeu este e-mail porque se cadastrou em danibezerra.com. Dúvidas? É só responder.</p>'
+        . '</td></tr>'
+        . '</table>'
+        . '</td></tr>'
+        . '</table>'
+        . '</body></html>';
+
+    $textoLead = "Olá, $primeiroNome!\n\n"
+        . "Obrigado por acessar o infográfico de Engenharia de Demanda. O guia rápido em PDF segue anexo.\n\n"
+        . "Baixar o guia: {$pdf['url']}\n"
+        . "Ver o infográfico: {$pdf['infografico']}\n";
+
+    enviarEmail($apiKey, [
+        'from' => $config['from'],
+        'to' => [$email],
+        'reply_to' => $config['to'],
+        'subject' => 'Seu guia em PDF: ' . $pdf['titulo'],
+        'html' => $htmlLead,
+        'text' => $textoLead,
+        'attachments' => [[
+            'filename' => basename($pdf['arquivo']),
+            'content' => base64_encode(file_get_contents($pdf['arquivo'])),
+        ]],
+    ]);
 }
 
 // registrado=true: o e-mail saiu de fato. É o que autoriza o front a
