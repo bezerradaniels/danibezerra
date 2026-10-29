@@ -198,6 +198,12 @@ if (!enviarEmail($apiKey, $payload)) {
 // Materiais com PDF para o lead. O nome vem do campo oculto `material` do formulário; o arquivo
 // sai desta lista, nunca do que o navegador mandou.
 $pdfs = [
+    'Guia de geração de Leads para 2027' => [
+        'arquivo' => __DIR__ . '/../engenharia-de-demanda-2026/guia-rapido-engenharia-de-demanda-2026.pdf',
+        'url' => 'https://danibezerra.com/engenharia-de-demanda-2026/guia-rapido-engenharia-de-demanda-2026.pdf',
+        'titulo' => 'Guia de Geração de Leads para 2027',
+        'infografico' => 'https://danibezerra.com/engenharia-de-demanda-2026/infografico/',
+    ],
     'Infográfico Engenharia de Demanda 2026' => [
         'arquivo' => __DIR__ . '/../engenharia-de-demanda-2026/guia-rapido-engenharia-de-demanda-2026.pdf',
         'url' => 'https://danibezerra.com/engenharia-de-demanda-2026/guia-rapido-engenharia-de-demanda-2026.pdf',
